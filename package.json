@@ -5,7 +5,8 @@
   "main": "lib/Nekostore.js",
   "scripts": {
     "build": "tsc -b",
-    "dev": "run-p -l \"build -- -w\" \"test -- -w\" dev:*",
+    "dev": "run-p -l dev:*",
+    "dev:test": "npm run -s test -- --watch",
     "dev:lint": "esw --fix **/*.ts",
     "lint": "eslint **/*.ts",
     "test": "mocha --watch-extensions ts -r source-map-support/register -r ts-node/register -r ./tests/setup.ts **/*.spec.ts"
@@ -49,5 +50,8 @@
     "source-map-support": "^0.5.13",
     "ts-node": "^8.3.0",
     "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "firebase": "^6.6.1"
   }
 }

@@ -26,4 +26,14 @@ describe('CollectionReference', () => {
     expect(doc.path).to.equal('c01/d01');
     expect(doc).to.equal(driver.fakeDocument);
   });
+
+  it('gets', async () => {
+    const snapshot = await collection.get();
+    expect(snapshot).to.equal(driver.fakeQuerySnapshot);
+  });
+
+  it('adds', async () => {
+    const doc = await collection.add({ foo: 'a' });
+    expect(doc).to.equal(driver.fakeDocument);
+  });
 });

@@ -1,4 +1,5 @@
 import CollectionReference from './CollectionReference';
+import DocumentSnapshot from './DocumentSnapshot';
 
 export default interface DocumentReference<T> {
   readonly id: string;
@@ -6,4 +7,11 @@ export default interface DocumentReference<T> {
   readonly parent: CollectionReference<T>;
 
   collection<U>(id: string): CollectionReference<U>;
+
+  get(): Promise<DocumentSnapshot<T>>;
+
+  set(data: T): Promise<void>;
+  update(data: Partial<T>): Promise<void>;
+  update<U>(path: string, value: U): Promise<void>;
+  delete(): Promise<void>;
 }

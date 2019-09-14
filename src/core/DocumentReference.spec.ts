@@ -5,6 +5,7 @@ import DocumentReference from './DocumentReference';
 
 interface Data1 {
   foo: string;
+  bar?: string;
 }
 
 describe('DocumentReference', () => {
@@ -25,5 +26,27 @@ describe('DocumentReference', () => {
     expect(collection.id).to.equal('c02');
     expect(collection.path).to.equal('c01/d01/c02');
     expect(collection).to.equal(driver.fakeSubCollection);
+  });
+
+  it('gets snapshot', async () => {
+    const snapshot = await doc.get();
+    expect(snapshot).to.equal(driver.fakeDocumentSnapshot);
+    expect(snapshot.ref).to.equal(doc);
+  });
+
+  it('sets', async () => {
+    await doc.set({
+      foo: 'a',
+    });
+  });
+
+  it('updates', async () => {
+    await doc.update({
+      bar: 'a',
+    });
+  });
+
+  it('deletes', async () => {
+    await doc.delete();
   });
 });
