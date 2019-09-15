@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import _ from 'lodash';
 import runEmulators from '../../../tests/firebaseEmulator';
 import initializeApp from '../../../tests/firebaseInitialize';
 import Nekostore from '../../nekostore';
@@ -11,7 +10,6 @@ import FirestoreCollectionReference from './FirestoreCollectionReference';
 import FirestoreDocumentReference from './FirestoreDocumentReference';
 import DocumentReference from '../../core/DocumentReference';
 import DocumentNotFoundError from '../../core/NotFoundError';
-import Timestamp from '../../core/Timestamp';
 import DocumentSnapshot from '../../core/DocumentSnapshot';
 
 interface T1 {

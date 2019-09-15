@@ -7,7 +7,7 @@
     "build": "tsc -b",
     "dev": "run-p -l dev:*",
     "dev:test": "npm run -s test -- --watch",
-    "dev:lint": "esw --fix **/*.ts",
+    "dev:lint": "esw --fix --ext .ts **/*.ts",
     "lint": "eslint **/*.ts",
     "test": "mocha -t 10000 --watch-extensions ts -r source-map-support/register -r ts-node/register -r ./tests/setup.ts **/*.spec.ts"
   },
