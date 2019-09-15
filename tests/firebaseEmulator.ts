@@ -29,6 +29,8 @@ export default async function runEmulators(): Promise<void> {
   const emulatorServers = [
     new FirestoreEmulator({
       port: 12348,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      auto_download: true,
     }),
     new HostingEmulator(
       await refineOptions({
