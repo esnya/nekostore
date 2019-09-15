@@ -9,7 +9,7 @@
     "dev:test": "npm run -s test -- --watch",
     "dev:lint": "esw --fix --ext .ts **/*.ts",
     "lint": "eslint **/*.ts",
-    "test": "mocha -t 10000 --watch-extensions ts -r source-map-support/register -r ts-node/register -r ./tests/setup.ts **/*.spec.ts"
+    "test": "mocha -t 30000 --watch-extensions ts -r source-map-support/register -r ts-node/register -r ./tests/setup.ts **/*.spec.ts"
   },
   "repository": {
     "type": "git",

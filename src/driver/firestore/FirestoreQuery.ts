@@ -1,5 +1,4 @@
 import Query, { WhereOperator, OrderDirection } from '../../core/Query';
-import DocumentSnapshot from '../../core/DocumentSnapshot';
 import FirestoreDocumentChange from './FirestoreDocumedntChange';
 import QuerySnapshot from '../../core/QuerySnapshot';
 import Unsubscribe from '../../core/Unsubscribe';
@@ -25,11 +24,11 @@ export default class FirestoreQuery<T> implements Query<T> {
 
   readonly ref: firebase.firestore.Query;
 
-  endAt(snapshot: DocumentSnapshot<T>): Query<T> {
-    return new FirestoreQuery<T>(this.ref.endAt(snapshot.data));
+  endAt<U>(...values: U[]): Query<T> {
+    return new FirestoreQuery<T>(this.ref.endAt(...values));
   }
-  endBefore(snapshot: DocumentSnapshot<T>): Query<T> {
-    return new FirestoreQuery<T>(this.ref.endAt(snapshot.data));
+  endBefore<U>(...values: U[]): Query<T> {
+    return new FirestoreQuery<T>(this.ref.endBefore(...values));
   }
   limit(limit: number): Query<T> {
     return new FirestoreQuery<T>(this.ref.limit(limit));
@@ -37,11 +36,11 @@ export default class FirestoreQuery<T> implements Query<T> {
   orderBy(field: string, direction?: OrderDirection): Query<T> {
     return new FirestoreQuery<T>(this.ref.orderBy(field, direction));
   }
-  startAfter(snapshot: DocumentSnapshot<T>): Query<T> {
-    return new FirestoreQuery<T>(this.ref.startAfter(snapshot.data));
+  startAfter<U>(...values: U[]): Query<T> {
+    return new FirestoreQuery<T>(this.ref.startAfter(...values));
   }
-  startAt(snapshot: DocumentSnapshot<T>): Query<T> {
-    return new FirestoreQuery<T>(this.ref.startAt(snapshot.data));
+  startAt<U>(...values: U[]): Query<T> {
+    return new FirestoreQuery<T>(this.ref.startAt(...values));
   }
   where<U>(field: string, operator: WhereOperator, value: U): Query<T> {
     return new FirestoreQuery<T>(this.ref.where(field, operator, value));

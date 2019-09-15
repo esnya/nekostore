@@ -49,7 +49,9 @@ function testCollection(
     let unsubscribe: Unsubscribe;
     it('subscribes', async () => {
       unsubscribe = c1.onSnapshot(onNext);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve): void => {
+        setTimeout(resolve, 1000);
+      });
       expect(onNext).to.calledOnce;
       const snapshot: QuerySnapshot<T1> = onNext.lastCall.args[0];
 
@@ -271,16 +273,90 @@ function testDocument(
   });
 }
 
+function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
+  describe('query', () => {
+    const collection = (parent || nekostore).collection<T1>('c1');
+
+    before(async () => {
+      const items: T1[] = [{ t1: 'a' }, { t1: 'b' }, { t1: 'c' }];
+      await Promise.all(
+        items.map(async item => {
+          await collection.add(item);
+        }),
+      );
+    });
+
+    it('queries limit', async () => {
+      const snapshot = await collection.limit(2).get();
+      expect(snapshot.docs.length).to.equal(2);
+    });
+
+    it('queries orderBy', async () => {
+      const snapshot = await collection.orderBy('t1').get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a', 'b', 'c']);
+    });
+
+    it('queries orderBy(asc)', async () => {
+      const snapshot = await collection.orderBy('t1', 'asc').get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a', 'b', 'c']);
+    });
+
+    it('queries orderBy(desc)', async () => {
+      const snapshot = await collection.orderBy('t1', 'desc').get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['c', 'b', 'a']);
+    });
+
+    it('queries where', async () => {
+      const snapshot = await collection.where('t1', '>=', 'b').get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['b', 'c']);
+    });
+
+    it('queries endAt', async () => {
+      const snapshot = await collection
+        .orderBy('t1')
+        .endAt('b')
+        .get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a', 'b']);
+    });
+
+    it('queries endBefore', async () => {
+      const snapshot = await collection
+        .orderBy('t1')
+        .endBefore('b')
+        .get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a']);
+    });
+
+    it('queries startAfter', async () => {
+      const snapshot = await collection
+        .orderBy('t1')
+        .startAfter('b')
+        .get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['c']);
+    });
+
+    it('queries startAt', async () => {
+      const snapshot = await collection
+        .orderBy('t1')
+        .startAt('b')
+        .get();
+      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['b', 'c']);
+    });
+  });
+}
+
 export function testDriver(driver: Driver): void {
   describe(driver.constructor.name, () => {
     const nekostore = new Nekostore(driver);
     testCollection(nekostore);
     testDocument(nekostore);
+    testQuery(nekostore);
 
     describe('nested', () => {
       const parent = nekostore.collection<T1>('c1').doc('d1');
       testCollection(nekostore, parent);
       testDocument(nekostore, parent);
+      testQuery(nekostore, parent);
     });
   });
 }
