@@ -1,7 +1,7 @@
 import DocumentChange from './DocumentChange';
-import CollectionReference from './CollectionReference';
+import Query from './Query';
 
 export default interface QuerySnapshot<T> {
-  readonly ref: CollectionReference<T>;
+  readonly ref: Query<T>;
   readonly docs: DocumentChange<T>[];
 }

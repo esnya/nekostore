@@ -6,6 +6,7 @@ import DocumentReference from '../src/core/DocumentReference';
 import DocumentSnapshot from '../src/core/DocumentSnapshot';
 import QuerySnapshot from '../src/core/QuerySnapshot';
 import Unsubscribe from '../src/core/Unsubscribe';
+import Query from '../src/core/Query';
 
 export interface Data {
   foo: string;
@@ -27,22 +28,34 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
 
   const fakeUnsubscribe = fake();
 
+  function getFakeQuery<T>(): Query<T> {
+    return {
+      endAt: fake(),
+      endBefore: fake(),
+      limit: fake(),
+      orderBy: fake(),
+      startAfter: fake(),
+      startAt: fake(),
+      where: fake(),
+      get: fake(() => Promise.resolve(fakeQuerySnapshot)),
+      onSnapshot: fake(() => fakeUnsubscribe),
+    };
+  }
+
   const fakeCollection: CollectionReference<T> = {
+    ...getFakeQuery(),
     id: 'c01',
     path: 'c01',
     doc: fake(() => fakeDocument),
-    get: fake(() => Promise.resolve(fakeQuerySnapshot)),
     add: fake(() => Promise.resolve(fakeDocument)),
-    onSnapshot: fake(() => fakeUnsubscribe),
   };
 
   const fakeSubCollection: CollectionReference<U> = {
+    ...getFakeQuery(),
     id: 'c02',
     path: 'c01/d01/c02',
     doc: fake(),
-    get: fake(() => Promise.resolve(fakeQuerySnapshot)),
     add: fake(() => Promise.resolve(fakeDocument)),
-    onSnapshot: fake(() => fakeUnsubscribe),
   };
 
   fakeDocument = {
