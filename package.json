@@ -1,6 +1,6 @@
 {
   "name": "nekostore",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Realtime synced datastore like Firestore with type",
   "main": "lib/Nekostore.js",
   "scripts": {
