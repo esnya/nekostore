@@ -1,0 +1,10 @@
+extension:
+  - ts
+spec: '**/*.spec.ts'
+require:
+  - source-map-support/register
+  - ts-node/register
+  - ./tests/setup.ts
+timeout: 30000
+watch-files:
+  - '**/*.ts'
