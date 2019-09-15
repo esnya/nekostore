@@ -13,11 +13,21 @@ interface T1 {
   t1: string;
 }
 
-function cleaner(c: CollectionReference<T1>): void {
-  after(async () => {
-    const snapshot = await c.get();
-    await Promise.all(snapshot.docs.map(doc => doc.ref.delete()));
+function timeout(t?: number): Promise<void> {
+  return new Promise((resolve): void => {
+    setTimeout(resolve, t);
   });
+}
+
+function cleaner(c: CollectionReference<T1>): () => Promise<void> {
+  return async (): Promise<void> => {
+    try {
+      const snapshot = await c.get();
+      await Promise.all(snapshot.docs.map(doc => doc.ref.delete()));
+    } catch (e) {
+      console.error(e);
+    }
+  };
 }
 
 function testCollection(
@@ -33,7 +43,7 @@ function testCollection(
 
     it('is collection', () => {
       c1 = (parent || nekostore).collection<T1>('c1');
-      cleaner(c1);
+      after(cleaner(c1));
       expect(c1.id).to.equal('c1');
       expect(c1.path).to.equal(prefixPath('c1'));
     });
@@ -49,9 +59,11 @@ function testCollection(
     let unsubscribe: Unsubscribe;
     it('subscribes', async () => {
       unsubscribe = c1.onSnapshot(onNext);
-      await new Promise((resolve): void => {
-        setTimeout(resolve, 1000);
-      });
+      await timeout(500);
+    });
+
+    it('receives initial snapshot', async () => {
+      await timeout(500);
       expect(onNext).to.calledOnce;
       const snapshot: QuerySnapshot<T1> = onNext.lastCall.args[0];
 
@@ -65,6 +77,7 @@ function testCollection(
 
     it('gets snapshot', async () => {
       await c1.add({ t1: 'b' });
+      await timeout(500);
 
       const snapshot = await c1.get();
       expect(snapshot.docs.length).to.equal(2);
@@ -82,7 +95,7 @@ function testCollection(
       });
     });
 
-    it('receives snapshot', () => {
+    it('receives added snapshot', async () => {
       expect(onNext).called;
 
       const snapshot: QuerySnapshot<T1> = onNext.getCalls()[0].args[0];
@@ -145,18 +158,19 @@ function testDocument(
 
   describe('documents', () => {
     const c1 = (parent || nekostore).collection<T1>('c1');
-    cleaner(c1);
+    after(cleaner(c1));
     let d1: DocumentReference<T1>;
+    const id = '123456781234567812345678';
     it('gets reference', () => {
-      d1 = c1.doc('d1');
-      expect(d1.id).to.equal('d1');
-      expect(d1.path).to.equal(prefixPath('c1/d1'));
+      d1 = c1.doc(id);
+      expect(d1.id).to.equal(id);
+      expect(d1.path).to.equal(prefixPath(`c1/${id}`));
       expect(d1.parent.path).to.equal(c1.path);
     });
 
     it('gets empty snapshot', async () => {
       const snapshot = await d1.get();
-      expect(snapshot.ref.path).to.equal(prefixPath('c1/d1'));
+      expect(snapshot.ref.path).to.equal(prefixPath(`c1/${id}`));
       expect(snapshot.exists()).to.be.false;
       expect(snapshot.data).is.undefined;
       expect(snapshot.createTime).is.undefined;
@@ -198,10 +212,12 @@ function testDocument(
       expect(snapshot.exists()).to.be.true;
       if (snapshot.exists()) {
         expect(snapshot.data).to.deep.equal(data);
+        expect(snapshot.createTime).is.not.undefined;
+        expect(snapshot.updateTime).is.not.undefined;
 
         return {
-          createTime: snapshot.createTime.toMillis() / 1000,
-          updateTime: snapshot.updateTime.toMillis() / 1000,
+          createTime: snapshot.createTime.toMillis(),
+          updateTime: snapshot.updateTime.toMillis(),
         };
       }
       throw new Error();
@@ -308,7 +324,10 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
 
     it('queries where', async () => {
       const snapshot = await collection.where('t1', '>=', 'b').get();
-      expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['b', 'c']);
+      expect(snapshot.docs.map(d => d.data.t1).sort()).to.deep.equal([
+        'b',
+        'c',
+      ]);
     });
 
     it('queries endAt', async () => {
@@ -345,8 +364,12 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
   });
 }
 
-export function testDriver(driver: Driver): void {
-  describe(driver.constructor.name, () => {
+export function testDriver(
+  driver: Driver,
+  title?: string,
+  cleaner?: () => void,
+): void {
+  describe(title || driver.constructor.name, () => {
     const nekostore = new Nekostore(driver);
     testCollection(nekostore);
     testDocument(nekostore);
@@ -358,5 +381,9 @@ export function testDriver(driver: Driver): void {
       testDocument(nekostore, parent);
       testQuery(nekostore, parent);
     });
+
+    if (cleaner) {
+      after(cleaner);
+    }
   });
 }

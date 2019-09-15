@@ -1,5 +1,5 @@
 export default class NekostoreError extends Error {
-  constructor(code: string, message: string, original: Error) {
+  constructor(code: string, message: string, original?: Error) {
     super(`${message}:${code}`);
 
     this.code = code;
@@ -9,5 +9,5 @@ export default class NekostoreError extends Error {
 
   readonly code: string;
   readonly message: string;
-  readonly original: Error;
+  readonly original?: Error;
 }

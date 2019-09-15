@@ -46,8 +46,8 @@ export default async function runEmulators(): Promise<void> {
   await Promise.all(
     emulatorServers.map(async server => {
       await server.start();
-      after(async () => {
-        await server.stop();
+      after(() => {
+        server.stop();
       });
     }),
   );
