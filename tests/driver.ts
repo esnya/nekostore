@@ -232,6 +232,7 @@ function testDocument(
 
     it('updates', async () => {
       await d1.update({ t1: 'd' });
+      await timeout(500);
 
       const snapshot = await d1.get();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'd' });
