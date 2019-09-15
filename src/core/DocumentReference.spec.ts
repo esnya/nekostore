@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { fake } from 'sinon';
 import { Nekostore } from '../nekostore';
 import fakeDriver from '../../tests/fakeDriver';
 import DocumentReference from './DocumentReference';
@@ -48,5 +49,12 @@ describe('DocumentReference', () => {
 
   it('deletes', async () => {
     await doc.delete();
+  });
+
+  it('subscribes', async () => {
+    const onNext = fake();
+    const unsubscribe = doc.onSnapshot(onNext);
+    expect(driver.fakeDocument.onSnapshot).calledOnceWith(onNext);
+    expect(unsubscribe).to.equal(driver.fakeUnsubscribe);
   });
 });

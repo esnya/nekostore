@@ -5,6 +5,7 @@ import Driver from '../src/core/Driver';
 import DocumentReference from '../src/core/DocumentReference';
 import DocumentSnapshot from '../src/core/DocumentSnapshot';
 import QuerySnapshot from '../src/core/QuerySnapshot';
+import Unsubscribe from '../src/core/Unsubscribe';
 
 export interface Data {
   foo: string;
@@ -16,6 +17,7 @@ export interface FakeDriver<T, U> extends Driver {
   fakeDocument: DocumentReference<T>;
   fakeDocumentSnapshot: DocumentSnapshot<T>;
   fakeQuerySnapshot: QuerySnapshot<T>;
+  fakeUnsubscribe: Unsubscribe;
 }
 
 export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
@@ -23,12 +25,15 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
   let fakeDocumentSnapshot: DocumentSnapshot<T>;
   let fakeQuerySnapshot: QuerySnapshot<T>;
 
+  const fakeUnsubscribe = fake();
+
   const fakeCollection: CollectionReference<T> = {
     id: 'c01',
     path: 'c01',
     doc: fake(() => fakeDocument),
     get: fake(() => Promise.resolve(fakeQuerySnapshot)),
     add: fake(() => Promise.resolve(fakeDocument)),
+    onSnapshot: fake(() => fakeUnsubscribe),
   };
 
   const fakeSubCollection: CollectionReference<U> = {
@@ -37,6 +42,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
     doc: fake(),
     get: fake(() => Promise.resolve(fakeQuerySnapshot)),
     add: fake(() => Promise.resolve(fakeDocument)),
+    onSnapshot: fake(() => fakeUnsubscribe),
   };
 
   fakeDocument = {
@@ -48,6 +54,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
     set: fake(() => Promise.resolve()),
     update: fake(() => Promise.resolve()),
     delete: fake(() => Promise.resolve()),
+    onSnapshot: fake(() => fakeUnsubscribe),
   };
 
   fakeDocumentSnapshot = {
@@ -67,5 +74,6 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
     fakeDocumentSnapshot,
     fakeSubCollection,
     fakeQuerySnapshot,
+    fakeUnsubscribe,
   };
 }

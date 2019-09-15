@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { fake } from 'sinon';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import runEmulators from '../../../tests/firebaseEmulator';
@@ -11,6 +12,8 @@ import FirestoreDocumentReference from './FirestoreDocumentReference';
 import DocumentReference from '../../core/DocumentReference';
 import DocumentNotFoundError from '../../core/NotFoundError';
 import DocumentSnapshot from '../../core/DocumentSnapshot';
+import Unsubscribe from '../../core/Unsubscribe';
+import QuerySnapshot from '../../core/QuerySnapshot';
 
 interface T1 {
   t1: string;
@@ -42,22 +45,32 @@ describe('FirestoreDriver', () => {
       expect(c1.path).to.equal('c1');
     });
 
+    let d1: DocumentReference<T1>;
     it('adds new document', async () => {
-      const d1 = await c1.add({
+      d1 = await c1.add({
         t1: 'a',
       });
       expect(d1).instanceOf(FirestoreDocumentReference);
+    });
 
-      after(async () => {
-        await d1.delete();
-      });
+    const onNext = fake();
+    let unsubscribe: Unsubscribe;
+    it('subscribes', async () => {
+      unsubscribe = c1.onSnapshot(onNext);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      expect(onNext).to.calledOnce;
+      const snapshot: QuerySnapshot<T1> = onNext.lastCall.args[0];
+
+      expect(snapshot.docs.length).to.equal(1);
+      const [doc] = snapshot.docs;
+      expect(doc.type).to.equal('added');
+      expect(doc.data).to.deep.equal({ t1: 'a' });
+
+      onNext.resetHistory();
     });
 
     it('gets snapshot', async () => {
-      const d2 = await c1.add({ t1: 'b' });
-      after(async () => {
-        await d2.delete();
-      });
+      await c1.add({ t1: 'b' });
 
       const snapshot = await c1.get();
       expect(snapshot.ref).instanceOf(FirestoreCollectionReference);
@@ -75,6 +88,57 @@ describe('FirestoreDriver', () => {
           expect(doc.updateTime.toMillis()).is.equal(doc.createTime.toMillis());
         }
       });
+    });
+
+    it('receives snapshot', () => {
+      expect(onNext).called;
+
+      const snapshot: QuerySnapshot<T1> = onNext.getCalls()[0].args[0];
+      expect(snapshot.docs.length).to.equal(1);
+
+      const added = snapshot.docs[0];
+      expect(added.type).to.equal('added');
+      expect(added.data).to.deep.equal({ t1: 'b' });
+
+      onNext.resetHistory();
+    });
+
+    it('receives updated snapshot', async () => {
+      await d1.update({ t1: 'c' });
+
+      expect(onNext).called;
+
+      const snapshot: QuerySnapshot<T1> = onNext.lastCall.args[0];
+      expect(snapshot.docs.length).to.equal(1);
+
+      const doc = snapshot.docs[0];
+      expect(doc.type).to.equal('modified');
+      expect(doc.data).to.deep.equal({ t1: 'c' });
+
+      onNext.resetHistory();
+    });
+
+    it('receives removed snapshot', async () => {
+      await d1.delete();
+
+      expect(onNext).called;
+
+      const snapshot: QuerySnapshot<T1> = onNext.lastCall.args[0];
+      expect(snapshot.docs.length).to.equal(1);
+
+      const removed = snapshot.docs[0];
+      expect(removed.type).to.equal('removed');
+
+      onNext.resetHistory();
+    });
+
+    it('unsubscribes', () => {
+      unsubscribe();
+    });
+
+    it('should not receives', async () => {
+      await d1.set({ t1: 'd' });
+      expect(onNext).not.to.be.called;
     });
   });
 
@@ -107,9 +171,23 @@ describe('FirestoreDriver', () => {
       await d1.delete();
     });
 
+    const onNext = fake();
+    let unsubscribe: Unsubscribe;
+    it('watch snapshots', () => {
+      unsubscribe = d1.onSnapshot(onNext);
+      expect(unsubscribe).is.instanceOf(Function);
+      expect(onNext).not.called;
+    });
+
     it('sets', async () => {
       await d1.set({
         t1: 'c',
+      });
+    });
+
+    it('receives snapshot', () => {
+      expect(onNext).calledWithMatch((snapshot: DocumentSnapshot<T1>) => {
+        return snapshot.exists() && snapshot.data.t1 === 'c';
       });
     });
 
@@ -145,6 +223,12 @@ describe('FirestoreDriver', () => {
       expect(updateTime).is.greaterThan(createTime);
     });
 
+    it('receives snapshot', () => {
+      expect(onNext).calledWithMatch((snapshot: DocumentSnapshot<T1>) => {
+        return snapshot.exists() && snapshot.data.t1 === 'd';
+      });
+    });
+
     it('sets again', async () => {
       await d1.set({
         t1: 'e',
@@ -156,11 +240,35 @@ describe('FirestoreDriver', () => {
       expect(updateTime).to.equal(createTime);
     });
 
+    it('receives snapshot', () => {
+      expect(onNext).calledWithMatch((snapshot: DocumentSnapshot<T1>) => {
+        return snapshot.exists() && snapshot.data.t1 === 'e';
+      });
+    });
+
     it('deletes', async () => {
       await d1.delete();
 
       const snapshot = await d1.get();
       expect(snapshot.exists()).to.be.false;
+    });
+
+    it('receives snapshot', () => {
+      expect(onNext).calledWithMatch((snapshot: DocumentSnapshot<T1>) => {
+        return !snapshot.exists();
+      });
+    });
+
+    it('unsubscirbes', async () => {
+      onNext.resetHistory();
+      unsubscribe();
+
+      await d1.set({
+        t1: 'e',
+      });
+      await d1.delete();
+
+      expect(onNext).not.called;
     });
   });
 });

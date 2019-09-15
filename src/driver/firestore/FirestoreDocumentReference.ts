@@ -5,6 +5,7 @@ import DocumentSnapshot from '../../core/DocumentSnapshot';
 import FirestoreDocumentSnapsnot from './FirestoreDocumentSnapshot';
 import NotFoundError from '../../core/NotFoundError';
 import { withTimestamps, withUpdateTime } from './utilities';
+import Unsubscribe from '../../core/Unsubscribe';
 
 export default class FirestoreDocumentReference<T>
   implements DocumentReference<T> {
@@ -52,5 +53,11 @@ export default class FirestoreDocumentReference<T>
 
   async delete(): Promise<void> {
     await this.ref.delete();
+  }
+
+  onSnapshot(onNext: (value: DocumentSnapshot<T>) => void): Unsubscribe {
+    return this.ref.onSnapshot(snapshot => {
+      onNext(new FirestoreDocumentSnapsnot<T>(snapshot));
+    });
   }
 }

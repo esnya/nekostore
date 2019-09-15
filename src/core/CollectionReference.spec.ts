@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { fake } from 'sinon';
 import { Nekostore } from '../nekostore';
 import CollectionReference from './CollectionReference';
 import fakeDriver from '../../tests/fakeDriver';
@@ -35,5 +36,12 @@ describe('CollectionReference', () => {
   it('adds', async () => {
     const doc = await collection.add({ foo: 'a' });
     expect(doc).to.equal(driver.fakeDocument);
+  });
+
+  it('subscribes', async () => {
+    const onNext = fake();
+    const unsubscribe = collection.onSnapshot(onNext);
+    expect(driver.fakeCollection.onSnapshot).calledOnceWith(onNext);
+    expect(unsubscribe).to.equal(driver.fakeUnsubscribe);
   });
 });
