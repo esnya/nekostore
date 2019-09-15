@@ -13,22 +13,29 @@ interface T1 {
   t1: string;
 }
 
-function cleaner(nekostore: Nekostore): void {
+function cleaner(c: CollectionReference<T1>): void {
   after(async () => {
-    const snapshot = await nekostore.collection('c1').get();
+    const snapshot = await c.get();
     await Promise.all(snapshot.docs.map(doc => doc.ref.delete()));
   });
 }
 
-export function testCollection(nekostore: Nekostore): CollectionReference<T1> {
-  cleaner(nekostore);
+function testCollection(
+  nekostore: Nekostore,
+  parent?: DocumentReference<T1>,
+): void {
+  function prefixPath(path: string): string {
+    return parent ? `${parent.path}/${path}` : path;
+  }
 
-  let c1: CollectionReference<T1>;
   describe('collection', () => {
+    let c1: CollectionReference<T1>;
+
     it('is collection', () => {
-      c1 = nekostore.collection('c1');
+      c1 = (parent || nekostore).collection<T1>('c1');
+      cleaner(c1);
       expect(c1.id).to.equal('c1');
-      expect(c1.path).to.equal('c1');
+      expect(c1.path).to.equal(prefixPath('c1'));
     });
 
     let d1: DocumentReference<T1>;
@@ -124,26 +131,30 @@ export function testCollection(nekostore: Nekostore): CollectionReference<T1> {
       expect(onNext).not.to.be.called;
     });
   });
-
-  return c1;
 }
 
-export function testDocument(nekostore: Nekostore): void {
-  describe('documents', () => {
-    cleaner(nekostore);
+function testDocument(
+  nekostore: Nekostore,
+  parent?: DocumentReference<T1>,
+): void {
+  function prefixPath(path: string): string {
+    return parent ? `${parent.path}/${path}` : path;
+  }
 
-    const c1 = nekostore.collection<T1>('c1');
+  describe('documents', () => {
+    const c1 = (parent || nekostore).collection<T1>('c1');
+    cleaner(c1);
     let d1: DocumentReference<T1>;
     it('gets reference', () => {
       d1 = c1.doc('d1');
       expect(d1.id).to.equal('d1');
-      expect(d1.path).to.equal('c1/d1');
+      expect(d1.path).to.equal(prefixPath('c1/d1'));
       expect(d1.parent.path).to.equal(c1.path);
     });
 
     it('gets empty snapshot', async () => {
       const snapshot = await d1.get();
-      expect(snapshot.ref.path).to.equal('c1/d1');
+      expect(snapshot.ref.path).to.equal(prefixPath('c1/d1'));
       expect(snapshot.exists()).to.be.false;
       expect(snapshot.data).is.undefined;
       expect(snapshot.createTime).is.undefined;
@@ -265,5 +276,11 @@ export function testDriver(driver: Driver): void {
     const nekostore = new Nekostore(driver);
     testCollection(nekostore);
     testDocument(nekostore);
+
+    describe('nested', () => {
+      const parent = nekostore.collection<T1>('c1').doc('d1');
+      testCollection(nekostore, parent);
+      testDocument(nekostore, parent);
+    });
   });
 }
