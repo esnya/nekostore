@@ -52,7 +52,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
 
   fakeDocumentSnapshot = {
     ref: fakeDocument,
-    exisits: fake(() => false),
+    exists: fake(() => false),
   };
 
   fakeQuerySnapshot = {

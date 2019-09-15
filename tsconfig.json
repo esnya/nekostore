@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "outDir": "lib",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "lib": [
       "esnext",
       "dom",
     ],
   },
-  "include": [
-    "src",
-  ],
   "exclude": [
+    "lib",
     "*.spec.ts",
   ],
 }

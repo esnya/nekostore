@@ -12,6 +12,5 @@ export default interface DocumentReference<T> {
 
   set(data: T): Promise<void>;
   update(data: Partial<T>): Promise<void>;
-  update<U>(path: string, value: U): Promise<void>;
   delete(): Promise<void>;
 }
