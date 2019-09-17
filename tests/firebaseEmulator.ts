@@ -1,6 +1,6 @@
-import { EmulatorServer } from 'firebase-tools/lib/emulator/EmulatorServer';
-import { HostingEmulator } from 'firebase-tools/lib/emulator/HostingEmulator';
-import { FirestoreEmulator } from 'firebase-tools/lib/emulator/FirestoreEmulator';
+import { EmulatorServer } from 'firebase-tools/lib/emulator/emulatorServer';
+import { HostingEmulator } from 'firebase-tools/lib/emulator/hostingEmulator';
+import { FirestoreEmulator } from 'firebase-tools/lib/emulator/firestoreEmulator';
 import requireConfig from 'firebase-tools/lib/requireConfig';
 import requirePermissions from 'firebase-tools/lib/requirePermissions';
 import checkDupHostingKeys from 'firebase-tools/lib/checkDupHostingKeys';
