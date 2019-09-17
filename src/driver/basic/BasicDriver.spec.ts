@@ -1,8 +1,6 @@
-import { testDriver } from '../../../tests/driver';
 import BasicDriver from './BasicDriver';
+import testDriver from '../Driver.spec';
 
 describe('BasicDriver', () => {
-  it('is driver', () => {
-    testDriver(new BasicDriver());
-  });
+  testDriver(BasicDriver, async () => []);
 });

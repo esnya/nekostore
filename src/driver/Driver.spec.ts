@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 import { fake } from 'sinon';
-import CollectionReference from '../src/core/CollectionReference';
-import Nekostore from '../src/nekostore';
-import DocumentReference from '../src/core/DocumentReference';
-import Driver from '../src/core/Driver';
-import QuerySnapshot from '../src/core/QuerySnapshot';
-import Unsubscribe from '../src/core/Unsubscribe';
-import NotFoundError from '../src/core/NotFoundError';
-import DocumentSnapshot from '../src/core/DocumentSnapshot';
+import CollectionReference from '../core/CollectionReference';
+import Nekostore from '../nekostore';
+import DocumentReference from '../core/DocumentReference';
+import Driver from '../core/Driver';
+import QuerySnapshot from '../core/QuerySnapshot';
+import Unsubscribe from '../core/Unsubscribe';
+import NotFoundError from '../core/NotFoundError';
+import DocumentSnapshot from '../core/DocumentSnapshot';
 
 interface T1 {
   t1: string;
@@ -19,36 +19,37 @@ function timeout(t?: number): Promise<void> {
   });
 }
 
-function cleaner(c: CollectionReference<T1>): () => Promise<void> {
-  return async (): Promise<void> => {
-    try {
-      const snapshot = await c.get();
-      await Promise.all(snapshot.docs.map(doc => doc.ref.delete()));
-    } catch (e) {
-      console.error(e);
-    }
-  };
-}
-
-function testCollection(
-  nekostore: Nekostore,
-  parent?: DocumentReference<T1>,
+export default function testDriver<T>(
+  Ctor: { new (...args: T[]): Driver },
+  initialize: () => Promise<T[]>,
 ): void {
-  function prefixPath(path: string): string {
-    return parent ? `${parent.path}/${path}` : path;
+  let nekostore: Nekostore;
+  it('can instantiate', async () => {
+    const args = await initialize();
+    const driver = new Ctor(...args);
+    nekostore = new Nekostore(driver);
+  });
+
+  let prefix: string | null = null;
+
+  let c1: CollectionReference<T1>;
+  it('generates collection reference', () => {
+    c1 = nekostore.collection<T1>('c1');
+    expect(c1.id).to.equal('c1');
+    expect(c1.path).to.equal(prefix ? `${prefix}/c1` : 'c1');
+  });
+
+  let d1: DocumentReference<T1>;
+
+  async function clean(): Promise<void> {
+    const snapshot = await c1.get();
+    await Promise.all(snapshot.docs.map(d => d.ref.delete()));
   }
 
-  describe('collection', () => {
-    let c1: CollectionReference<T1>;
+  function testCollection(): void {
+    before(clean);
+    after(clean);
 
-    it('is collection', () => {
-      c1 = (parent || nekostore).collection<T1>('c1');
-      after(cleaner(c1));
-      expect(c1.id).to.equal('c1');
-      expect(c1.path).to.equal(prefixPath('c1'));
-    });
-
-    let d1: DocumentReference<T1>;
     it('adds new document', async () => {
       d1 = await c1.add({
         t1: 'a',
@@ -145,32 +146,30 @@ function testCollection(
       await d1.set({ t1: 'd' });
       expect(onNext).not.to.be.called;
     });
-  });
-}
-
-function testDocument(
-  nekostore: Nekostore,
-  parent?: DocumentReference<T1>,
-): void {
-  function prefixPath(path: string): string {
-    return parent ? `${parent.path}/${path}` : path;
   }
 
-  describe('documents', () => {
-    const c1 = (parent || nekostore).collection<T1>('c1');
-    after(cleaner(c1));
-    let d1: DocumentReference<T1>;
+  function testDocument(): void {
+    before(clean);
+    after(clean);
+
     const id = '123456781234567812345678';
+
+    after(async () => {
+      await d1.delete();
+    });
+
     it('gets reference', () => {
       d1 = c1.doc(id);
       expect(d1.id).to.equal(id);
-      expect(d1.path).to.equal(prefixPath(`c1/${id}`));
-      expect(d1.parent.path).to.equal(c1.path);
+      expect(d1.path).to.equal(prefix ? `${prefix}/c1/${id}` : `c1/${id}`);
+      expect(d1.parent.path).to.equal(prefix ? `${prefix}/c1` : 'c1');
     });
 
     it('gets empty snapshot', async () => {
       const snapshot = await d1.get();
-      expect(snapshot.ref.path).to.equal(prefixPath(`c1/${id}`));
+      expect(snapshot.ref.path).to.equal(
+        prefix ? `${prefix}/c1/${id}` : `c1/${id}`,
+      );
       expect(snapshot.exists()).to.be.false;
       expect(snapshot.data).is.undefined;
       expect(snapshot.createTime).is.undefined;
@@ -250,7 +249,7 @@ function testDocument(
       await d1.set({
         t1: 'e',
       });
-
+      await timeout(500);
       const snapshot = await d1.get();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'e' });
       expect(createTime).is.lte(Date.now());
@@ -287,44 +286,43 @@ function testDocument(
 
       expect(onNext).not.called;
     });
-  });
-}
+  }
 
-function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
-  describe('query', () => {
-    const collection = (parent || nekostore).collection<T1>('c1');
+  function testQuery(): void {
+    before(clean);
+    after(clean);
 
     before(async () => {
       const items: T1[] = [{ t1: 'a' }, { t1: 'b' }, { t1: 'c' }];
       await Promise.all(
         items.map(async item => {
-          await collection.add(item);
+          await c1.add(item);
         }),
       );
     });
 
     it('queries limit', async () => {
-      const snapshot = await collection.limit(2).get();
+      const snapshot = await c1.limit(2).get();
       expect(snapshot.docs.length).to.equal(2);
     });
 
     it('queries orderBy', async () => {
-      const snapshot = await collection.orderBy('t1').get();
+      const snapshot = await c1.orderBy('t1').get();
       expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a', 'b', 'c']);
     });
 
     it('queries orderBy(asc)', async () => {
-      const snapshot = await collection.orderBy('t1', 'asc').get();
+      const snapshot = await c1.orderBy('t1', 'asc').get();
       expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['a', 'b', 'c']);
     });
 
     it('queries orderBy(desc)', async () => {
-      const snapshot = await collection.orderBy('t1', 'desc').get();
+      const snapshot = await c1.orderBy('t1', 'desc').get();
       expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['c', 'b', 'a']);
     });
 
     it('queries where', async () => {
-      const snapshot = await collection.where('t1', '>=', 'b').get();
+      const snapshot = await c1.where('t1', '>=', 'b').get();
       expect(snapshot.docs.map(d => d.data.t1).sort()).to.deep.equal([
         'b',
         'c',
@@ -332,7 +330,7 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
     });
 
     it('queries endAt', async () => {
-      const snapshot = await collection
+      const snapshot = await c1
         .orderBy('t1')
         .endAt('b')
         .get();
@@ -340,7 +338,7 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
     });
 
     it('queries endBefore', async () => {
-      const snapshot = await collection
+      const snapshot = await c1
         .orderBy('t1')
         .endBefore('b')
         .get();
@@ -348,7 +346,7 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
     });
 
     it('queries startAfter', async () => {
-      const snapshot = await collection
+      const snapshot = await c1
         .orderBy('t1')
         .startAfter('b')
         .get();
@@ -356,35 +354,26 @@ function testQuery(nekostore: Nekostore, parent?: DocumentReference<T1>): void {
     });
 
     it('queries startAt', async () => {
-      const snapshot = await collection
+      const snapshot = await c1
         .orderBy('t1')
         .startAt('b')
         .get();
       expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['b', 'c']);
     });
-  });
-}
+  }
 
-export function testDriver(
-  driver: Driver,
-  title?: string,
-  cleaner?: () => void,
-): void {
-  describe(title || driver.constructor.name, () => {
-    const nekostore = new Nekostore(driver);
-    testCollection(nekostore);
-    testDocument(nekostore);
-    testQuery(nekostore);
+  describe('collections', testCollection);
+  describe('documents', testDocument);
+  describe('queries', testQuery);
 
-    describe('nested', () => {
-      const parent = nekostore.collection<T1>('c1').doc('d1');
-      testCollection(nekostore, parent);
-      testDocument(nekostore, parent);
-      testQuery(nekostore, parent);
+  describe('nested', () => {
+    it('generates nested collection reference', () => {
+      c1 = d1.collection('c1');
+      prefix = d1.path;
     });
 
-    if (cleaner) {
-      after(cleaner);
-    }
+    describe('collections', testCollection);
+    describe('documents', testDocument);
+    describe('queries', testQuery);
   });
 }

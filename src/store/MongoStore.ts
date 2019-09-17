@@ -6,9 +6,13 @@ import { MongoAggregationOperator } from '../driver/basic/AggregatioOperator';
 import Timestamp from '../core/Timestamp';
 import NotFoundError from '../core/NotFoundError';
 
+export interface Options {
+  readonly db: Db;
+}
+
 export default class MongoStore implements Store {
-  constructor(db: Db) {
-    this.db = db;
+  constructor(options: Options) {
+    this.db = options.db;
   }
 
   readonly db: Db;
