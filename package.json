@@ -9,7 +9,7 @@
     "dev:test": "npm run -s test -- --watch",
     "dev:lint": "esw --fix --ext .ts **/*.ts",
     "lint": "eslint **/*.ts",
-    "test": "mocha"
+    "test": "cross-env TS_NODE_FILES=true mocha"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "@typescript-eslint/parser": "^2.3.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "cross-env": "^5.2.1",
     "eslint": "^6.4.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.3.0",

@@ -299,6 +299,7 @@ export default function testDriver<T>(
           await c1.add(item);
         }),
       );
+      await timeout(500);
     });
 
     it('queries limit', async () => {
