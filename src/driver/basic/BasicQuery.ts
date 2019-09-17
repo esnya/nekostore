@@ -1,34 +1,14 @@
 /* eslint @typescript-eslint/no-use-before-define: off */
+import mapValues from 'lodash/mapValues';
 import Query, { WhereOperator, OrderDirection } from '../../core/Query';
 import QuerySnapshot from '../../core/QuerySnapshot';
 import Unsubscribe from '../../core/Unsubscribe';
 import BasicDriver from '.';
 import BasicDocumentReference from './BasicDocumentReference';
 import BasicCollectionReference from './BasicCollectionReference';
-import { RootQuerySelector, FilterQuery, QuerySelector } from 'mongodb';
-import AggregationOperator, {
-  isMongoOperator,
-  PositionAggregationOperator,
-  apply,
-} from './AggregatioOperator';
-import NekostoreError from '../../core/NekostoreError';
+import { FilterQuery, QuerySelector } from 'mongodb';
+import AggregationOperator from './AggregatioOperator';
 import BasicDocumentChange from './BasicDocumentChange';
-
-function concatFilter<T>(
-  filter: FilterQuery<T>,
-  baseFilter?: FilterQuery<T>,
-): FilterQuery<T> {
-  if (!baseFilter) return filter;
-  if (baseFilter.$and)
-    return {
-      ...baseFilter,
-      $and: [...baseFilter.$and, filter],
-    };
-
-  return ({
-    $and: [baseFilter, filter],
-  } as RootQuerySelector<T>) as FilterQuery<T>;
-}
 
 const WhereOperatorTable: Record<WhereOperator, keyof QuerySelector<{}>> = {
   '==': '$eq',
@@ -44,83 +24,70 @@ export default class BasicQuery<T> implements Query<T> {
     id: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     parent?: BasicDocumentReference<any>,
-    filter?: FilterQuery<T>,
-    aggregations: AggregationOperator[] = [],
+    operators: AggregationOperator[] = [],
   ) {
     this.driver = driver;
     this.id = id;
     this.parent = parent;
-    this.filter = filter;
-    this.aggregations = aggregations;
+    this.operators = operators;
   }
 
   readonly driver: BasicDriver;
   readonly id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   readonly parent: BasicDocumentReference<any>;
-  readonly filter: FilterQuery<T>;
-  readonly aggregations: AggregationOperator[];
+  readonly operators: AggregationOperator[];
 
   get path(): string {
     if (this.parent) return `${this.parent.path}/${this.id}`;
     return this.id;
   }
 
-  private chain(
-    filter?: FilterQuery<T>,
-    aggregation?: AggregationOperator,
-  ): Query<T> {
-    return new BasicQuery<T>(
-      this.driver,
-      this.id,
-      this.parent,
-      filter ? concatFilter(filter, this.filter) : this.filter,
-      aggregation ? [...this.aggregations, aggregation] : this.aggregations,
-    );
+  private chainMatch<U>(match: FilterQuery<U>): Query<T> {
+    return this.chainOperator({ $match: match });
   }
 
-  private chainPosition<U>(
-    operator: keyof PositionAggregationOperator,
-    value: U,
-  ): Query<T> {
-    const lastOperator = this.aggregations[this.aggregations.length - 1];
+  private chainOperator(operator: AggregationOperator): Query<T> {
+    return new BasicQuery<T>(this.driver, this.id, this.parent, [
+      ...this.operators,
+      operator,
+    ]);
+  }
 
-    if (!lastOperator.$sort) {
-      throw new NekostoreError('query', 'Missing previous query "orderBy"');
+  private chainAt<U>(ascOp: string, descOp: string, value: U): Query<T> {
+    const sort = this.operators.slice(-1)[0];
+    if (!sort || !('$sort' in sort)) {
+      throw new Error('Last operator is not $sort');
     }
-
-    const fields = Object.keys(lastOperator.$sort);
-    if (fields.length !== 1) {
-      throw new NekostoreError('query', 'Invalid previous query');
-    }
-
-    const field = fields[0];
-
-    return this.chain(undefined, { [operator]: { [field]: value } });
+    const filter = mapValues(sort.$sort, dir => {
+      const op = dir === 1 ? ascOp : descOp;
+      return { [op]: value };
+    });
+    return this.chainMatch(filter);
   }
 
   endAt<U>(value: U): Query<T> {
-    return this.chainPosition('$endAt', value);
+    return this.chainAt('$lte', '$gte', value);
   }
   endBefore<U>(value: U): Query<T> {
-    return this.chainPosition('$endBefore', value);
+    return this.chainAt('$lt', '$gt', value);
   }
   limit(limit: number): Query<T> {
-    return this.chain(undefined, { $limit: limit });
+    return this.chainOperator({ $limit: limit });
   }
   orderBy(field: string, direction?: OrderDirection): Query<T> {
-    return this.chain(undefined, {
+    return this.chainOperator({
       $sort: { [field]: direction === 'desc' ? -1 : 1 },
     });
   }
   startAfter<U>(value: U): Query<T> {
-    return this.chainPosition('$startAfter', value);
+    return this.chainAt('$gt', '$lt', value);
   }
   startAt<U>(value: U): Query<T> {
-    return this.chainPosition('$startAt', value);
+    return this.chainAt('$gte', '$lte', value);
   }
   where<U>(field: string, operator: WhereOperator, value: U): Query<T> {
-    return this.chain({
+    return this.chainMatch({
       [field]: {
         [WhereOperatorTable[operator]]: value,
       },
@@ -128,14 +95,7 @@ export default class BasicQuery<T> implements Query<T> {
   }
 
   async get(): Promise<QuerySnapshot<T>> {
-    const documents = await this.driver.store.find(
-      this.path,
-      this.filter || {},
-      this.aggregations.filter(isMongoOperator),
-    );
-    const aggregateds = this.aggregations
-      .filter(a => !isMongoOperator(a))
-      .reduce(apply, documents);
+    const documents = await this.driver.store.find(this.path, this.operators);
     const collectionRef = new BasicCollectionReference<T>(
       this.driver,
       this.id,
@@ -144,7 +104,7 @@ export default class BasicQuery<T> implements Query<T> {
 
     return {
       ref: this,
-      docs: aggregateds.map((doc, i) => {
+      docs: documents.map((doc, i) => {
         const { id, ...data } = doc;
 
         return new BasicDocumentChange<T>(
@@ -157,7 +117,7 @@ export default class BasicQuery<T> implements Query<T> {
   }
 
   onSnapshot(onNext: (snapshot: QuerySnapshot<T>) => void): Unsubscribe {
-    if (this.filter) throw new Error('Query is not supported');
+    if (this.operators.length > 0) throw new Error('Query is not supported');
 
     setTimeout(async () => {
       onNext(await this.get());

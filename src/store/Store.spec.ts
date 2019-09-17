@@ -84,20 +84,19 @@ export default function testStore<T>(
     const d3 = await store.add(c1, { foo: 'c', bar: 1 });
     const d4 = await store.add(c1, { foo: 'd', bar: 0 });
 
-    const result = await store.find(
-      c1,
+    const result = await store.find(c1, [
       {
-        bar: {
-          $lte: 1,
+        $match: {
+          bar: {
+            $lte: 1,
+          },
         },
       },
-      [
-        {
-          $sort: { foo: -1 },
-        },
-        { $limit: 2 },
-      ],
-    );
+      {
+        $sort: { foo: -1 },
+      },
+      { $limit: 2 },
+    ]);
     expect(result).to.deep.equal([
       { id: d4, foo: 'd', bar: 0 },
       { id: d3, foo: 'c', bar: 1 },

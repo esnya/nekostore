@@ -2,8 +2,7 @@ import merge from 'lodash/merge';
 import uuid from 'uuid';
 import NotFoundError from '../core/NotFoundError';
 import mingo from 'mingo';
-import { FilterQuery } from 'mongodb';
-import { MongoAggregationOperator } from '../driver/basic/AggregatioOperator';
+import AggregationOperator from '../driver/basic/AggregatioOperator';
 import Store, { Data } from './Store';
 import Timestamp from '../core/Timestamp';
 import fromPairs from 'lodash/fromPairs';
@@ -37,16 +36,11 @@ export default class MemoryStore implements Store {
 
   async find(
     collectionId: string,
-    filter: FilterQuery<Document>,
-    aggregations: MongoAggregationOperator[],
+    aggregations: AggregationOperator[],
   ): Promise<Document[]> {
     const documents = await this.list(collectionId);
-    const filterQuery = new mingo.Query(filter);
-    if (aggregations.length === 0) return filterQuery.find(documents).all();
-    return new mingo.Aggregator(aggregations).run<Document>(
-      documents,
-      new mingo.Query(filter),
-    );
+    if (aggregations.length === 0) return documents;
+    return new mingo.Aggregator(aggregations).run<Document>(documents);
   }
 
   async add(collectionId: string, data: Data): Promise<string> {

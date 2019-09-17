@@ -2,9 +2,9 @@ import omit from 'lodash/omit';
 import fromPairs from 'lodash/fromPairs';
 import Store, { Data } from './Store';
 import { FilterQuery, Db, Collection, ObjectID } from 'mongodb';
-import { MongoAggregationOperator } from '../driver/basic/AggregatioOperator';
 import Timestamp from '../core/Timestamp';
 import NotFoundError from '../core/NotFoundError';
+import AggregationOperator from '../driver/basic/AggregatioOperator';
 
 export interface Options {
   readonly db: Db;
@@ -23,11 +23,10 @@ export default class MongoStore implements Store {
 
   async find(
     collectionId: string,
-    filter: FilterQuery<Document>,
-    aggregations: MongoAggregationOperator[],
+    operators: AggregationOperator[],
   ): Promise<(Data & { id: string })[]> {
     const docs = await this.collection(collectionId)
-      .aggregate([{ $match: filter }, ...aggregations])
+      .aggregate(operators.length > 0 ? operators : [{ $match: {} }])
       .toArray();
     return docs.map(doc => {
       const { _id, ...data } = doc;
