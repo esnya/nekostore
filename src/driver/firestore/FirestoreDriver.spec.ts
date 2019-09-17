@@ -5,10 +5,6 @@ import initializeApp from '../../../tests/firebaseInitialize';
 import FirestoreDriver from './FirestoreDriver';
 import testDriver from '../Driver.spec';
 
-interface T1 {
-  t1: string;
-}
-
 describe('FirestoreDriver', () => {
   before(async () => {
     await runEmulators();
