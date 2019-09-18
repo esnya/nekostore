@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { fake } from 'sinon';
-import { Nekostore } from '../nekostore';
+import Nekostore from './Nekostore';
 import CollectionReference from './CollectionReference';
 import fakeDriver from './fakeDriver.spec';
 

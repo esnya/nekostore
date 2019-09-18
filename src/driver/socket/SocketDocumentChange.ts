@@ -1,5 +1,5 @@
-import DocumentReference from '../../core/DocumentReference';
-import DocumentChange, { ChangeType } from '../../core/DocumentChange';
+import DocumentReference from '../../DocumentReference';
+import DocumentChange, { ChangeType } from '../../DocumentChange';
 import SocketDocumentSnapshot, {
   DocumentSnapshotData,
 } from './SocketDocumentSnapshot';

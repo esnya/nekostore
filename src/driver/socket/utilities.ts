@@ -1,10 +1,10 @@
 import chunk from 'lodash/chunk';
-import Driver from '../../core/Driver';
-import CollectionReference from '../../core/CollectionReference';
-import NekostoreError from '../../core/NekostoreError';
+import Driver from '../../Driver';
+import CollectionReference from '../../CollectionReference';
+import NekostoreError from '../../NekostoreError';
 import QueryDescriptor from './QueryDescriptor';
-import Query from '../../core/Query';
-import DocumentReference from '../../core/DocumentReference';
+import Query from '../../Query';
+import DocumentReference from '../../DocumentReference';
 
 export function getCollection<T>(
   driver: Driver,

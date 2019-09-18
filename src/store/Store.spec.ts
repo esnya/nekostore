@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Store from './Store';
-import NotFoundError from '../core/NotFoundError';
-import Timestamp from '../core/Timestamp';
+import NotFoundError from '../NotFoundError';
+import Timestamp from '../Timestamp';
 
 export default function testStore<T>(
   Ctor: { new (...args: T[]): Store },

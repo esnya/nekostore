@@ -1,10 +1,10 @@
 import merge from 'lodash/merge';
 import uuid from 'uuid';
-import NotFoundError from '../core/NotFoundError';
+import NotFoundError from '../NotFoundError';
 import mingo from 'mingo';
 import AggregationOperator from '../driver/basic/AggregatioOperator';
 import Store, { Data } from './Store';
-import Timestamp from '../core/Timestamp';
+import Timestamp from '../Timestamp';
 import fromPairs from 'lodash/fromPairs';
 
 interface Document extends Data {

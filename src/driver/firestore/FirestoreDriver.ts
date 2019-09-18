@@ -1,6 +1,6 @@
 /* eslint @typescript-eslint/no-use-before-define: off */
-import Driver from '../../core/Driver';
-import CollectionReference from '../../core/CollectionReference';
+import Driver from '../../Driver';
+import CollectionReference from '../../CollectionReference';
 import Firestore from './Firestore';
 import FirestoreCollectionReference from './FirestoreCollectionReference';
 

@@ -1,5 +1,5 @@
 import AggregationOperator from '../driver/basic/AggregatioOperator';
-import Timestamp from '../core/Timestamp';
+import Timestamp from '../Timestamp';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Data = Record<string, any>;

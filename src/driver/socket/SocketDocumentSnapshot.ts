@@ -1,6 +1,6 @@
-import DocumentSnapshot from '../../core/DocumentSnapshot';
-import Timestamp from '../../core/Timestamp';
-import DocumentReference from '../../core/DocumentReference';
+import DocumentSnapshot from '../../DocumentSnapshot';
+import Timestamp from '../../Timestamp';
+import DocumentReference from '../../DocumentReference';
 
 export interface DocumentSnapshotData<T> {
   data: T;

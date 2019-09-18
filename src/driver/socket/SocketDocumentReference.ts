@@ -1,8 +1,8 @@
-import DocumentReference from '../../core/DocumentReference';
+import DocumentReference from '../../DocumentReference';
 import SocketCollectionReference from './SocketCollectionReference';
 import SocketDriverSocket from './SocketDriver';
-import Unsubscribe from '../../core/Unsubscribe';
-import DocumentSnapshot from '../../core/DocumentSnapshot';
+import Unsubscribe from '../../Unsubscribe';
+import DocumentSnapshot from '../../DocumentSnapshot';
 import SocketDocumentSnapshot, {
   DocumentSnapshotData,
 } from './SocketDocumentSnapshot';

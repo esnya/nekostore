@@ -1,7 +1,7 @@
-import CollectionReference from '../../core/CollectionReference';
+import CollectionReference from '../../CollectionReference';
 import SocketDriverSocket from './SocketDriver';
 import SocketQuery from './SocketQuery';
-import DocumentReference from '../../core/DocumentReference';
+import DocumentReference from '../../DocumentReference';
 import SocketDocumentReference from './SocketDocumentReference';
 
 export default class SocketCollectionReference<T> extends SocketQuery<T>

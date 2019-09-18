@@ -1,5 +1,5 @@
-import BasicDriver from '../src/driver/basic'; // 'nekostore/lib/src/driver/basic'
-import Nekostore from '../src/nekostore'; // 'nekostore'
+import Nekostore from '..'; // 'nekostore'
+import BasicDriver from '../lib/driver/basic'; // 'nekostore/lib/driver/basic'
 
 interface Data {
   foo: string;

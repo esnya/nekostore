@@ -1,7 +1,7 @@
-import Query, { WhereOperator, OrderDirection } from '../../core/Query';
+import Query, { WhereOperator, OrderDirection } from '../../Query';
 import FirestoreDocumentChange from './FirestoreDocumedntChange';
-import QuerySnapshot from '../../core/QuerySnapshot';
-import Unsubscribe from '../../core/Unsubscribe';
+import QuerySnapshot from '../../QuerySnapshot';
+import Unsubscribe from '../../Unsubscribe';
 
 function encodeQuerySnapshot<T>(
   ref: Query<T>,

@@ -2,8 +2,8 @@ import omit from 'lodash/omit';
 import fromPairs from 'lodash/fromPairs';
 import Store, { Data } from './Store';
 import { Db, Collection, ObjectID } from 'mongodb';
-import Timestamp from '../core/Timestamp';
-import NotFoundError from '../core/NotFoundError';
+import Timestamp from '../Timestamp';
+import NotFoundError from '../NotFoundError';
 import AggregationOperator from '../driver/basic/AggregatioOperator';
 
 export interface Options {

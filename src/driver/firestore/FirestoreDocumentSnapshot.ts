@@ -1,7 +1,7 @@
-import DocumentSnapshot from '../../core/DocumentSnapshot';
+import DocumentSnapshot from '../../DocumentSnapshot';
 import FirestoreDocumentReference from './FirestoreDocumentReference';
-import Timestamp, { Timestamps } from '../../core/Timestamp';
-import DocumentReference from '../../core/DocumentReference';
+import Timestamp, { Timestamps } from '../../Timestamp';
+import DocumentReference from '../../DocumentReference';
 
 export default class FirestoreDocumentSnapsnot<T>
   implements DocumentSnapshot<T> {

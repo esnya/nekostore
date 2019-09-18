@@ -1,11 +1,11 @@
-import DocumentReference from '../../core/DocumentReference';
-import CollectionReference from '../../core/CollectionReference';
+import DocumentReference from '../../DocumentReference';
+import CollectionReference from '../../CollectionReference';
 import FirestoreCollectionReference from './FirestoreCollectionReference';
-import DocumentSnapshot from '../../core/DocumentSnapshot';
+import DocumentSnapshot from '../../DocumentSnapshot';
 import FirestoreDocumentSnapsnot from './FirestoreDocumentSnapshot';
-import NotFoundError from '../../core/NotFoundError';
+import NotFoundError from '../../NotFoundError';
 import { withTimestamps, withUpdateTime } from './utilities';
-import Unsubscribe from '../../core/Unsubscribe';
+import Unsubscribe from '../../Unsubscribe';
 
 export default class FirestoreDocumentReference<T>
   implements DocumentReference<T> {

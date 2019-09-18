@@ -1,5 +1,5 @@
-import Driver from '../../core/Driver';
-import CollectionReference from '../../core/CollectionReference';
+import Driver from '../../Driver';
+import CollectionReference from '../../CollectionReference';
 import BasicCollectionReference from './BasicCollectionReference';
 import MemoryStore from '../../store/MemoryStore';
 import Store from '../../store/Store';

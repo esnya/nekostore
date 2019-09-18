@@ -1,6 +1,6 @@
-import Driver from '../../core/Driver';
+import Driver from '../../Driver';
 import Socket from './Socket';
-import Unsubscribe from '../../core/Unsubscribe';
+import Unsubscribe from '../../Unsubscribe';
 import QueryDescriptor from './QueryDescriptor';
 import { DocumentSnapshotData } from './SocketDocumentSnapshot';
 import { getDoc, getCollection, getQuery } from './utilities';
@@ -10,10 +10,10 @@ import Actions, {
   ActionArgsOf,
 } from './Actions';
 import uuid from 'uuid';
-import DocumentReference from '../../core/DocumentReference';
-import Query from '../../core/Query';
-import DocumentSnapshot from '../../core/DocumentSnapshot';
-import QuerySnapshot from '../../core/QuerySnapshot';
+import DocumentReference from '../../DocumentReference';
+import Query from '../../Query';
+import DocumentSnapshot from '../../DocumentSnapshot';
+import QuerySnapshot from '../../QuerySnapshot';
 
 function decodeDocumentSnapshot<T>(
   snapshot: DocumentSnapshot<T>,

@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
-import CollectionReference from '../../core/CollectionReference';
-import DocumentReference from '../../core/DocumentReference';
+import CollectionReference from '../../CollectionReference';
+import DocumentReference from '../../DocumentReference';
 import FirestoreDocumentReference from './FirestoreDocumentReference';
 import { withTimestamps } from './utilities';
 import FirestoreQuery from './FirestoreQuery';

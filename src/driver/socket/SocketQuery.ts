@@ -1,8 +1,8 @@
-import Query, { OrderDirection, WhereOperator } from '../../core/Query';
+import Query, { OrderDirection, WhereOperator } from '../../Query';
 import SocketDriverSocket from './SocketDriver';
-import DocumentReference from '../../core/DocumentReference';
-import QuerySnapshot from '../../core/QuerySnapshot';
-import Unsubscribe from '../../core/Unsubscribe';
+import DocumentReference from '../../DocumentReference';
+import QuerySnapshot from '../../QuerySnapshot';
+import Unsubscribe from '../../Unsubscribe';
 import QueryDescriptor from './QueryDescriptor';
 import SocketDocumentChange from './SocketDocumentChange';
 import { getDoc } from './utilities';

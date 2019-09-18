@@ -1,4 +1,4 @@
-import { WhereOperator, OrderDirection } from '../../core/Query';
+import { WhereOperator, OrderDirection } from '../../Query';
 
 interface QueryDescriptorBase<T extends string> {
   type: T;

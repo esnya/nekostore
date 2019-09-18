@@ -7,14 +7,16 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "rootDir": "src",
     "lib": [
       "esnext",
       "dom",
     ],
   },
   "exclude": [
+    "examples",
     "lib",
-    "*.spec.ts",
-  ],
+    "*.spec.ts"
+  ]
 }
 

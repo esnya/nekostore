@@ -1,8 +1,8 @@
 /* eslint @typescript-eslint/no-use-before-define: off */
 import mapValues from 'lodash/mapValues';
-import Query, { WhereOperator, OrderDirection } from '../../core/Query';
-import QuerySnapshot from '../../core/QuerySnapshot';
-import Unsubscribe from '../../core/Unsubscribe';
+import Query, { WhereOperator, OrderDirection } from '../../Query';
+import QuerySnapshot from '../../QuerySnapshot';
+import Unsubscribe from '../../Unsubscribe';
 import BasicDriver from '.';
 import BasicDocumentReference from './BasicDocumentReference';
 import BasicCollectionReference from './BasicCollectionReference';

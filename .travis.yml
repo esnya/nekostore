@@ -9,9 +9,7 @@ env:
 before_script:
 - firebase setup:emulators:firestore
 script:
-- npm run lint
-- npm run cover
-- npm run build
+- npm run ci-scripts
 after_success:
 - codecov
 notifications:

@@ -1,6 +1,6 @@
-import DocumentSnapshot from '../../core/DocumentSnapshot';
-import DocumentReference from '../../core/DocumentReference';
-import Timestamp from '../../core/Timestamp';
+import DocumentSnapshot from '../../DocumentSnapshot';
+import DocumentReference from '../../DocumentReference';
+import Timestamp from '../../Timestamp';
 import BasicDocumentReference from './BasicDocumentReference';
 import { Data } from '../../store/Store';
 

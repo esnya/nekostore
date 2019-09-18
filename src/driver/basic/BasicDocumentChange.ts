@@ -1,4 +1,4 @@
-import DocumentChange, { ChangeType } from '../../core/DocumentChange';
+import DocumentChange, { ChangeType } from '../../DocumentChange';
 import BasicDocumentSnapsnot from './BasicDocumentSnapshot';
 import BasicDocumentReference from './BasicDocumentReference';
 import { Data } from '../../store/Store';

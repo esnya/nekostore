@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import { fake } from 'sinon';
-import CollectionReference from '../core/CollectionReference';
+import CollectionReference from '../CollectionReference';
 import Nekostore from '../nekostore';
-import DocumentReference from '../core/DocumentReference';
-import Driver from '../core/Driver';
-import QuerySnapshot from '../core/QuerySnapshot';
-import Unsubscribe from '../core/Unsubscribe';
-import DocumentSnapshot from '../core/DocumentSnapshot';
+import DocumentReference from '../DocumentReference';
+import Driver from '../Driver';
+import QuerySnapshot from '../QuerySnapshot';
+import Unsubscribe from '../Unsubscribe';
+import DocumentSnapshot from '../DocumentSnapshot';
 
 interface T1 {
   t1: string;

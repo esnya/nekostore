@@ -1,4 +1,4 @@
-import DocumentChange, { ChangeType } from '../../core/DocumentChange';
+import DocumentChange, { ChangeType } from '../../DocumentChange';
 import FirestoreDocumentSnapsnot from './FirestoreDocumentSnapshot';
 
 export default class FirestoreDocumentChange<T>

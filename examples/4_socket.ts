@@ -1,9 +1,9 @@
-import BasicDriver from '../src/driver/basic'; // 'nekostore/lib/src/driver/basic'
-import Nekostore from '../src/nekostore'; // 'nekostore'
-import SocketDriver from '../src/driver/socket';
+import Nekostore from '..';
+import BasicDriver from '../lib/driver/basic';
+import SocketDriver from '../lib/driver/socket';
+import SocketDriverServer from '../lib/driver/socket/SocketDriverServer';
 import IO from 'socket.io';
 import Socket from 'socket.io-client';
-import SocketDriverServer from '../src/driver/socket/SocketDriverServer';
 
 interface Data {
   foo: string;

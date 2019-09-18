@@ -1,9 +1,9 @@
 import uuid from 'uuid';
 import Socket from './Socket';
-import Driver from '../../core/Driver';
-import CollectionReference from '../../core/CollectionReference';
+import Driver from '../../Driver';
+import CollectionReference from '../../CollectionReference';
 import ClientCollectionReference from './SocketCollectionReference';
-import NekostoreError from '../../core/NekostoreError';
+import NekostoreError from '../../NekostoreError';
 import { ActionNames, ActionReturnTypeOf, ActionArgsOf } from './Actions';
 
 export interface Options {

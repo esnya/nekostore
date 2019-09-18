@@ -1,5 +1,5 @@
 import QueryDescriptor from './QueryDescriptor';
-import { ChangeType } from '../../core/DocumentChange';
+import { ChangeType } from '../../DocumentChange';
 import { DocumentSnapshotData } from './SocketDocumentSnapshot';
 
 export interface QuerySnapshotData<T> {

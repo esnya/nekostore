@@ -1,9 +1,9 @@
-import CollectionReference from '../../core/CollectionReference';
+import CollectionReference from '../../CollectionReference';
 import BasicQuery from './BasicQuery';
-import DocumentReference from '../../core/DocumentReference';
+import DocumentReference from '../../DocumentReference';
 import BasicDocumentReference from './BasicDocumentReference';
 import BasicDriver from '.';
-import QuerySnapshot from '../../core/QuerySnapshot';
+import QuerySnapshot from '../../QuerySnapshot';
 import BasicDocumentChange from './BasicDocumentChange';
 
 export default class BasicCollectionReference<T> extends BasicQuery<T>
