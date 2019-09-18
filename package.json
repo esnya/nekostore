@@ -5,7 +5,8 @@
   "main": "lib/Nekostore.js",
   "scripts": {
     "build": "tsc -b",
-    "ci-scripts": "run-s lint cover build",
+    "ci-scripts": "run-s clean lint cover build",
+    "clean": "rimraf lib",
     "cover": "nyc mocha",
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
@@ -63,6 +64,7 @@
     "npm-run-all": "^4.1.5",
     "nyc": "^14.1.1",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
     "sinon": "^7.4.2",
     "sinon-chai": "^3.3.0",
     "socket.io": "^2.2.0",
