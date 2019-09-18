@@ -3,7 +3,7 @@ export default class NekostoreError extends Error {
     super(`${message}:${code}`);
 
     this.code = code;
-    this.message = code;
+    this.message = message;
     this.original = original;
   }
 

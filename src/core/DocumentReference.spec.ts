@@ -53,8 +53,8 @@ describe('DocumentReference', () => {
 
   it('subscribes', async () => {
     const onNext = fake();
-    const unsubscribe = doc.onSnapshot(onNext);
+    const unsubscribe = await doc.onSnapshot(onNext);
     expect(driver.fakeDocument.onSnapshot).calledOnceWith(onNext);
-    expect(unsubscribe).to.equal(driver.fakeUnsubscribe);
+    expect(typeof unsubscribe).to.equal('function');
   });
 });

@@ -14,5 +14,7 @@ export default interface Query<T> {
   where<U>(field: string, operator: WhereOperator, value: U): Query<T>;
 
   get(): Promise<QuerySnapshot<T>>;
-  onSnapshot(onNext: (snapshot: QuerySnapshot<T>) => void): Unsubscribe;
+  onSnapshot(
+    onNext: (snapshot: QuerySnapshot<T>) => void,
+  ): Promise<Unsubscribe>;
 }

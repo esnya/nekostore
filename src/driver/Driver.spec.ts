@@ -6,7 +6,6 @@ import DocumentReference from '../core/DocumentReference';
 import Driver from '../core/Driver';
 import QuerySnapshot from '../core/QuerySnapshot';
 import Unsubscribe from '../core/Unsubscribe';
-import NotFoundError from '../core/NotFoundError';
 import DocumentSnapshot from '../core/DocumentSnapshot';
 
 interface T1 {
@@ -59,7 +58,7 @@ export default function testDriver<T>(
     const onNext = fake();
     let unsubscribe: Unsubscribe;
     it('subscribes', async () => {
-      unsubscribe = c1.onSnapshot(onNext);
+      unsubscribe = await c1.onSnapshot(onNext);
       await timeout(500);
     });
 
@@ -138,8 +137,8 @@ export default function testDriver<T>(
       onNext.resetHistory();
     });
 
-    it('unsubscribes', () => {
-      unsubscribe();
+    it('unsubscribes', async () => {
+      await unsubscribe();
     });
 
     it('should not receives', async () => {
@@ -177,7 +176,7 @@ export default function testDriver<T>(
     });
 
     it('throw error when updating empty', async () => {
-      await expect(d1.update({})).to.rejectedWith(NotFoundError);
+      await expect(d1.update({})).to.rejected;
     });
 
     it('deletes empty', async () => {
@@ -186,8 +185,8 @@ export default function testDriver<T>(
 
     const onNext = fake();
     let unsubscribe: Unsubscribe;
-    it('watch snapshots', () => {
-      unsubscribe = d1.onSnapshot(onNext);
+    it('watch snapshots', async () => {
+      unsubscribe = await d1.onSnapshot(onNext);
       expect(unsubscribe).is.instanceOf(Function);
       expect(onNext).not.called;
     });
@@ -230,8 +229,8 @@ export default function testDriver<T>(
     });
 
     it('updates', async () => {
+      await timeout(1000);
       await d1.update({ t1: 'd' });
-      await timeout(500);
 
       const snapshot = await d1.get();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'd' });
@@ -277,7 +276,7 @@ export default function testDriver<T>(
 
     it('unsubscirbes', async () => {
       onNext.resetHistory();
-      unsubscribe();
+      await unsubscribe();
 
       await d1.set({
         t1: 'e',

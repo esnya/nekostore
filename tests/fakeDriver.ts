@@ -38,7 +38,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
       startAt: fake(),
       where: fake(),
       get: fake(() => Promise.resolve(fakeQuerySnapshot)),
-      onSnapshot: fake(() => fakeUnsubscribe),
+      onSnapshot: fake(() => Promise.resolve(fakeUnsubscribe)),
     };
   }
 
@@ -67,7 +67,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
     set: fake(() => Promise.resolve()),
     update: fake(() => Promise.resolve()),
     delete: fake(() => Promise.resolve()),
-    onSnapshot: fake(() => fakeUnsubscribe),
+    onSnapshot: fake(() => Promise.resolve(fakeUnsubscribe)),
   };
 
   fakeDocumentSnapshot = {
@@ -81,7 +81,7 @@ export default function fakeDriver<T, U = {}>(): FakeDriver<T, U> {
   };
 
   return {
-    getCollectionReference: fake(() => fakeCollection),
+    collection: fake(() => fakeCollection),
     fakeCollection,
     fakeDocument,
     fakeDocumentSnapshot,

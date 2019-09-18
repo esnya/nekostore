@@ -1,6 +1,5 @@
-import Unsubscribe from '../core/Unsubscribe';
-
 export default interface EventBus {
-  on<T>(event: string, listener: (data: T) => void): Unsubscribe;
-  emit<T>(event: string, data: T): void;
+  on<T>(event: string, listener: (...args: T[]) => void): () => void;
+  once<T>(event: string, listener: (...args: T[]) => void): () => void;
+  emit<T>(event: string, ...args: T[]): void;
 }

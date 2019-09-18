@@ -15,5 +15,7 @@ export default interface DocumentReference<T> {
   update(data: Partial<T>): Promise<void>;
   delete(): Promise<void>;
 
-  onSnapshot(onNext: (snapshot: DocumentSnapshot<T>) => void): Unsubscribe;
+  onSnapshot(
+    onNext: (snapshot: DocumentSnapshot<T>) => void,
+  ): Promise<Unsubscribe>;
 }

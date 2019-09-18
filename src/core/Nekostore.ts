@@ -9,6 +9,6 @@ export default class Nekostore {
   }
 
   collection<T>(id: string): CollectionReference<T> {
-    return this.driver.getCollectionReference<T>(id);
+    return this.driver.collection<T>(id);
   }
 }

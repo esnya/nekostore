@@ -40,8 +40,8 @@ describe('CollectionReference', () => {
 
   it('subscribes', async () => {
     const onNext = fake();
-    const unsubscribe = collection.onSnapshot(onNext);
+    const unsubscribe = await collection.onSnapshot(onNext);
     expect(driver.fakeCollection.onSnapshot).calledOnceWith(onNext);
-    expect(unsubscribe).to.equal(driver.fakeUnsubscribe);
+    expect(typeof unsubscribe).to.equal('function');
   });
 });

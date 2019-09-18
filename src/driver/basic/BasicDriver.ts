@@ -15,7 +15,7 @@ export default class BasicDriver implements Driver {
   readonly store: Store;
   readonly eventBus: EventBus;
 
-  getCollectionReference<T>(id: string): CollectionReference<T> {
+  collection<T>(id: string): CollectionReference<T> {
     return new BasicCollectionReference<T>(this, id);
   }
 }

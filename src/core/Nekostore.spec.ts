@@ -22,7 +22,7 @@ describe('Nekostore', () => {
   describe('collection', () => {
     it('calls driver factory', () => {
       const collection = nekostore.collection<C01>('c01');
-      expect(driver.getCollectionReference).to.be.calledOnceWith('c01');
+      expect(driver.collection).to.be.calledOnceWith('c01');
       expect(collection).to.equal(driver.fakeCollection);
     });
   });

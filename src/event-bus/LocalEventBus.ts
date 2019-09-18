@@ -1,18 +1,24 @@
 import { EventEmitter } from 'events';
-import Unsubscribe from '../core/Unsubscribe';
 import EventBus from './EventBus';
 
 export default class LocalEventBus implements EventBus {
   readonly ee = new EventEmitter();
 
-  on<T>(event: string, listener: (data: T) => void): Unsubscribe {
+  on<T>(event: string, listener: (...args: T[]) => void): () => void {
     this.ee.on(event, listener);
     return (): void => {
       this.ee.off(event, listener);
     };
   }
 
-  emit<T>(event: string, data: T): void {
-    this.ee.emit(event, data);
+  once<T>(event: string, listener: (...args: T[]) => void): () => void {
+    this.ee.once(event, listener);
+    return (): void => {
+      this.ee.off(event, listener);
+    };
+  }
+
+  emit<T>(event: string, ...args: T[]): void {
+    this.ee.emit(event, ...args);
   }
 }

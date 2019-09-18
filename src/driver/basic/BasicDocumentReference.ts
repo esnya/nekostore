@@ -94,7 +94,13 @@ export default class BasicDocumentReference<T extends {}>
     });
   }
 
-  onSnapshot(onNext: (snapshot: DocumentSnapshot<T>) => void): Unsubscribe {
-    return this.driver.eventBus.on(this.path, onNext);
+  async onSnapshot(
+    onNext: (snapshot: DocumentSnapshot<T>) => void,
+  ): Promise<Unsubscribe> {
+    const unsubscribe = this.driver.eventBus.on(this.path, onNext);
+
+    return async (): Promise<void> => {
+      unsubscribe();
+    };
   }
 }

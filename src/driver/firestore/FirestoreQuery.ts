@@ -49,9 +49,14 @@ export default class FirestoreQuery<T> implements Query<T> {
   async get(): Promise<QuerySnapshot<T>> {
     return encodeQuerySnapshot<T>(this, await this.ref.get());
   }
-  onSnapshot(onNext: (value: QuerySnapshot<T>) => void): Unsubscribe {
-    return this.ref.onSnapshot(snapshot => {
+  async onSnapshot(
+    onNext: (value: QuerySnapshot<T>) => void,
+  ): Promise<Unsubscribe> {
+    const unsubscribe = this.ref.onSnapshot(snapshot => {
       onNext(encodeQuerySnapshot<T>(this, snapshot));
     });
+    return async (): Promise<void> => {
+      unsubscribe();
+    };
   }
 }

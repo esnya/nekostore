@@ -116,12 +116,17 @@ export default class BasicQuery<T> implements Query<T> {
     };
   }
 
-  onSnapshot(onNext: (snapshot: QuerySnapshot<T>) => void): Unsubscribe {
+  async onSnapshot(
+    onNext: (snapshot: QuerySnapshot<T>) => void,
+  ): Promise<Unsubscribe> {
     if (this.operators.length > 0) throw new Error('Query is not supported');
 
     setTimeout(async () => {
       onNext(await this.get());
     });
-    return this.driver.eventBus.on(this.path, onNext);
+    const unsubscribe = this.driver.eventBus.on(this.path, onNext);
+    return async (): Promise<void> => {
+      unsubscribe();
+    };
   }
 }

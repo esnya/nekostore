@@ -11,7 +11,7 @@ export default class FirestoreDriver implements Driver {
 
   readonly firestore: Firestore;
 
-  getCollectionReference<T>(id: string): CollectionReference<T> {
+  collection<T>(id: string): CollectionReference<T> {
     return new FirestoreCollectionReference<T>(this.firestore.collection(id));
   }
 }
