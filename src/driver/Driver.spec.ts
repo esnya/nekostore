@@ -229,7 +229,7 @@ export default function testDriver<T>(
 
     it('updates', async () => {
       await d1.update({ t1: 'd' });
-      await sleep();
+      await sleep(3000);
 
       const snapshot = await d1.get();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'd' });
