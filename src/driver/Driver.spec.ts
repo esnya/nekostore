@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { fake } from 'sinon';
 import CollectionReference from '../CollectionReference';
-import Nekostore from '../nekostore';
+import Nekostore from '../Nekostore';
 import DocumentReference from '../DocumentReference';
 import Driver from '../Driver';
 import QuerySnapshot from '../QuerySnapshot';
