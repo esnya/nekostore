@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Nekostore from './Nekostore';
-import fakeDriver from '../../tests/fakeDriver';
+import fakeDriver from './fakeDriver.spec';
 
 interface C01 {
   foo: string;

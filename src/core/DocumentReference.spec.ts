@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { fake } from 'sinon';
 import { Nekostore } from '../nekostore';
-import fakeDriver from '../../tests/fakeDriver';
+import fakeDriver from './fakeDriver.spec';
 import DocumentReference from './DocumentReference';
 
 interface Data1 {

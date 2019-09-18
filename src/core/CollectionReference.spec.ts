@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { fake } from 'sinon';
 import { Nekostore } from '../nekostore';
 import CollectionReference from './CollectionReference';
-import fakeDriver from '../../tests/fakeDriver';
+import fakeDriver from './fakeDriver.spec';
 
 interface Data1 {
   foo: string;

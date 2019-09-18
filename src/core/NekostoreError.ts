@@ -10,4 +10,8 @@ export default class NekostoreError extends Error {
   readonly code: string;
   readonly message: string;
   readonly original?: Error;
+
+  get stack(): string | undefined {
+    return (this.original && this.original.stack) || this.stack;
+  }
 }

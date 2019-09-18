@@ -1,14 +1,19 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import runEmulators from '../../../tests/firebaseEmulator';
-import initializeApp from '../../../tests/firebaseInitialize';
+import tools from 'firebase-tools';
 import FirestoreDriver from './FirestoreDriver';
 import testDriver from '../Driver.spec';
 
 describe('FirestoreDriver', () => {
   before(async () => {
-    await runEmulators();
-    await initializeApp();
+    try {
+      firebase.app();
+    } catch (error) {
+      if (error.code !== 'app/no-app') throw error;
+
+      const config = await tools.setup.web();
+      firebase.initializeApp(config);
+    }
   });
 
   testDriver(FirestoreDriver, async () => [firebase.firestore()]);

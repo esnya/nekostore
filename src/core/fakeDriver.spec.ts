@@ -1,12 +1,12 @@
 /* eslint prefer-const: off */
 import { fake } from 'sinon';
-import CollectionReference from '../src/core/CollectionReference';
-import Driver from '../src/core/Driver';
-import DocumentReference from '../src/core/DocumentReference';
-import DocumentSnapshot from '../src/core/DocumentSnapshot';
-import QuerySnapshot from '../src/core/QuerySnapshot';
-import Unsubscribe from '../src/core/Unsubscribe';
-import Query from '../src/core/Query';
+import CollectionReference from './CollectionReference';
+import Driver from './Driver';
+import DocumentReference from './DocumentReference';
+import DocumentSnapshot from './DocumentSnapshot';
+import QuerySnapshot from './QuerySnapshot';
+import Unsubscribe from './Unsubscribe';
+import Query from './Query';
 
 export interface Data {
   foo: string;

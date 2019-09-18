@@ -4,7 +4,7 @@ spec: '**/*.spec.ts'
 require:
   - source-map-support/register
   - ts-node/register
-  - ./tests/setup.ts
-timeout: 30000
+  - ./src/setup.spec.ts
+timeout: 60000
 watch-files:
   - '**/*.ts'
