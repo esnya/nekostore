@@ -19,8 +19,8 @@ describe('FirestoreDriver', () => {
     });
   });
 
-  after(async () => {
-    await app.delete();
+  after(() => {
+    app.delete();
   });
 
   testDriver(async () => new FirestoreDriver(app.firestore()));
