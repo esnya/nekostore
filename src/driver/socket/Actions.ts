@@ -39,6 +39,7 @@ export default interface Actions {
   unsubscribe(subscriberId: string): Promise<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ParameterTypes<T> = T extends (...args: infer T) => any ? T : never;
 type Unpromise<T> = T extends Promise<infer U> ? U : T;
 

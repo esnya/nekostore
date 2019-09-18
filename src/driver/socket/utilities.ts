@@ -47,6 +47,7 @@ export function getQuery<T>(
       default:
         throw new NekostoreError(
           'invalid-query',
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           `${(desc as any).type} is not valid query`,
         );
     }

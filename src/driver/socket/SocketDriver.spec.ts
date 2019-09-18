@@ -1,7 +1,6 @@
 import testDriver from '../Driver.spec';
 import SocketDriver from './SocketDriver';
 import { EventEmitter } from 'events';
-import Unsubscribe from '../../core/Unsubscribe';
 import SocketDriverServer from './SocketDriverServer';
 import BasicDriver from '../basic';
 
