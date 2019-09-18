@@ -4,7 +4,6 @@ import SocketDriver from '../src/driver/socket';
 import IO from 'socket.io';
 import Socket from 'socket.io-client';
 import SocketDriverServer from '../src/driver/socket/SocketDriverServer';
-import { EventBusWrapper } from '../src/event-bus/EventBus';
 
 interface Data {
   foo: string;
@@ -16,14 +15,14 @@ async function server(): Promise<() => void> {
   const server = IO.listen(8080);
   server.on('connection', socket => {
     console.log('Connected', socket.id);
-    new SocketDriverServer(driver, new EventBusWrapper(socket));
+    new SocketDriverServer(driver, socket);
   });
 
   return (): void => server.close();
 }
 
 async function client(): Promise<void> {
-  const socket = new EventBusWrapper(Socket.connect('http://localhost:8080'));
+  const socket = Socket.connect('http://localhost:8080');
   const driver = new SocketDriver({ socket });
   const nekostore = new Nekostore(driver);
 

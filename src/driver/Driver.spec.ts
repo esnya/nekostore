@@ -18,14 +18,10 @@ function sleep(t?: number): Promise<void> {
   });
 }
 
-export default function testDriver<T>(
-  Ctor: { new (...args: T[]): Driver },
-  initialize: () => Promise<T[]>,
-): void {
+export default function testDriver(getDriver: () => Promise<Driver>): void {
   let nekostore: Nekostore;
   it('can instantiate', async () => {
-    const args = await initialize();
-    const driver = new Ctor(...args);
+    const driver = await getDriver();
     nekostore = new Nekostore(driver);
   });
 

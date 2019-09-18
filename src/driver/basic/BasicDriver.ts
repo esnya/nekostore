@@ -2,18 +2,23 @@ import Driver from '../../core/Driver';
 import CollectionReference from '../../core/CollectionReference';
 import BasicCollectionReference from './BasicCollectionReference';
 import MemoryStore from '../../store/MemoryStore';
-import LocalEventBus from '../../event-bus/LocalEventBus';
 import Store from '../../store/Store';
-import EventBus from '../../event-bus/EventBus';
+import EventEmitter from './EventEmitter';
+import * as events from 'events';
+
+export interface Options {
+  store?: Store;
+  eventEmitter?: EventEmitter;
+}
 
 export default class BasicDriver implements Driver {
-  constructor(options: { store?: Store; eventBus?: EventBus } = {}) {
+  constructor(options: Options = {}) {
     this.store = options.store || new MemoryStore();
-    this.eventBus = options.eventBus || new LocalEventBus();
+    this.eventEmitter = options.eventEmitter || new events.EventEmitter();
   }
 
   readonly store: Store;
-  readonly eventBus: EventBus;
+  readonly eventEmitter: EventEmitter;
 
   collection<T>(id: string): CollectionReference<T> {
     return new BasicCollectionReference<T>(this, id);

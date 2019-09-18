@@ -23,7 +23,7 @@ export default class BasicCollectionReference<T> extends BasicQuery<T>
   private async emitAdded(ref: BasicDocumentReference<T>): Promise<void> {
     const snapshot = await ref.get();
 
-    this.driver.eventBus.emit<QuerySnapshot<T>>(this.path, {
+    this.driver.eventEmitter.emit<QuerySnapshot<T>>(this.path, {
       ref: this,
       docs: [
         new BasicDocumentChange<T>(

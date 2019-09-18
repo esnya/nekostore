@@ -1,4 +1,4 @@
-import EventBus from '../../event-bus/EventBus';
+import EventEmitter from '../basic/EventEmitter';
 
-type Socket = EventBus;
+type Socket = EventEmitter;
 export default Socket;

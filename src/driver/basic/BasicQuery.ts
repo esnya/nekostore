@@ -124,9 +124,9 @@ export default class BasicQuery<T> implements Query<T> {
     setTimeout(async () => {
       onNext(await this.get());
     });
-    const unsubscribe = this.driver.eventBus.on(this.path, onNext);
+    this.driver.eventEmitter.on(this.path, onNext);
     return async (): Promise<void> => {
-      unsubscribe();
+      this.driver.eventEmitter.off(this.path, onNext);
     };
   }
 }

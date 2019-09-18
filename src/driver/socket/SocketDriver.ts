@@ -32,30 +32,29 @@ export default class SocketDriver implements Driver {
     // console.debug('Request', { action, args, requestId });
 
     return new Promise((resolve, reject): void => {
-      const unsubscribe = this.socket.once(
-        `result:${requestId}`,
-        (
-          error: { code?: string; message: string } | null,
-          result: ActionReturnTypeOf<Action>,
-        ) => {
-          // console.debug('RequestResult', {
-          //   action,
-          //   args,
-          //   requestId,
-          //   error,
-          //   result,
-          // });
-          if (error) {
-            return reject(
-              new NekostoreError(error.code || 'unknown', error.message),
-            );
-          }
-          return resolve(result);
-        },
-      );
+      const event = `result:${requestId}`;
+      const listener = (
+        error: { code?: string; message: string } | null,
+        result: ActionReturnTypeOf<Action>,
+      ): void => {
+        // console.debug('RequestResult', {
+        //   action,
+        //   args,
+        //   requestId,
+        //   error,
+        //   result,
+        // });
+        if (error) {
+          return reject(
+            new NekostoreError(error.code || 'unknown', error.message),
+          );
+        }
+        return resolve(result);
+      };
+      this.socket.once(event, listener);
 
       setTimeout(async () => {
-        unsubscribe();
+        this.socket.off(event, listener);
         reject(
           new NekostoreError('timeout', `${action} timed out ${requestId}`),
         );

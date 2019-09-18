@@ -4,11 +4,10 @@ import DocumentReference from '../../core/DocumentReference';
 import QuerySnapshot from '../../core/QuerySnapshot';
 import Unsubscribe from '../../core/Unsubscribe';
 import QueryDescriptor from './QueryDescriptor';
-import SocketDocumentChange, {
-  DocumentChangeData,
-} from './SocketDocumentChange';
+import SocketDocumentChange from './SocketDocumentChange';
 import { getDoc } from './utilities';
 import { DocumentSnapshotData } from './SocketDocumentSnapshot';
+import { QuerySnapshotData } from './Actions';
 
 export default class SocketQuery<T> implements Query<T> {
   constructor(
@@ -91,27 +90,20 @@ export default class SocketQuery<T> implements Query<T> {
       this.path,
       this.descriptors,
     );
-    const unsubscribe = this.driver.socket.on(
-      `snapshot:${subscriberId}`,
-      (snapshot: {
-        docs: {
-          path: string;
-          change: DocumentChangeData;
-          snapshot?: DocumentSnapshotData<T>;
-        }[];
-      }): void => {
-        const docs = snapshot.docs.map(doc => {
-          const ref = getDoc<T>(this.driver, doc.path);
-          return new SocketDocumentChange<T>(ref, doc.change, doc.snapshot);
-        });
-        onNext({
-          ref: this,
-          docs,
-        });
-      },
-    );
+    const event = `snapshot:${subscriberId}`;
+    const listener = (snapshot: QuerySnapshotData<T>): void => {
+      const docs = snapshot.docs.map(doc => {
+        const ref = getDoc<T>(this.driver, doc.path);
+        return new SocketDocumentChange<T>(ref, doc.change, doc.snapshot);
+      });
+      onNext({
+        ref: this,
+        docs,
+      });
+    };
+    this.driver.socket.on(event, listener);
     return async (): Promise<void> => {
-      await unsubscribe();
+      this.driver.socket.off(event, listener);
       this.driver.request('unsubscribe', subscriberId);
     };
   }

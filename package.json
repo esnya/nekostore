@@ -7,8 +7,9 @@
     "build": "tsc -b",
     "cover": "nyc mocha",
     "dev": "run-p -l dev:*",
+    "dev:build": "npm run -s build -- --watch",
+    "dev:lint": "esw --fix --ext .ts **/*.ts --ignore-pattern lib/**/*",
     "dev:test": "npm run -s test -- --watch",
-    "dev:lint": "esw --fix --ext .ts **/*.ts",
     "lint": "eslint **/*.ts",
     "test": "cross-env TS_NODE_FILES=true mocha"
   },

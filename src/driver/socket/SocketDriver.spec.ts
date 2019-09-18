@@ -4,28 +4,17 @@ import { EventEmitter } from 'events';
 import SocketDriverServer from './SocketDriverServer';
 import BasicDriver from '../basic';
 
-class FakeSocket {
-  readonly ee = new EventEmitter();
+class FakeSocket extends EventEmitter {
   pair?: FakeSocket;
 
-  on<T>(event: string, listener: (...args: T[]) => void): () => void {
-    this.ee.on(event, listener);
-    return (): void => {
-      this.ee.off(event, listener);
-    };
+  emit<T>(event: string, ...args: T[]): boolean {
+    if (!this.pair) return false;
+    this.pair.emitSelf(event, ...args);
+    return true;
   }
 
-  once<T>(event: string, listener: (...args: T[]) => void): () => void {
-    // console.log('once', event);
-    this.ee.once(event, listener);
-    return (): void => {
-      this.ee.off(event, listener);
-    };
-  }
-
-  emit<T>(event: string, ...args: T[]): void {
-    // console.log('emit', event, data);
-    if (this.pair) this.pair.ee.emit(event, ...args);
+  private emitSelf<T>(event: string, ...args: T[]): boolean {
+    return super.emit(event, ...args);
   }
 
   connect(target: FakeSocket): void {
@@ -42,9 +31,5 @@ describe('SocketDriver', () => {
   const server = new SocketDriverServer(new BasicDriver(), down);
   after(() => server.destroy());
 
-  testDriver(SocketDriver, async () => [
-    {
-      socket: up,
-    },
-  ]);
+  testDriver(async () => new SocketDriver({ socket: up }));
 });

@@ -56,15 +56,14 @@ export default class SocketDocumentReference<T>
       'documentSubscribe',
       this.path,
     );
-    const unsubscribe = this.driver.socket.on(
-      `snapshot:${subscriberId}`,
-      (snapshot: DocumentSnapshotData<T>) => {
-        onNext(new SocketDocumentSnapshot<T>(this, snapshot));
-      },
-    );
+    const event = `snapshot:${subscriberId}`;
+    const listener = (snapshot: DocumentSnapshotData<T>): void => {
+      onNext(new SocketDocumentSnapshot<T>(this, snapshot));
+    };
+    this.driver.socket.on(event, listener);
 
     return async (): Promise<void> => {
-      await unsubscribe();
+      this.driver.socket.off(event, listener);
       this.driver.request('unsubscribe', subscriberId);
     };
   }

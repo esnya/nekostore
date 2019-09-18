@@ -46,7 +46,7 @@ export default class BasicDocumentReference<T extends {}>
     await this.driver.store.set(this.parent.path, this.id, rawData);
 
     const snapshot = new BasicDocumentSnapshot(this, rawData);
-    this.driver.eventBus.emit(this.path, snapshot);
+    this.driver.eventEmitter.emit(this.path, snapshot);
   }
 
   async update(data: Partial<T>): Promise<void> {
@@ -56,8 +56,8 @@ export default class BasicDocumentReference<T extends {}>
     });
 
     const snapshot = await this.get();
-    this.driver.eventBus.emit(this.path, snapshot);
-    this.driver.eventBus.emit(this.parent.path, {
+    this.driver.eventEmitter.emit(this.path, snapshot);
+    this.driver.eventEmitter.emit(this.parent.path, {
       ref: this.parent,
       docs: [
         new BasicDocumentChange<T>(
@@ -81,8 +81,8 @@ export default class BasicDocumentReference<T extends {}>
 
   async delete(): Promise<void> {
     await this.driver.store.delete(this.parent.path, this.id);
-    this.driver.eventBus.emit(this.path, new BasicDocumentSnapshot(this));
-    this.driver.eventBus.emit(this.parent.path, {
+    this.driver.eventEmitter.emit(this.path, new BasicDocumentSnapshot(this));
+    this.driver.eventEmitter.emit(this.parent.path, {
       ref: this.parent,
       docs: [
         new BasicDocumentChange<T>(this, {
@@ -97,10 +97,10 @@ export default class BasicDocumentReference<T extends {}>
   async onSnapshot(
     onNext: (snapshot: DocumentSnapshot<T>) => void,
   ): Promise<Unsubscribe> {
-    const unsubscribe = this.driver.eventBus.on(this.path, onNext);
+    this.driver.eventEmitter.on(this.path, onNext);
 
     return async (): Promise<void> => {
-      unsubscribe();
+      this.driver.eventEmitter.off(this.path, onNext);
     };
   }
 }
