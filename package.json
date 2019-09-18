@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/esnya/nekostore#readme",
   "devDependencies": {
+    "@firebase/testing": "^0.13.1",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
     "@types/chai": "^4.2.2",
     "@types/chai-as-promised": "^7.1.2",

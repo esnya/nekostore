@@ -14,7 +14,7 @@ interface T1 {
 
 function sleep(t?: number): Promise<void> {
   return new Promise((resolve): void => {
-    setTimeout(resolve, t || 1000);
+    setTimeout(resolve, t || 100);
   });
 }
 
@@ -76,6 +76,7 @@ export default function testDriver<T>(
 
     it('gets snapshot', async () => {
       await c1.add({ t1: 'b' });
+      await sleep();
 
       const snapshot = await c1.get();
       expect(snapshot.docs.length).to.equal(2);
@@ -245,6 +246,7 @@ export default function testDriver<T>(
       await d1.set({
         t1: 'e',
       });
+      await sleep();
       const snapshot = await d1.get();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'e' });
       expect(createTime).is.lte(Date.now());

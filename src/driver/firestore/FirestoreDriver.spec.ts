@@ -1,24 +1,27 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import tools from 'firebase-tools';
+import { initializeTestApp } from '@firebase/testing';
+import { EmulatorServer } from 'firebase-tools/lib/emulator/emulatorServer';
+import { FirestoreEmulator } from 'firebase-tools/lib/emulator/firestoreEmulator';
 import FirestoreDriver from './FirestoreDriver';
 import testDriver from '../Driver.spec';
 
 describe('FirestoreDriver', () => {
+  let app: firebase.app.App;
   before(async () => {
-    try {
-      firebase.app();
-    } catch (error) {
-      if (error.code !== 'app/no-app') throw error;
+    const emulator = new EmulatorServer(new FirestoreEmulator({}));
+    await emulator.start();
+    after(async () => {
+      await emulator.stop();
+    });
 
-      const config = await tools.setup.web();
-      firebase.initializeApp(config);
-    }
+    app = await initializeTestApp({
+      projectId: 'nekostore-dev-923b4',
+      auth: { uid: 'test' },
+    });
   });
 
   after(async () => {
-    await firebase.app().delete();
+    await app.delete();
   });
 
-  testDriver(FirestoreDriver, async () => [firebase.firestore()]);
+  testDriver(FirestoreDriver, async () => [app.firestore()]);
 });
