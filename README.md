@@ -114,7 +114,7 @@ printDocumentsData(snapshot); // d1, d2
 ```
 
 ### EndAt EndBefore StartAfter StartAt
-```
+```ys
 const s1: QuerySnapshot<Data> = await colRef.orderBy('bar').endAt(1).get();
 printDocumentsData(s1); // d1, d2
 
@@ -129,7 +129,7 @@ printDocumentsData(s4); // d2, d3
 ```
 
 ### Where
-```
+```ys
 const s1: QuerySnapshot<Data> = await colRef.where('foo', '==', 'c').get();
 printDocumentsData(s1); // d3
 
