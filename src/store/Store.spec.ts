@@ -102,4 +102,11 @@ export default function testStore<T>(
       { id: d3, foo: 'c', bar: 1 },
     ]);
   });
+
+  it('allows specific id', async () => {
+    await store.set(c1, 'd1', { foo: 'e' });
+    expect(await store.get(c1, 'd1')).to.deep.equal({
+      foo: 'e',
+    });
+  });
 }

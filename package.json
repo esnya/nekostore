@@ -11,7 +11,7 @@
     "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.* --gitRevision master",
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
-    "dev:docs": "nodemon -w src -e ts -x \"npm run -s docs\"",
+    "dev:docs": "nodemon -i -w src -e ts -x \"npm run -s docs\"",
     "dev:lint": "esw --fix --ext .ts **/*.ts --ignore-pattern lib/**/*",
     "dev:test": "npm run -s test -- --watch",
     "lint": "eslint --ignore-pattern lib/**/* **/*.ts",

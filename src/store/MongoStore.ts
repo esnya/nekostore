@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 import fromPairs from 'lodash/fromPairs';
 import Store, { Data } from './Store';
-import { Db, Collection, ObjectID } from 'mongodb';
+import { Db, Collection, ObjectID, FilterQuery } from 'mongodb';
 import Timestamp from '../Timestamp';
 import NotFoundError from '../NotFoundError';
 import AggregationOperator from '../driver/basic/AggregatioOperator';
@@ -11,6 +11,18 @@ export interface Options {
    * Instance of Db from MongoDB client.
    */
   readonly db: Db;
+}
+
+function getIdFilter(id: string): FilterQuery<Data> {
+  try {
+    return {
+      _id: new ObjectID(id),
+    };
+  } catch (error) {
+    return {
+      id,
+    };
+  }
 }
 
 /**
@@ -48,19 +60,15 @@ export default class MongoStore implements Store {
     return insertedId.toHexString();
   }
   async get(collectionId: string, id: string): Promise<Data | undefined> {
-    const data = await this.collection(collectionId).findOne({
-      _id: new ObjectID(id),
-    });
+    const data = await this.collection(collectionId).findOne(getIdFilter(id));
     if (data === undefined || data === null) return undefined;
 
-    return omit(data, '_id');
+    return omit(data, '_id', 'id');
   }
 
   async set(collectionId: string, id: string, data: Data): Promise<void> {
     await this.collection(collectionId).updateOne(
-      {
-        _id: new ObjectID(id),
-      },
+      getIdFilter(id),
       { $set: data },
       { upsert: true },
     );
@@ -68,9 +76,7 @@ export default class MongoStore implements Store {
 
   async update(collectionId: string, id: string, data: Data): Promise<void> {
     const { result } = await this.collection(collectionId).updateOne(
-      {
-        _id: new ObjectID(id),
-      },
+      getIdFilter(id),
       { $set: data },
     );
     if (result.n === 0) {

@@ -39,7 +39,7 @@ Store implementation with MongoDB.
 
 \+ **new MongoStore**(`options`: [Options](../interfaces/_store_mongostore_.options.md)): *[MongoStore](_store_mongostore_.mongostore.md)*
 
-*Defined in [store/MongoStore.ts:19](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L19)*
+*Defined in [store/MongoStore.ts:31](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L31)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ Name | Type |
 
 • **db**: *Db*
 
-*Defined in [store/MongoStore.ts:24](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L24)*
+*Defined in [store/MongoStore.ts:36](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L36)*
 
 ## Methods
 
@@ -65,7 +65,7 @@ Name | Type |
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:46](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L46)*
+*Defined in [store/MongoStore.ts:58](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L58)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:81](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L81)*
+*Defined in [store/MongoStore.ts:87](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L87)*
 
 **Parameters:**
 
@@ -103,7 +103,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:30](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L30)*
+*Defined in [store/MongoStore.ts:42](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L42)*
 
 **Parameters:**
 
@@ -122,7 +122,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:50](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L50)*
+*Defined in [store/MongoStore.ts:62](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L62)*
 
 **Parameters:**
 
@@ -141,7 +141,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:85](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L85)*
+*Defined in [store/MongoStore.ts:91](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L91)*
 
 **Type parameters:**
 
@@ -163,7 +163,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:59](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L59)*
+*Defined in [store/MongoStore.ts:69](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L69)*
 
 **Parameters:**
 
@@ -183,7 +183,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:94](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L94)*
+*Defined in [store/MongoStore.ts:100](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L100)*
 
 **Parameters:**
 
@@ -201,7 +201,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:69](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L69)*
+*Defined in [store/MongoStore.ts:77](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L77)*
 
 **Parameters:**
 

@@ -146,7 +146,7 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
     before(clean);
     after(clean);
 
-    const id = '123456781234567812345678';
+    const id = 'd1';
 
     after(async () => {
       await d1.delete();
