@@ -226,6 +226,7 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
 
     it('updates', async () => {
       await d1.update({ t1: 'd' });
+      await sleep();
 
       const snapshot = await d1.get();
       assertSnapshot(snapshot, { t1: 'd' });
