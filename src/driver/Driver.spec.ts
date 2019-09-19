@@ -360,6 +360,41 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
         .get();
       expect(snapshot.docs.map(d => d.data.t1)).to.deep.equal(['b', 'c']);
     });
+
+    it('receives orderBy', async () => {
+      const l1 = fake();
+      const u1 = await c1.orderBy('t1').onSnapshot(l1);
+      await sleep();
+      expect(l1).to.be.calledOnce;
+      expect(l1.lastCall.args[0].docs.map(d => d.data.t1)).to.deep.equal([
+        'a',
+        'b',
+        'c',
+      ]);
+      await u1();
+    });
+
+    it('receives where', async () => {
+      const l1 = fake();
+      const u1 = await c1.where('t1', '>=', 'c').onSnapshot(l1);
+      await sleep();
+      expect(l1).to.be.calledOnce;
+      expect(l1.lastCall.args[0].docs.map(d => d.data.t1)).to.deep.equal(['c']);
+      l1.resetHistory();
+
+      const d1 = await c1.add({ t1: 'b' });
+      const d2 = await c1.add({ t1: 'd' });
+
+      expect(l1).to.be.calledOnce;
+      expect(l1.lastCall.args[0].docs.map(d => d.data.t1)).to.deep.equal(['d']);
+
+      await d1.delete();
+      await d2.delete();
+      await sleep();
+      expect(l1.lastCall.args[0].docs[0].type).to.equal('removed');
+
+      await u1();
+    });
   }
 
   describe('collections', testCollection);

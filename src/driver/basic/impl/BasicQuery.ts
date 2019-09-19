@@ -9,6 +9,8 @@ import BasicCollectionReference from './BasicCollectionReference';
 import { FilterQuery, QuerySelector } from 'mongodb';
 import AggregationOperator from '../AggregatioOperator';
 import BasicDocumentChange from './BasicDocumentChange';
+import mingo from 'mingo';
+import DocumentChange from '../../../DocumentChange';
 
 const WhereOperatorTable: Record<WhereOperator, keyof QuerySelector<{}>> = {
   '==': '$eq',
@@ -121,14 +123,36 @@ export default class BasicQuery<T> implements Query<T> {
     onNext: (snapshot: QuerySnapshot<T>) => void,
   ): Promise<Unsubscribe> {
     this.driver.authorize(this.path, 'read');
-    if (this.operators.length > 0) throw new Error('Query is not supported');
 
     setTimeout(async () => {
       onNext(await this.get());
     });
-    this.driver.eventEmitter.on(this.path, onNext);
+
+    const aggregator = new mingo.Aggregator(this.operators);
+    const wrapper =
+      this.operators.length == 0
+        ? onNext
+        : (snapshot: QuerySnapshot<T>): void => {
+            const collection = snapshot.docs.map(doc => ({
+              ...doc.data,
+              snapshot: doc,
+            }));
+            const docs = [
+              ...aggregator
+                .run<T & { snapshot: DocumentChange<T> }>(collection)
+                .map(res => res.snapshot),
+              ...snapshot.docs.filter(doc => doc.type === 'removed'),
+            ];
+            if (docs.length === 0) return;
+
+            onNext({
+              ...snapshot,
+              docs,
+            });
+          };
+    this.driver.eventEmitter.on(this.path, wrapper);
     return async (): Promise<void> => {
-      this.driver.eventEmitter.off(this.path, onNext);
+      this.driver.eventEmitter.off(this.path, wrapper);
     };
   }
 }
