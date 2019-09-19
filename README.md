@@ -20,49 +20,122 @@ import Nekostore from 'nekostore';
 import BasicDriver from 'nekostore/src/driver/basic';
 ```
 
-### CRUD
+### Create Nekostore instance
+
+```ts
+const driver: Driver = new BasicDriver();
+const nekostore: Nekostore = new Nekostore(driver);
+```
+
+### Get reference
 ```ts
 interface Data {
   foo: string;
   bar?: number;
 }
 
-const driver = new BasicDriver();
-const nekostore = new Nekostore(driver);
+interface ChildData {
+  pyo: boolean;
+}
 
-console.log('Get collectiopn reference');
-const c1Ref = nekostore.collection<Data>('c1');
+const colRef: CollectionReference<Data> = nekosoter.collection<Date>('c1');
+const docRef: DocumentReference<Data> = colRef.doc('d1');
 
-console.log('Get document reference');
-const d1Ref = await c1Ref.doc('d1');
+const childColRef: CollectionReference<ChildData> = docRef.collection<ChildData>('child');
+```
 
-console.log('Set document');
-await d1Ref.set({ foo: 'a', bar: 0 });
+### Add document
+```
+const docRef: DocumentReference<Data> = await colRef.add({ foo: 'a', bar: 0 });
+```
 
-console.log('Get document snapshot');
-const snapshot1 = await d1Ref.get();
-console.log(snapshot1.data); // { foo: 'a', bar: 0 }
+### Get document
+```
+const snapshot: DocumentSnapshot<Data> = await docRef.get();
+if (snapshot.exists()) {
+  console.log(snapshot.data, snapshot.createTime, snapshot.updateTime);
+}
+```
 
-console.log('Update document');
-await d1Ref.update({ bar: 1 });
-console.log((await d1Ref.get()).data); // { foo: 'a', bar: 1 }
+### Update document
+```
+await docRef.update({ bar: 1 });
+```
 
-console.log('Delete documment');
-await d1Ref.delete();
-console.log((await d1Ref.get()).exists()); // false
+### Set document
+```
+const docRef: DocumentReference<Data> = colRef.('d2');
+const s1: DocumentSnapshot<Data> = await docRef.get();
+console.log(s1.exists()); // false
 
-console.log('Add document');
-const d2Ref = await c1Ref.add({ foo: 'b' });
-console.log((await d2Ref.get()).data); // { foo: 'b' }
+await docRef.set({ foo: 'b' });
+const s2: DocumentSnapshot<Data> = await docRef.get();
+console.log(s2.exists()); // true
+console.log(snapshot.data); // { foo: 'b' }
+```
 
-await c1Ref.add({ foo: 'c' });
-await c1Ref.add({ foo: 'd', bar: 1 });
-await c1Ref.add({ foo: 'e' });
+### Delete document
+```ts
+await docRef.delete();
+```
 
-console.log('Get collection snapshot');
-const snapshot2 = await c1Ref.get();
-snapshot2.docs.forEach(doc => {
-  console.log(doc.type); // 'added';
-  console.log(doc.data);
-});
+### Query
+```ts
+function prindDocumentsData(snapshot: QuerySnashot<Data>): void {
+  snapshot.docs.forEach((doc: DocumentChange<Data>): void => {
+    console.log(doc.ref.id, doc.type, doc.exists(), doc.data);
+  });
+}
+
+await colRef.add({ foo: 'a', bar: 0 }); // d1
+await colRef.add({ foo: 'b', bar: 1 }); // d2
+await colRef.add({ foo: 'c', bar: 2 }); // d3
+```
+
+### Get all documents
+```ts
+const snapshot: QuerySnapshot<Data> = await colRef.get();
+printDocumentsData(snapshot); // random order
+```
+
+### Sort
+```ts
+const asc: QuerySnapshot<Data> = await colRef.orderBy('bar').get();
+printDocumentsData(asc); // d1, d2, d3
+
+const desc: QuerySnapshot<Data> = await colRef.orderBy('bar').get();
+printDocumentsData(desc); // d3, d2, d1
+```
+
+## Limit
+```ts
+const snapshot: QuerySnapshot<Data> = await colRef.orderBy('foo').limit(2).get();
+printDocumentsData(snapshot); // d1, d2
+```
+
+### EndAt EndBefore StartAfter StartAt
+```
+const s1: QuerySnapshot<Data> = await colRef.orderBy('bar').endAt(1).get();
+printDocumentsData(s1); // d1, d2
+
+const s2: QuerySnapshot<Data> = await colRef.orderBy('bar').endBefore(1).get();
+printDocumentsData(s2); // d1
+
+const s3: QuerySnapshot<Data> = await colRef.orderBy('bar').startAfter(1).get();
+printDocumentsData(s3); // d3
+
+const s4: QuerySnapshot<Data> = await colRef.orderBy('bar').startAt(1).get();
+printDocumentsData(s4); // d2, d3
+```
+
+### Where
+```
+const s1: QuerySnapshot<Data> = await colRef.where('foo', '==', 'c').get();
+printDocumentsData(s1); // d3
+
+const s2: QuerySnapshot<Data> = await colRef.orderBy('bar').where('foo', '>=', 'b').get();
+printDocumentsData(s2); // d2, d3
+
+const s3: QuerySnapshot<Data> = await colRef.orderBy('bar').where('foo', '<', 'b').get();
+printDocumentsData(s3); // d1
 ```
