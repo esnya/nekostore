@@ -84,7 +84,7 @@ await docRef.delete();
 ```
 
 ### Query
-[See also][(/docs/interfaces/_query_.query.md)
+[See also](/docs/interfaces/_query_.query.md)
 
 ```ts
 function prindDocumentsData(snapshot: QuerySnashot<Data>): void {
