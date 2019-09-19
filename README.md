@@ -21,7 +21,6 @@ import BasicDriver from 'nekostore/src/driver/basic';
 ```
 
 ### Create Nekostore instance
-
 ```ts
 const driver: Driver = new BasicDriver();
 const nekostore: Nekostore = new Nekostore(driver);
@@ -45,12 +44,12 @@ const childColRef: CollectionReference<ChildData> = docRef.collection<ChildData>
 ```
 
 ### Add document
-```
+```ts
 const docRef: DocumentReference<Data> = await colRef.add({ foo: 'a', bar: 0 });
 ```
 
 ### Get document
-```
+```ts
 const snapshot: DocumentSnapshot<Data> = await docRef.get();
 if (snapshot.exists()) {
   console.log(snapshot.data, snapshot.createTime, snapshot.updateTime);
@@ -58,12 +57,12 @@ if (snapshot.exists()) {
 ```
 
 ### Update document
-```
+```ts
 await docRef.update({ bar: 1 });
 ```
 
 ### Set document
-```
+```ts
 const docRef: DocumentReference<Data> = colRef.('d2');
 const s1: DocumentSnapshot<Data> = await docRef.get();
 console.log(s1.exists()); // false
@@ -114,7 +113,7 @@ printDocumentsData(snapshot); // d1, d2
 ```
 
 ### EndAt EndBefore StartAfter StartAt
-```ys
+```ts
 const s1: QuerySnapshot<Data> = await colRef.orderBy('bar').endAt(1).get();
 printDocumentsData(s1); // d1, d2
 
@@ -129,7 +128,7 @@ printDocumentsData(s4); // d2, d3
 ```
 
 ### Where
-```ys
+```ts
 const s1: QuerySnapshot<Data> = await colRef.where('foo', '==', 'c').get();
 printDocumentsData(s1); // d3
 
