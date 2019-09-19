@@ -218,6 +218,7 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
 
     it('gets', async () => {
       const snapshot = await d1.get();
+      await sleep();
       const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'c' });
       expect(createTime).is.lte(Date.now());
       expect(updateTime).to.equal(createTime);
