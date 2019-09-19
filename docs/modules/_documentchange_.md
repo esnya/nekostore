@@ -18,4 +18,4 @@
 
 Ƭ **ChangeType**: *"added" | "modified" | "removed"*
 
-*Defined in [DocumentChange.ts:3](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentChange.ts#L3)*
+*Defined in [DocumentChange.ts:3](https://github.com/esnya/nekostore/blob/99eadde/src/DocumentChange.ts#L3)*

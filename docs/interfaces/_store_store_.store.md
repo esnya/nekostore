@@ -32,7 +32,7 @@ Interface for data store implementation.
 
 ▸ **add**(`collectionId`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹string›*
 
-*Defined in [store/Store.ts:31](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L31)*
+*Defined in [store/Store.ts:31](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L31)*
 
 Add a new document.
 
@@ -53,7 +53,7 @@ ___
 
 ▸ **delete**(`collectionId`: string, `id`: string): *Promise‹void›*
 
-*Defined in [store/Store.ts:62](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L62)*
+*Defined in [store/Store.ts:62](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L62)*
 
 Delete a document.
 
@@ -72,7 +72,7 @@ ___
 
 ▸ **find**(`collectionId`: string, `operators`: [AggregationOperator](_driver_basic_aggregatiooperator_.aggregationoperator.md)[]): *Promise‹[DataWithId](_store_store_.datawithid.md)[]›*
 
-*Defined in [store/Store.ts:20](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L20)*
+*Defined in [store/Store.ts:20](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L20)*
 
 Aggregate
 
@@ -91,7 +91,7 @@ ___
 
 ▸ **get**(`collectionId`: string, `id`: string): *Promise‹[Data](../modules/_store_store_.md#data) | undefined›*
 
-*Defined in [store/Store.ts:39](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L39)*
+*Defined in [store/Store.ts:39](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L39)*
 
 Get a document.
 
@@ -112,7 +112,7 @@ ___
 
 ▸ **serverTimestamps**<**T**>(...`fields`: keyof T[]): *T*
 
-*Defined in [store/Store.ts:68](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L68)*
+*Defined in [store/Store.ts:68](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L68)*
 
 Makes bject with the specified field that is the timestamp value on the server.
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
-*Defined in [store/Store.ts:47](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L47)*
+*Defined in [store/Store.ts:47](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L47)*
 
 Set data a document.
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **toTimestamp**(`value`: any): *[Timestamp](../classes/_timestamp_.timestamp.md)*
 
-*Defined in [store/Store.ts:75](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L75)*
+*Defined in [store/Store.ts:75](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L75)*
 
 Converts the store internal timestamp into a Timestamp.
 
@@ -172,7 +172,7 @@ ___
 
 ▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
-*Defined in [store/Store.ts:55](https://github.com/esnya/nekostore/blob/f2443c4/src/store/Store.ts#L55)*
+*Defined in [store/Store.ts:55](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L55)*
 
 Update a document and merge deeply.
 

@@ -33,7 +33,7 @@ Timestamp like firebase.firestore.Timestamp
 
 \+ **new Timestamp**(`seconds`: number, `nanoseconds`: number): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:27](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L27)*
+*Defined in [Timestamp.ts:27](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L27)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type | Description |
 
 • **nanoseconds**: *number*
 
-*Defined in [Timestamp.ts:39](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L39)*
+*Defined in [Timestamp.ts:39](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L39)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **seconds**: *number*
 
-*Defined in [Timestamp.ts:38](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L38)*
+*Defined in [Timestamp.ts:38](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L38)*
 
 ## Methods
 
@@ -66,7 +66,7 @@ ___
 
 ▸ **toDate**(): *Date*
 
-*Defined in [Timestamp.ts:44](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L44)*
+*Defined in [Timestamp.ts:44](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L44)*
 
 Convert into Date
 
@@ -78,7 +78,7 @@ ___
 
 ▸ **toMillis**(): *number*
 
-*Defined in [Timestamp.ts:51](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L51)*
+*Defined in [Timestamp.ts:51](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L51)*
 
 Convert into milliseconds
 
@@ -90,7 +90,7 @@ ___
 
 ▸ **fromDate**(`date`: Date): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:15](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L15)*
+*Defined in [Timestamp.ts:15](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L15)*
 
 Convert Date into Tmestamp
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **fromMillis**(`milliseconds`: number): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:22](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L22)*
+*Defined in [Timestamp.ts:22](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L22)*
 
 Get timestamp from milliseconds.
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **now**(): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:8](https://github.com/esnya/nekostore/blob/f2443c4/src/Timestamp.ts#L8)*
+*Defined in [Timestamp.ts:8](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L8)*
 
 Get current timestamp.
 

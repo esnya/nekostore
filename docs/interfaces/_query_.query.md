@@ -34,7 +34,7 @@ Query of the collection reference.
 
 ▸ **endAt**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:32](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L32)*
+*Defined in [Query.ts:32](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L32)*
 
 Specify end poisiton by field value. Use after orderBy.
 
@@ -61,7 +61,7 @@ ___
 
 ▸ **endBefore**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:43](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L43)*
+*Defined in [Query.ts:43](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L43)*
 
 Specify end poisiton by field value. Use after orderBy.
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **get**(): *Promise‹[QuerySnapshot](_querysnapshot_.querysnapshot.md)‹T››*
 
-*Defined in [Query.ts:100](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L100)*
+*Defined in [Query.ts:100](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L100)*
 
 Get a snapshot of the query.
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **limit**(`limit`: number): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:76](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L76)*
+*Defined in [Query.ts:76](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L76)*
 
 Limit number of documents.
 
@@ -130,7 +130,7 @@ ___
 
 ▸ **onSnapshot**(`onNext`: function): *Promise‹Unsubscribe›*
 
-*Defined in [Query.ts:122](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L122)*
+*Defined in [Query.ts:122](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L122)*
 
 Receive snapshots of the query when updated.
 
@@ -171,7 +171,7 @@ ___
 
 ▸ **orderBy**(`field`: string, `direction?`: [OrderDirection](../modules/_query_.md#orderdirection)): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:21](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L21)*
+*Defined in [Query.ts:21](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L21)*
 
 Sort documents.
 
@@ -195,7 +195,7 @@ ___
 
 ▸ **startAfter**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:54](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L54)*
+*Defined in [Query.ts:54](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L54)*
 
 Specify start poisiton by field value. Use after orderBy.
 
@@ -222,7 +222,7 @@ ___
 
 ▸ **startAt**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L65)*
+*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L65)*
 
 Specify start poisiton by field value. Use after orderBy.
 
@@ -249,7 +249,7 @@ ___
 
 ▸ **where**<**U**>(`field`: string, `operator`: [WhereOperator](../modules/_query_.md#whereoperator), `value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:89](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L89)*
+*Defined in [Query.ts:89](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L89)*
 
 Filter documents by specified operator.
 

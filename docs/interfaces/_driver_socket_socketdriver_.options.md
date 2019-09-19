@@ -19,7 +19,7 @@
 
 • **socket**: *Socket*
 
-*Defined in [driver/socket/SocketDriver.ts:13](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/socket/SocketDriver.ts#L13)*
+*Defined in [driver/socket/SocketDriver.ts:13](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L13)*
 
 Socket instance. (.e.g. `require('socket.io-client').connect(uri)`)
 
@@ -29,6 +29,6 @@ ___
 
 • **timeout**? : *number*
 
-*Defined in [driver/socket/SocketDriver.ts:18](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/socket/SocketDriver.ts#L18)*
+*Defined in [driver/socket/SocketDriver.ts:18](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L18)*
 
 Timeout in milliseconds.

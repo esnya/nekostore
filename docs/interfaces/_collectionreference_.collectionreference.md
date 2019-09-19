@@ -41,7 +41,7 @@ Reference for the collection.
 
 • **id**: *string*
 
-*Defined in [CollectionReference.ts:11](https://github.com/esnya/nekostore/blob/f2443c4/src/CollectionReference.ts#L11)*
+*Defined in [CollectionReference.ts:11](https://github.com/esnya/nekostore/blob/99eadde/src/CollectionReference.ts#L11)*
 
 ID of the collection.
 
@@ -51,7 +51,7 @@ ___
 
 • **path**: *string*
 
-*Defined in [CollectionReference.ts:16](https://github.com/esnya/nekostore/blob/f2443c4/src/CollectionReference.ts#L16)*
+*Defined in [CollectionReference.ts:16](https://github.com/esnya/nekostore/blob/99eadde/src/CollectionReference.ts#L16)*
 
 Path from the route separated by "/".
 
@@ -61,7 +61,7 @@ Path from the route separated by "/".
 
 ▸ **add**(`data`: T): *Promise‹[DocumentReference](_documentreference_.documentreference.md)‹T››*
 
-*Defined in [CollectionReference.ts:39](https://github.com/esnya/nekostore/blob/f2443c4/src/CollectionReference.ts#L39)*
+*Defined in [CollectionReference.ts:39](https://github.com/esnya/nekostore/blob/99eadde/src/CollectionReference.ts#L39)*
 
 Add a new document.
 
@@ -87,7 +87,7 @@ ___
 
 ▸ **doc**(`id`: string): *[DocumentReference](_documentreference_.documentreference.md)‹T›*
 
-*Defined in [CollectionReference.ts:26](https://github.com/esnya/nekostore/blob/f2443c4/src/CollectionReference.ts#L26)*
+*Defined in [CollectionReference.ts:26](https://github.com/esnya/nekostore/blob/99eadde/src/CollectionReference.ts#L26)*
 
 Get a reference for the document.
 
@@ -112,7 +112,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[endAt](_query_.query.md#endat)*
 
-*Defined in [Query.ts:32](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L32)*
+*Defined in [Query.ts:32](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L32)*
 
 Specify end poisiton by field value. Use after orderBy.
 
@@ -141,7 +141,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[endBefore](_query_.query.md#endbefore)*
 
-*Defined in [Query.ts:43](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L43)*
+*Defined in [Query.ts:43](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L43)*
 
 Specify end poisiton by field value. Use after orderBy.
 
@@ -170,7 +170,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[get](_query_.query.md#get)*
 
-*Defined in [Query.ts:100](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L100)*
+*Defined in [Query.ts:100](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L100)*
 
 Get a snapshot of the query.
 
@@ -190,7 +190,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[limit](_query_.query.md#limit)*
 
-*Defined in [Query.ts:76](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L76)*
+*Defined in [Query.ts:76](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L76)*
 
 Limit number of documents.
 
@@ -216,7 +216,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[onSnapshot](_query_.query.md#onsnapshot)*
 
-*Defined in [Query.ts:122](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L122)*
+*Defined in [Query.ts:122](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L122)*
 
 Receive snapshots of the query when updated.
 
@@ -259,7 +259,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[orderBy](_query_.query.md#orderby)*
 
-*Defined in [Query.ts:21](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L21)*
+*Defined in [Query.ts:21](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L21)*
 
 Sort documents.
 
@@ -285,7 +285,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[startAfter](_query_.query.md#startafter)*
 
-*Defined in [Query.ts:54](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L54)*
+*Defined in [Query.ts:54](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L54)*
 
 Specify start poisiton by field value. Use after orderBy.
 
@@ -314,7 +314,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[startAt](_query_.query.md#startat)*
 
-*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L65)*
+*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L65)*
 
 Specify start poisiton by field value. Use after orderBy.
 
@@ -343,7 +343,7 @@ ___
 
 *Inherited from [Query](_query_.query.md).[where](_query_.query.md#where)*
 
-*Defined in [Query.ts:89](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L89)*
+*Defined in [Query.ts:89](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L89)*
 
 Filter documents by specified operator.
 

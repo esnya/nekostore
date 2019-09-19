@@ -19,7 +19,7 @@
 
 Ƭ **OrderDirection**: *"asc" | "desc"*
 
-*Defined in [Query.ts:4](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L4)*
+*Defined in [Query.ts:4](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L4)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 Ƭ **WhereOperator**: *"==" | "<" | "<=" | ">" | ">="*
 
-*Defined in [Query.ts:5](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L5)*
+*Defined in [Query.ts:5](https://github.com/esnya/nekostore/blob/99eadde/src/Query.ts#L5)*
