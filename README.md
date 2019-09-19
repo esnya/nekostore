@@ -91,13 +91,13 @@ await colRef.add({ foo: 'b', bar: 1 }); // d2
 await colRef.add({ foo: 'c', bar: 2 }); // d3
 ```
 
-### Get all documents
+#### Get all documents
 ```ts
 const snapshot: QuerySnapshot<Data> = await colRef.get();
 printDocumentsData(snapshot); // random order
 ```
 
-### Sort
+#### Sort
 ```ts
 const asc: QuerySnapshot<Data> = await colRef.orderBy('bar').get();
 printDocumentsData(asc); // d1, d2, d3
@@ -106,13 +106,13 @@ const desc: QuerySnapshot<Data> = await colRef.orderBy('bar').get();
 printDocumentsData(desc); // d3, d2, d1
 ```
 
-## Limit
+#### Limit
 ```ts
 const snapshot: QuerySnapshot<Data> = await colRef.orderBy('foo').limit(2).get();
 printDocumentsData(snapshot); // d1, d2
 ```
 
-### EndAt EndBefore StartAfter StartAt
+#### EndAt EndBefore StartAfter StartAt
 ```ts
 const s1: QuerySnapshot<Data> = await colRef.orderBy('bar').endAt(1).get();
 printDocumentsData(s1); // d1, d2
@@ -127,7 +127,7 @@ const s4: QuerySnapshot<Data> = await colRef.orderBy('bar').startAt(1).get();
 printDocumentsData(s4); // d2, d3
 ```
 
-### Where
+#### Where
 ```ts
 const s1: QuerySnapshot<Data> = await colRef.where('foo', '==', 'c').get();
 printDocumentsData(s1); // d3
