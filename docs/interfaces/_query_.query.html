@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Query of the collection reference.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -128,15 +135,20 @@
 					<a name="endat" class="tsd-anchor"></a>
 					<h3>end<wbr>At</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">end<wbr>At&lt;U&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">end<wbr>At&lt;U&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L8">Query.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L22">Query.ts:22</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Specify end poisiton by field value. Use after orderBy.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -146,7 +158,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>value: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value of field specified wity orderBy.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -157,15 +172,20 @@
 					<a name="endbefore" class="tsd-anchor"></a>
 					<h3>end<wbr>Before</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">end<wbr>Before&lt;U&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Before&lt;U&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L9">Query.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L28">Query.ts:28</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Specify end poisiton by field value. Use after orderBy.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -175,7 +195,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>value: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value of field specified wity orderBy.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -192,9 +215,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L16">Query.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L58">Query.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get a snapshot of the query.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_querysnapshot_.querysnapshot.html" class="tsd-signature-type">QuerySnapshot</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -209,9 +237,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L10">Query.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L45">Query.ts:45</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Limit number of documents.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -232,9 +265,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L17">Query.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L65">Query.ts:65</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Receive snapshots of the query when updated.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -260,6 +298,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_unsubscribe_.html#unsubscribe" class="tsd-signature-type">Unsubscribe</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function to unsubscribe.</p>
 						</li>
 					</ul>
 				</section>
@@ -273,16 +312,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L11">Query.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L16">Query.ts:16</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sort documents.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>field: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path for the field seperated by &#39;.&#39;.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> direction: <a href="../modules/_query_.html#orderdirection" class="tsd-signature-type">OrderDirection</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Order direction e.g. &#39;asc&#39;, &#39;desc&#39;.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -293,15 +343,20 @@
 					<a name="startafter" class="tsd-anchor"></a>
 					<h3>start<wbr>After</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>After&lt;U&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>After&lt;U&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L12">Query.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L34">Query.ts:34</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Specify start poisiton by field value. Use after orderBy.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -311,7 +366,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>value: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value of field specified wity orderBy.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -322,15 +380,20 @@
 					<a name="startat" class="tsd-anchor"></a>
 					<h3>start<wbr>At</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>At&lt;U&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>At&lt;U&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L13">Query.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L40">Query.ts:40</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Specify start poisiton by field value. Use after orderBy.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -340,7 +403,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>value: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value of field specified wity orderBy.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -357,9 +423,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/Query.ts#L14">Query.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/Query.ts#L53">Query.ts:53</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Filter documents by specified operator.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -370,12 +441,21 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>field: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path for the field separated by &#39;.&#39;.</p>
+									</div>
 								</li>
 								<li>
 									<h5>operator: <a href="../modules/_query_.html#whereoperator" class="tsd-signature-type">WhereOperator</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Operator for compararison e.g. &#39;==&#39;, &#39;&lt;&#39;, &#39;&lt;=&#39;, &#39;&gt;&#39;, &#39;&gt;=&#39;</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Rvalue for comparison.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_query_.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>

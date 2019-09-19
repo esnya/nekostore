@@ -24,11 +24,11 @@ export default class FirestoreQuery<T> implements Query<T> {
 
   readonly ref: firebase.firestore.Query;
 
-  endAt<U>(...values: U[]): Query<T> {
-    return new FirestoreQuery<T>(this.ref.endAt(...values));
+  endAt<U>(value: U): Query<T> {
+    return new FirestoreQuery<T>(this.ref.endAt(value));
   }
-  endBefore<U>(...values: U[]): Query<T> {
-    return new FirestoreQuery<T>(this.ref.endBefore(...values));
+  endBefore<U>(value: U): Query<T> {
+    return new FirestoreQuery<T>(this.ref.endBefore(value));
   }
   limit(limit: number): Query<T> {
     return new FirestoreQuery<T>(this.ref.limit(limit));
@@ -36,11 +36,11 @@ export default class FirestoreQuery<T> implements Query<T> {
   orderBy(field: string, direction?: OrderDirection): Query<T> {
     return new FirestoreQuery<T>(this.ref.orderBy(field, direction));
   }
-  startAfter<U>(...values: U[]): Query<T> {
-    return new FirestoreQuery<T>(this.ref.startAfter(...values));
+  startAfter<U>(value: U): Query<T> {
+    return new FirestoreQuery<T>(this.ref.startAfter(value));
   }
-  startAt<U>(...values: U[]): Query<T> {
-    return new FirestoreQuery<T>(this.ref.startAt(...values));
+  startAt<U>(value: U): Query<T> {
+    return new FirestoreQuery<T>(this.ref.startAt(value));
   }
   where<U>(field: string, operator: WhereOperator, value: U): Query<T> {
     return new FirestoreQuery<T>(this.ref.where(field, operator, value));

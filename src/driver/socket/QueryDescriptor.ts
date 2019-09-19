@@ -7,7 +7,7 @@ export interface At<T>
   extends QueryDescriptorBase<
     'endAt' | 'endBefore' | 'startAfter' | 'startAt'
   > {
-  values: T[];
+  value: T;
 }
 export interface Limit extends QueryDescriptorBase<'limit'> {
   limit: number;

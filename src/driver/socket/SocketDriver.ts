@@ -7,10 +7,20 @@ import NekostoreError from '../../NekostoreError';
 import { ActionNames, ActionReturnTypeOf, ActionArgsOf } from './Actions';
 
 export interface Options {
+  /**
+   * Socket instance. (.e.g. `require('socket.io-client').connect(uri)`)
+   */
   socket: Socket;
+
+  /**
+   * Timeout in milliseconds.
+   */
   timeout?: number;
 }
 
+/**
+ * Driver implementation that connects to a remote Nekostore via a socket (e.g. Socket.io).
+ */
 export default class SocketDriver implements Driver {
   constructor(options: Options) {
     this.socket = options.socket;

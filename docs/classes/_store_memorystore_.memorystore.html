@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Non-persistent store implementation with local memory.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -102,7 +109,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#get" class="tsd-kind-icon">get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_store_memorystore_.memorystore.html#getcollection" class="tsd-kind-icon">get<wbr>Collection</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#list" class="tsd-kind-icon">list</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#servertimestamps" class="tsd-kind-icon">server<wbr>Timestamps</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_store_memorystore_.memorystore.html#servertimestamps" class="tsd-kind-icon">server<wbr>Timestamps</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#set" class="tsd-kind-icon">set</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#totimestamp" class="tsd-kind-icon">to<wbr>Timestamp</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_store_memorystore_.memorystore.html#update" class="tsd-kind-icon">update</a></li>
@@ -119,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">store<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, Collection&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L17">store/MemoryStore.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L16">store/MemoryStore.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +144,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L46">store/MemoryStore.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L45">store/MemoryStore.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -164,7 +171,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L72">store/MemoryStore.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L71">store/MemoryStore.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,14 +191,14 @@
 					<a name="find" class="tsd-anchor"></a>
 					<h3>find</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>collectionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, aggregations<span class="tsd-signature-symbol">: </span><a href="../interfaces/_driver_basic_aggregatiooperator_.aggregationoperator.html" class="tsd-signature-type">AggregationOperator</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_memorystore_.document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>collectionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, aggregations<span class="tsd-signature-symbol">: </span><a href="../interfaces/_driver_basic_aggregatiooperator_.aggregationoperator.html" class="tsd-signature-type">AggregationOperator</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_store_.datawithid.html" class="tsd-signature-type">DataWithId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#find">find</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L37">store/MemoryStore.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L36">store/MemoryStore.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -203,7 +210,7 @@
 									<h5>aggregations: <a href="../interfaces/_driver_basic_aggregatiooperator_.aggregationoperator.html" class="tsd-signature-type">AggregationOperator</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_memorystore_.document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_store_.datawithid.html" class="tsd-signature-type">DataWithId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -218,7 +225,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L55">store/MemoryStore.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L54">store/MemoryStore.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -244,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L19">store/MemoryStore.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L18">store/MemoryStore.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -261,13 +268,13 @@
 					<a name="list" class="tsd-anchor"></a>
 					<h3>list</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span>collectionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_memorystore_.document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span>collectionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_store_.datawithid.html" class="tsd-signature-type">DataWithId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L29">store/MemoryStore.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L28">store/MemoryStore.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -276,31 +283,37 @@
 									<h5>collectionId: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_memorystore_.document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_store_store_.datawithid.html" class="tsd-signature-type">DataWithId</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="servertimestamps" class="tsd-anchor"></a>
 					<h3>server<wbr>Timestamps</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">server<wbr>Timestamps<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>fields<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">server<wbr>Timestamps&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>fields<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#servertimestamps">serverTimestamps</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L76">store/MemoryStore.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L75">store/MemoryStore.ts:75</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__type</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>fields: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>fields: <span class="tsd-signature-type">keyof T</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -315,7 +328,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L60">store/MemoryStore.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L59">store/MemoryStore.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -345,7 +358,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#totimestamp">toTimestamp</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L82">store/MemoryStore.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L81">store/MemoryStore.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,7 +382,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_store_store_.store.html">Store</a>.<a href="../interfaces/_store_store_.store.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/store/MemoryStore.ts#L64">store/MemoryStore.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/store/MemoryStore.ts#L63">store/MemoryStore.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -429,7 +442,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_store_memorystore_.memorystore.html#list" class="tsd-kind-icon">list</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="_store_memorystore_.memorystore.html#servertimestamps" class="tsd-kind-icon">server<wbr>Timestamps</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -445,9 +458,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../interfaces/_store_memorystore_.document.html" class="tsd-kind-icon">Document</a>
-					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../modules/_store_memorystore_.html#collection" class="tsd-kind-icon">Collection</a>
 					</li>

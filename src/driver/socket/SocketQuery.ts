@@ -40,11 +40,11 @@ export default class SocketQuery<T> implements Query<T> {
     ]);
   }
 
-  endAt<U>(...values: U[]): Query<T> {
-    return this.chain({ type: 'endAt', values });
+  endAt<U>(value: U): Query<T> {
+    return this.chain({ type: 'endAt', value });
   }
-  endBefore<U>(...values: U[]): Query<T> {
-    return this.chain({ type: 'endBefore', values });
+  endBefore<U>(value: U): Query<T> {
+    return this.chain({ type: 'endBefore', value });
   }
   limit(limit: number): Query<T> {
     return this.chain({ type: 'limit', limit });
@@ -52,11 +52,11 @@ export default class SocketQuery<T> implements Query<T> {
   orderBy(field: string, direction?: OrderDirection): Query<T> {
     return this.chain({ type: 'orderBy', field, direction });
   }
-  startAfter<U>(...values: U[]): Query<T> {
-    return this.chain({ type: 'startAfter', values });
+  startAfter<U>(value: U): Query<T> {
+    return this.chain({ type: 'startAfter', value });
   }
-  startAt<U>(...values: U[]): Query<T> {
-    return this.chain({ type: 'startAt', values });
+  startAt<U>(value: U): Query<T> {
+    return this.chain({ type: 'startAt', value });
   }
   where<U>(field: string, operator: WhereOperator, value: U): Query<T> {
     return this.chain({ type: 'where', field, operator, value });

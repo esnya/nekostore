@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Data at the time of the document.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -116,8 +123,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentsnapshot_.documentsnapshot.html#createtime" class="tsd-kind-icon">create<wbr>Time</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentsnapshot_.documentsnapshot.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentsnapshot_.documentsnapshot.html#ref" class="tsd-kind-icon">ref</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentsnapshot_.documentsnapshot.html#updatetime" class="tsd-kind-icon">update<wbr>Time</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -132,14 +141,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createtime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> create<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">create<wbr>Time<span class="tsd-signature-symbol">:</span> <a href="../classes/_timestamp_.timestamp.html" class="tsd-signature-type">Timestamp</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L32">DocumentSnapshot.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp when the document was updated.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="data" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> data</h3>
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L14">DocumentSnapshot.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L27">DocumentSnapshot.ts:27</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Data of the document.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ref" class="tsd-anchor"></a>
@@ -147,9 +176,29 @@
 					<div class="tsd-signature tsd-kind-icon">ref<span class="tsd-signature-symbol">:</span> <a href="_documentreference_.documentreference.html" class="tsd-signature-type">DocumentReference</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L13">DocumentSnapshot.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L22">DocumentSnapshot.ts:22</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Reference for the document.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="updatetime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> update<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">update<wbr>Time<span class="tsd-signature-symbol">:</span> <a href="../classes/_timestamp_.timestamp.html" class="tsd-signature-type">Timestamp</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L37">DocumentSnapshot.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp when the document was updated.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -164,10 +213,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L15">DocumentSnapshot.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L42">DocumentSnapshot.ts:42</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the document is existing.</p>
 						</li>
 					</ul>
 				</section>
@@ -192,10 +244,16 @@
 						<a href="_documentsnapshot_.documentsnapshot.html" class="tsd-kind-icon">Document<wbr>Snapshot</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_documentsnapshot_.documentsnapshot.html#createtime" class="tsd-kind-icon">create<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_documentsnapshot_.documentsnapshot.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_documentsnapshot_.documentsnapshot.html#ref" class="tsd-kind-icon">ref</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_documentsnapshot_.documentsnapshot.html#updatetime" class="tsd-kind-icon">update<wbr>Time</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_documentsnapshot_.documentsnapshot.html#exists" class="tsd-kind-icon">exists</a>

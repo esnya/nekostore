@@ -11,6 +11,9 @@ export interface Options {
   eventEmitter?: EventEmitter;
 }
 
+/**
+ * Driver implemtation using a simple store and event emitter.
+ */
 export default class BasicDriver implements Driver {
   constructor(options: Options = {}) {
     this.store = options.store || new MemoryStore();

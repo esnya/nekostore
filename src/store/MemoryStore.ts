@@ -3,16 +3,15 @@ import uuid from 'uuid';
 import NotFoundError from '../NotFoundError';
 import mingo from 'mingo';
 import AggregationOperator from '../driver/basic/AggregatioOperator';
-import Store, { Data } from './Store';
+import Store, { Data, DataWithId } from './Store';
 import Timestamp from '../Timestamp';
 import fromPairs from 'lodash/fromPairs';
 
-interface Document extends Data {
-  id: string;
-}
-
 type Collection = Map<string, Data>;
 
+/**
+ * Non-persistent store implementation with local memory.
+ */
 export default class MemoryStore implements Store {
   readonly store = new Map<string, Collection>();
 
@@ -26,7 +25,7 @@ export default class MemoryStore implements Store {
     return this.store.get(id);
   }
 
-  async list(collectionId: string): Promise<Document[]> {
+  async list(collectionId: string): Promise<DataWithId[]> {
     const collection = this.getCollection(collectionId);
     return Array.from(collection.entries()).map(([id, data]) => ({
       ...data,
@@ -37,10 +36,10 @@ export default class MemoryStore implements Store {
   async find(
     collectionId: string,
     aggregations: AggregationOperator[],
-  ): Promise<Document[]> {
+  ): Promise<DataWithId[]> {
     const documents = await this.list(collectionId);
     if (aggregations.length === 0) return documents;
-    return new mingo.Aggregator(aggregations).run<Document>(documents);
+    return new mingo.Aggregator(aggregations).run<DataWithId>(documents);
   }
 
   async add(collectionId: string, data: Data): Promise<string> {
@@ -73,9 +72,9 @@ export default class MemoryStore implements Store {
     this.getCollection(collectionId).delete(id);
   }
 
-  serverTimestamps(...fields: string[]): object {
+  serverTimestamps<T extends {}>(...fields: (keyof T)[]): T {
     const now = Date.now();
-    return fromPairs(fields.map(f => [f, now]));
+    return fromPairs(fields.map(f => [f, now])) as T;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

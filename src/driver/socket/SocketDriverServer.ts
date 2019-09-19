@@ -45,7 +45,14 @@ function decodeQuerySnapshot<T>(
   return { docs };
 }
 
+/**
+ * Server implementation for SocketDriver that mediates other drivers.
+ */
 export default class SocketDriverServer implements Actions {
+  /**
+   * @param driver Intermediary driver.
+   * @param socket Socket that communicates with the client.
+   */
   constructor(driver: Driver, socket: Socket) {
     this.driver = driver;
     this.socket = socket;

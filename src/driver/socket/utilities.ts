@@ -37,7 +37,7 @@ export function getQuery<T>(
       case 'endBefore':
       case 'startAfter':
       case 'startAt':
-        return ref[desc.type](...desc.values);
+        return ref[desc.type](desc.value);
       case 'limit':
         return ref.limit(desc.limit);
       case 'orderBy':

@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Document change information.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -105,11 +112,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_documentchange_.documentchange.html#createtime" class="tsd-kind-icon">create<wbr>Time</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_documentchange_.documentchange.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentchange_.documentchange.html#newindex" class="tsd-kind-icon">new<wbr>Index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentchange_.documentchange.html#oldindex" class="tsd-kind-icon">old<wbr>Index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_documentchange_.documentchange.html#ref" class="tsd-kind-icon">ref</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_documentchange_.documentchange.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_documentchange_.documentchange.html#updatetime" class="tsd-kind-icon">update<wbr>Time</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -124,15 +133,36 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="createtime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> create<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">create<wbr>Time<span class="tsd-signature-symbol">:</span> <a href="../classes/_timestamp_.timestamp.html" class="tsd-signature-type">Timestamp</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_documentsnapshot_.documentsnapshot.html">DocumentSnapshot</a>.<a href="_documentsnapshot_.documentsnapshot.html#createtime">createTime</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L32">DocumentSnapshot.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp when the document was updated.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="data" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> data</h3>
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_documentsnapshot_.documentsnapshot.html">DocumentSnapshot</a>.<a href="_documentsnapshot_.documentsnapshot.html#data">data</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L14">DocumentSnapshot.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L27">DocumentSnapshot.ts:27</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Data of the document.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="newindex" class="tsd-anchor"></a>
@@ -140,9 +170,14 @@
 					<div class="tsd-signature tsd-kind-icon">new<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentChange.ts#L7">DocumentChange.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentChange.ts#L17">DocumentChange.ts:17</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Index after change.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="oldindex" class="tsd-anchor"></a>
@@ -150,9 +185,14 @@
 					<div class="tsd-signature tsd-kind-icon">old<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentChange.ts#L8">DocumentChange.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentChange.ts#L22">DocumentChange.ts:22</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Index before change.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="ref" class="tsd-anchor"></a>
@@ -161,9 +201,14 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_documentsnapshot_.documentsnapshot.html">DocumentSnapshot</a>.<a href="_documentsnapshot_.documentsnapshot.html#ref">ref</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L13">DocumentSnapshot.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L22">DocumentSnapshot.ts:22</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Reference for the document.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="type" class="tsd-anchor"></a>
@@ -171,9 +216,30 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../modules/_documentchange_.html#changetype" class="tsd-signature-type">ChangeType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentChange.ts#L6">DocumentChange.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentChange.ts#L12">DocumentChange.ts:12</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type of change. e.g. &#39;added&#39;, &#39;modified&#39;, &#39;removed&#39;</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="updatetime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> update<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">update<wbr>Time<span class="tsd-signature-symbol">:</span> <a href="../classes/_timestamp_.timestamp.html" class="tsd-signature-type">Timestamp</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_documentsnapshot_.documentsnapshot.html">DocumentSnapshot</a>.<a href="_documentsnapshot_.documentsnapshot.html#updatetime">updateTime</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L37">DocumentSnapshot.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Timestamp when the document was updated.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
@@ -189,10 +255,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_documentsnapshot_.documentsnapshot.html">DocumentSnapshot</a>.<a href="_documentsnapshot_.documentsnapshot.html#exists">exists</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/d8210f7/src/DocumentSnapshot.ts#L15">DocumentSnapshot.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/esnya/nekostore/blob/1d8be31/src/DocumentSnapshot.ts#L42">DocumentSnapshot.ts:42</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the document is existing.</p>
 						</li>
 					</ul>
 				</section>
@@ -217,6 +286,9 @@
 						<a href="_documentchange_.documentchange.html" class="tsd-kind-icon">Document<wbr>Change</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_documentchange_.documentchange.html#createtime" class="tsd-kind-icon">create<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_documentchange_.documentchange.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -230,6 +302,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_documentchange_.documentchange.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_documentchange_.documentchange.html#updatetime" class="tsd-kind-icon">update<wbr>Time</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_documentchange_.documentchange.html#exists" class="tsd-kind-icon">exists</a>

@@ -7,9 +7,15 @@ import NotFoundError from '../NotFoundError';
 import AggregationOperator from '../driver/basic/AggregatioOperator';
 
 export interface Options {
+  /**
+   * Instance of Db from MongoDB client.
+   */
   readonly db: Db;
 }
 
+/**
+ * Store implementation with MongoDB.
+ */
 export default class MongoStore implements Store {
   constructor(options: Options) {
     this.db = options.db;
@@ -76,12 +82,12 @@ export default class MongoStore implements Store {
     await this.collection(collectionId).deleteOne({ _id: new ObjectID(id) });
   }
 
-  serverTimestamps(...fields: string[]): object {
+  serverTimestamps<T extends {}>(...fields: (keyof T)[]): T {
     // return {
     //   $currentDate: fromPairs(fields.map(f => [f, 'timestamp'])),
     // };
-    const now = Timestamp.now();
-    return fromPairs(fields.map(f => [f, now]));
+    const now = Timestamp.now(); // ToDo
+    return fromPairs(fields.map(f => [f, now])) as T;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

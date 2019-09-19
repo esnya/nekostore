@@ -4,7 +4,14 @@ import CollectionReference from '../../CollectionReference';
 import Firestore from './Firestore';
 import FirestoreCollectionReference from './FirestoreCollectionReference';
 
+/**
+ * Driver implementation using Firebase Firestore. Recommended!!
+ */
 export default class FirestoreDriver implements Driver {
+  /**
+   *
+   * @param firestore Instance of firestore. i.e. firebase.firestore()
+   */
   constructor(firestore: Firestore) {
     this.firestore = firestore;
   }
