@@ -8,7 +8,7 @@
     "ci-scripts": "run-s clean lint cover build",
     "clean": "rimraf lib",
     "cover": "nyc mocha",
-    "docs": "typedoc --externalPattern driver/**/*Document* --externalPattern driver/**/*Collection*",
+    "docs": "typedoc --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate",
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
     "dev:docs": "nodemon -w src -e ts -x \"npm run -s docs\"",
@@ -75,6 +75,7 @@
     "source-map-support": "^0.5.13",
     "ts-node": "^8.4.1",
     "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.2.5",
     "typescript": "^3.6.3"
   },
   "dependencies": {
