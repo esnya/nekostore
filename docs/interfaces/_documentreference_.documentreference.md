@@ -12,12 +12,6 @@ Reference for the document.
 
 * **DocumentReference**
 
-## Implemented by
-
-* [BasicDocumentReference](../classes/_driver_basic_basicdocumentreference_.basicdocumentreference.md)
-* [FirestoreDocumentReference](../classes/_driver_firestore_firestoredocumentreference_.firestoredocumentreference.md)
-* [SocketDocumentReference](../classes/_driver_socket_socketdocumentreference_.socketdocumentreference.md)
-
 ## Index
 
 ### Properties
@@ -41,7 +35,7 @@ Reference for the document.
 
 • **id**: *string*
 
-*Defined in [DocumentReference.ts:12](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L12)*
+*Defined in [DocumentReference.ts:12](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L12)*
 
 ID of the document.
 
@@ -51,7 +45,7 @@ ___
 
 • **parent**: *[CollectionReference](_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [DocumentReference.ts:22](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L22)*
+*Defined in [DocumentReference.ts:22](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L22)*
 
 Reference of the parent collection.
 
@@ -61,7 +55,7 @@ ___
 
 • **path**: *string*
 
-*Defined in [DocumentReference.ts:17](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L17)*
+*Defined in [DocumentReference.ts:17](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L17)*
 
 Path from the route separated by "/"
 
@@ -71,7 +65,7 @@ Path from the route separated by "/"
 
 ▸ **collection**<**U**>(`id`: string): *[CollectionReference](_collectionreference_.collectionreference.md)‹U›*
 
-*Defined in [DocumentReference.ts:29](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L29)*
+*Defined in [DocumentReference.ts:29](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L29)*
 
 Get reference for the child collection
 
@@ -95,7 +89,7 @@ ___
 
 ▸ **delete**(): *Promise‹void›*
 
-*Defined in [DocumentReference.ts:51](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L51)*
+*Defined in [DocumentReference.ts:51](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L51)*
 
 Delete document.
 
@@ -107,7 +101,7 @@ ___
 
 ▸ **get**(): *Promise‹[DocumentSnapshot](_documentsnapshot_.documentsnapshot.md)‹T››*
 
-*Defined in [DocumentReference.ts:34](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L34)*
+*Defined in [DocumentReference.ts:34](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L34)*
 
 Get a snapshot of document.
 
@@ -119,7 +113,7 @@ ___
 
 ▸ **onSnapshot**(`onNext`: function): *Promise‹Unsubscribe›*
 
-*Defined in [DocumentReference.ts:58](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L58)*
+*Defined in [DocumentReference.ts:58](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L58)*
 
 Receive snapshots of the document when updated.
 
@@ -145,7 +139,7 @@ ___
 
 ▸ **set**(`data`: T): *Promise‹void›*
 
-*Defined in [DocumentReference.ts:40](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L40)*
+*Defined in [DocumentReference.ts:40](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L40)*
 
 Set document data.
 
@@ -163,7 +157,7 @@ ___
 
 ▸ **update**(`data`: Partial‹T›): *Promise‹void›*
 
-*Defined in [DocumentReference.ts:46](https://github.com/esnya/nekostore/blob/de830f5/src/DocumentReference.ts#L46)*
+*Defined in [DocumentReference.ts:46](https://github.com/esnya/nekostore/blob/4486881/src/DocumentReference.ts#L46)*
 
 Update document data. Data will merged deeply. For existing documents only.
 

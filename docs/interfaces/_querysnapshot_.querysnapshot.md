@@ -25,7 +25,7 @@ Data at the time of the query.
 
 • **docs**: *[DocumentChange](_documentchange_.documentchange.md)‹T›[]*
 
-*Defined in [QuerySnapshot.ts:16](https://github.com/esnya/nekostore/blob/de830f5/src/QuerySnapshot.ts#L16)*
+*Defined in [QuerySnapshot.ts:16](https://github.com/esnya/nekostore/blob/4486881/src/QuerySnapshot.ts#L16)*
 
 Snapshots of documents.
 
@@ -35,6 +35,6 @@ ___
 
 • **ref**: *[Query](_query_.query.md)‹T›*
 
-*Defined in [QuerySnapshot.ts:11](https://github.com/esnya/nekostore/blob/de830f5/src/QuerySnapshot.ts#L11)*
+*Defined in [QuerySnapshot.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/QuerySnapshot.ts#L11)*
 
 Reference for the query.

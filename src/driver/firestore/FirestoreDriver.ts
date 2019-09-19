@@ -2,7 +2,7 @@
 import Driver from '../../Driver';
 import CollectionReference from '../../CollectionReference';
 import Firestore from './Firestore';
-import FirestoreCollectionReference from './FirestoreCollectionReference';
+import FirestoreCollectionReference from './impl/FirestoreCollectionReference';
 
 /**
  * Driver implementation using Firebase Firestore. Recommended!!

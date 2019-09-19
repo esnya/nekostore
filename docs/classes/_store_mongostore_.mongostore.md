@@ -39,7 +39,7 @@ Store implementation with MongoDB.
 
 \+ **new MongoStore**(`options`: [Options](../interfaces/_store_mongostore_.options.md)): *[MongoStore](_store_mongostore_.mongostore.md)*
 
-*Defined in [store/MongoStore.ts:19](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L19)*
+*Defined in [store/MongoStore.ts:19](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L19)*
 
 **Parameters:**
 
@@ -55,24 +55,24 @@ Name | Type |
 
 • **db**: *Db*
 
-*Defined in [store/MongoStore.ts:24](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L24)*
+*Defined in [store/MongoStore.ts:24](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L24)*
 
 ## Methods
 
 ###  add
 
-▸ **add**(`collectionId`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹string›*
+▸ **add**(`collectionId`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹string›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:46](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L46)*
+*Defined in [store/MongoStore.ts:46](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L46)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `collectionId` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹string›*
 
@@ -84,7 +84,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:81](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L81)*
+*Defined in [store/MongoStore.ts:81](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L81)*
 
 **Parameters:**
 
@@ -103,7 +103,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:30](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L30)*
+*Defined in [store/MongoStore.ts:30](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L30)*
 
 **Parameters:**
 
@@ -118,11 +118,11 @@ ___
 
 ###  get
 
-▸ **get**(`collectionId`: string, `id`: string): *Promise‹[Data](../interfaces/_fakedriver_spec_.data.md) | undefined›*
+▸ **get**(`collectionId`: string, `id`: string): *Promise‹[Data](../modules/_store_store_.md#data) | undefined›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:50](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L50)*
+*Defined in [store/MongoStore.ts:50](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L50)*
 
 **Parameters:**
 
@@ -131,7 +131,7 @@ Name | Type |
 `collectionId` | string |
 `id` | string |
 
-**Returns:** *Promise‹[Data](../interfaces/_fakedriver_spec_.data.md) | undefined›*
+**Returns:** *Promise‹[Data](../modules/_store_store_.md#data) | undefined›*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:85](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L85)*
+*Defined in [store/MongoStore.ts:85](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L85)*
 
 **Type parameters:**
 
@@ -159,11 +159,11 @@ ___
 
 ###  set
 
-▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹void›*
+▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:59](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L59)*
+*Defined in [store/MongoStore.ts:59](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L59)*
 
 **Parameters:**
 
@@ -171,7 +171,7 @@ Name | Type |
 ------ | ------ |
 `collectionId` | string |
 `id` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹void›*
 
@@ -183,7 +183,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:94](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L94)*
+*Defined in [store/MongoStore.ts:94](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L94)*
 
 **Parameters:**
 
@@ -197,11 +197,11 @@ ___
 
 ###  update
 
-▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹void›*
+▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MongoStore.ts:69](https://github.com/esnya/nekostore/blob/de830f5/src/store/MongoStore.ts#L69)*
+*Defined in [store/MongoStore.ts:69](https://github.com/esnya/nekostore/blob/4486881/src/store/MongoStore.ts#L69)*
 
 **Parameters:**
 
@@ -209,6 +209,6 @@ Name | Type |
 ------ | ------ |
 `collectionId` | string |
 `id` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹void›*

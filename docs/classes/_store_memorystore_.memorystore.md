@@ -36,24 +36,24 @@ Non-persistent store implementation with local memory.
 
 • **store**: *Map‹string, Map‹string, object››* =  new Map<string, Collection>()
 
-*Defined in [store/MemoryStore.ts:16](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L16)*
+*Defined in [store/MemoryStore.ts:16](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L16)*
 
 ## Methods
 
 ###  add
 
-▸ **add**(`collectionId`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹string›*
+▸ **add**(`collectionId`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹string›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:45](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L45)*
+*Defined in [store/MemoryStore.ts:45](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L45)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `collectionId` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹string›*
 
@@ -65,7 +65,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:71](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L71)*
+*Defined in [store/MemoryStore.ts:71](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L71)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:36](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L36)*
+*Defined in [store/MemoryStore.ts:36](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L36)*
 
 **Parameters:**
 
@@ -99,11 +99,11 @@ ___
 
 ###  get
 
-▸ **get**(`collectionId`: string, `id`: string): *Promise‹[Data](../interfaces/_fakedriver_spec_.data.md) | undefined›*
+▸ **get**(`collectionId`: string, `id`: string): *Promise‹[Data](../modules/_store_store_.md#data) | undefined›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:54](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L54)*
+*Defined in [store/MemoryStore.ts:54](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L54)*
 
 **Parameters:**
 
@@ -112,7 +112,7 @@ Name | Type |
 `collectionId` | string |
 `id` | string |
 
-**Returns:** *Promise‹[Data](../interfaces/_fakedriver_spec_.data.md) | undefined›*
+**Returns:** *Promise‹[Data](../modules/_store_store_.md#data) | undefined›*
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 ▸ **list**(`collectionId`: string): *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
 
-*Defined in [store/MemoryStore.ts:28](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L28)*
+*Defined in [store/MemoryStore.ts:28](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L28)*
 
 **Parameters:**
 
@@ -138,7 +138,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:75](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L75)*
+*Defined in [store/MemoryStore.ts:75](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L75)*
 
 **Type parameters:**
 
@@ -156,11 +156,11 @@ ___
 
 ###  set
 
-▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹void›*
+▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:59](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L59)*
+*Defined in [store/MemoryStore.ts:59](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L59)*
 
 **Parameters:**
 
@@ -168,7 +168,7 @@ Name | Type |
 ------ | ------ |
 `collectionId` | string |
 `id` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹void›*
 
@@ -180,7 +180,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:81](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L81)*
+*Defined in [store/MemoryStore.ts:81](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L81)*
 
 **Parameters:**
 
@@ -194,11 +194,11 @@ ___
 
 ###  update
 
-▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../interfaces/_fakedriver_spec_.data.md)): *Promise‹void›*
+▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:63](https://github.com/esnya/nekostore/blob/de830f5/src/store/MemoryStore.ts#L63)*
+*Defined in [store/MemoryStore.ts:63](https://github.com/esnya/nekostore/blob/4486881/src/store/MemoryStore.ts#L63)*
 
 **Parameters:**
 
@@ -206,6 +206,6 @@ Name | Type |
 ------ | ------ |
 `collectionId` | string |
 `id` | string |
-`data` | [Data](../interfaces/_fakedriver_spec_.data.md) |
+`data` | [Data](../modules/_store_store_.md#data) |
 
 **Returns:** *Promise‹void›*

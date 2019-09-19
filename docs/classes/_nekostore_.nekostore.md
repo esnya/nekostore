@@ -28,7 +28,7 @@ Root API interface.
 
 \+ **new Nekostore**(`driver`: [Driver](../interfaces/_driver_.driver.md)): *[Nekostore](_nekostore_.nekostore.md)*
 
-*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/de830f5/src/Nekostore.ts#L8)*
+*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L8)*
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ Name | Type | Description |
 
 • **driver**: *[Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/de830f5/src/Nekostore.ts#L8)*
+*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L8)*
 
 ## Methods
 
@@ -52,7 +52,7 @@ Name | Type | Description |
 
 ▸ **collection**<**T**>(`id`: string): *[CollectionReference](../interfaces/_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [Nekostore.ts:20](https://github.com/esnya/nekostore/blob/de830f5/src/Nekostore.ts#L20)*
+*Defined in [Nekostore.ts:20](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L20)*
 
 Get a reference of the collection.
 

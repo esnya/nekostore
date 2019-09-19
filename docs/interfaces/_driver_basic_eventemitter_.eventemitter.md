@@ -23,7 +23,7 @@ Interface for implementation of the EventEmitter that listens and emits events.
 
 ▸ **emit**<**T**>(`event`: string, ...`args`: T[]): *void*
 
-*Defined in [driver/basic/EventEmitter.ts:23](https://github.com/esnya/nekostore/blob/de830f5/src/driver/basic/EventEmitter.ts#L23)*
+*Defined in [driver/basic/EventEmitter.ts:23](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/EventEmitter.ts#L23)*
 
 Emit event.
 
@@ -46,7 +46,7 @@ ___
 
 ▸ **off**<**T**>(`event`: string, `listener`: function): *void*
 
-*Defined in [driver/basic/EventEmitter.ts:18](https://github.com/esnya/nekostore/blob/de830f5/src/driver/basic/EventEmitter.ts#L18)*
+*Defined in [driver/basic/EventEmitter.ts:18](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/EventEmitter.ts#L18)*
 
 Remove an event listenr.
 
@@ -76,7 +76,7 @@ ___
 
 ▸ **on**<**T**>(`event`: string, `listener`: function): *void*
 
-*Defined in [driver/basic/EventEmitter.ts:8](https://github.com/esnya/nekostore/blob/de830f5/src/driver/basic/EventEmitter.ts#L8)*
+*Defined in [driver/basic/EventEmitter.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/EventEmitter.ts#L8)*
 
 Add an event listener.
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **once**<**T**>(`event`: string, `listener`: function): *void*
 
-*Defined in [driver/basic/EventEmitter.ts:13](https://github.com/esnya/nekostore/blob/de830f5/src/driver/basic/EventEmitter.ts#L13)*
+*Defined in [driver/basic/EventEmitter.ts:13](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/EventEmitter.ts#L13)*
 
 Add a one-time event listener for once.
 

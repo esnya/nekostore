@@ -10,7 +10,7 @@ Server implementation for SocketDriver that mediates other drivers.
 
 ## Implements
 
-* [Actions](../interfaces/_driver_socket_actions_.actions.md)
+* Actions
 
 ## Index
 
@@ -42,7 +42,7 @@ Server implementation for SocketDriver that mediates other drivers.
 
 \+ **new SocketDriverServer**(`driver`: [Driver](../interfaces/_driver_.driver.md), `socket`: Socket): *[SocketDriverServer](_driver_socket_socketdriverserver_.socketdriverserver.md)*
 
-*Defined in [driver/socket/SocketDriverServer.ts:51](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L51)*
+*Defined in [driver/socket/SocketDriverServer.ts:51](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L51)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ Name | Type | Description |
 
 • **driver**: *[Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [driver/socket/SocketDriverServer.ts:91](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L91)*
+*Defined in [driver/socket/SocketDriverServer.ts:91](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L91)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **socket**: *Socket*
 
-*Defined in [driver/socket/SocketDriverServer.ts:92](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L92)*
+*Defined in [driver/socket/SocketDriverServer.ts:92](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L92)*
 
 ## Methods
 
@@ -75,7 +75,7 @@ ___
 
 ▸ **collectionAdd**<**T**>(`path`: string, `data`: T): *Promise‹object›*
 
-*Defined in [driver/socket/SocketDriverServer.ts:168](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L168)*
+*Defined in [driver/socket/SocketDriverServer.ts:168](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L168)*
 
 **Type parameters:**
 
@@ -96,7 +96,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [driver/socket/SocketDriverServer.ts:94](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L94)*
+*Defined in [driver/socket/SocketDriverServer.ts:94](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L94)*
 
 **Returns:** *void*
 
@@ -106,9 +106,7 @@ ___
 
 ▸ **documentDelete**<**T**>(`path`: string): *Promise‹void›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:198](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L198)*
+*Defined in [driver/socket/SocketDriverServer.ts:198](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L198)*
 
 **Type parameters:**
 
@@ -128,9 +126,7 @@ ___
 
 ▸ **documentGet**<**T**>(`path`: string): *Promise‹object›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:173](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L173)*
+*Defined in [driver/socket/SocketDriverServer.ts:173](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L173)*
 
 **Type parameters:**
 
@@ -150,7 +146,7 @@ ___
 
 ▸ **documentSet**<**T**>(`path`: string, `data`: T): *Promise‹void›*
 
-*Defined in [driver/socket/SocketDriverServer.ts:190](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L190)*
+*Defined in [driver/socket/SocketDriverServer.ts:190](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L190)*
 
 **Type parameters:**
 
@@ -171,9 +167,7 @@ ___
 
 ▸ **documentSubscribe**<**T**>(`path`: string): *Promise‹object›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:202](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L202)*
+*Defined in [driver/socket/SocketDriverServer.ts:202](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L202)*
 
 **Type parameters:**
 
@@ -193,9 +187,7 @@ ___
 
 ▸ **documentUpdate**<**T**>(`path`: string, `data`: Partial‹T›): *Promise‹void›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:194](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L194)*
+*Defined in [driver/socket/SocketDriverServer.ts:194](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L194)*
 
 **Type parameters:**
 
@@ -214,11 +206,9 @@ ___
 
 ###  queryGet
 
-▸ **queryGet**<**T**>(`path`: string, `descriptors`: QueryDescriptor[]): *Promise‹[QuerySnapshotData](../interfaces/_driver_socket_actions_.querysnapshotdata.md)‹T››*
+▸ **queryGet**<**T**>(`path`: string, `descriptors`: QueryDescriptor[]): *Promise‹QuerySnapshotData‹T››*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:98](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L98)*
+*Defined in [driver/socket/SocketDriverServer.ts:98](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L98)*
 
 **Type parameters:**
 
@@ -231,7 +221,7 @@ Name | Type |
 `path` | string |
 `descriptors` | QueryDescriptor[] |
 
-**Returns:** *Promise‹[QuerySnapshotData](../interfaces/_driver_socket_actions_.querysnapshotdata.md)‹T››*
+**Returns:** *Promise‹QuerySnapshotData‹T››*
 
 ___
 
@@ -239,9 +229,7 @@ ___
 
 ▸ **querySubscribe**<**T**>(`path`: string, `descriptors`: QueryDescriptor[]): *Promise‹object›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:158](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L158)*
+*Defined in [driver/socket/SocketDriverServer.ts:158](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L158)*
 
 **Type parameters:**
 
@@ -262,9 +250,7 @@ ___
 
 ▸ **unsubscribe**<**T**>(`subscriberId`: string): *Promise‹void›*
 
-*Implementation of [Actions](../interfaces/_driver_socket_actions_.actions.md)*
-
-*Defined in [driver/socket/SocketDriverServer.ts:152](https://github.com/esnya/nekostore/blob/de830f5/src/driver/socket/SocketDriverServer.ts#L152)*
+*Defined in [driver/socket/SocketDriverServer.ts:152](https://github.com/esnya/nekostore/blob/4486881/src/driver/socket/SocketDriverServer.ts#L152)*
 
 **Type parameters:**
 

@@ -8,8 +8,6 @@ Interface for driver implementation.
 
 * **Driver**
 
-  ↳ [FakeDriver](_fakedriver_spec_.fakedriver.md)
-
 ## Implemented by
 
 * [BasicDriver](../classes/_driver_basic_basicdriver_.basicdriver.md)
@@ -28,7 +26,7 @@ Interface for driver implementation.
 
 ▸ **collection**<**T**>(`id`: string): *[CollectionReference](_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [Driver.ts:11](https://github.com/esnya/nekostore/blob/de830f5/src/Driver.ts#L11)*
+*Defined in [Driver.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/Driver.ts#L11)*
 
 Collection reference getter.
 

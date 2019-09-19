@@ -31,7 +31,7 @@
 
 \+ **new Timestamp**(`seconds`: number, `nanoseconds`: number): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:13](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L13)*
+*Defined in [Timestamp.ts:13](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L13)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **nanoseconds**: *number*
 
-*Defined in [Timestamp.ts:21](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L21)*
+*Defined in [Timestamp.ts:21](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L21)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 • **seconds**: *number*
 
-*Defined in [Timestamp.ts:20](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L20)*
+*Defined in [Timestamp.ts:20](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L20)*
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 ▸ **toDate**(): *Date*
 
-*Defined in [Timestamp.ts:23](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L23)*
+*Defined in [Timestamp.ts:23](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L23)*
 
 **Returns:** *Date*
 
@@ -74,7 +74,7 @@ ___
 
 ▸ **toMillis**(): *number*
 
-*Defined in [Timestamp.ts:27](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L27)*
+*Defined in [Timestamp.ts:27](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L27)*
 
 **Returns:** *number*
 
@@ -84,7 +84,7 @@ ___
 
 ▸ **fromDate**(`date`: Date): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:5](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L5)*
+*Defined in [Timestamp.ts:5](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L5)*
 
 **Parameters:**
 
@@ -100,7 +100,7 @@ ___
 
 ▸ **fromMillis**(`milliseconds`: number): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:8](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L8)*
+*Defined in [Timestamp.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L8)*
 
 **Parameters:**
 
@@ -116,6 +116,6 @@ ___
 
 ▸ **now**(): *[Timestamp](_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:2](https://github.com/esnya/nekostore/blob/de830f5/src/Timestamp.ts#L2)*
+*Defined in [Timestamp.ts:2](https://github.com/esnya/nekostore/blob/4486881/src/Timestamp.ts#L2)*
 
 **Returns:** *[Timestamp](_timestamp_.timestamp.md)*

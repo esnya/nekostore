@@ -1,6 +1,6 @@
 import Driver from '../../Driver';
 import CollectionReference from '../../CollectionReference';
-import BasicCollectionReference from './BasicCollectionReference';
+import BasicCollectionReference from './impl/BasicCollectionReference';
 import MemoryStore from '../../store/MemoryStore';
 import Store from '../../store/Store';
 import EventEmitter from './EventEmitter';

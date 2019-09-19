@@ -1,14 +1,14 @@
 import Driver from '../../Driver';
 import Socket from './Socket';
 import Unsubscribe from '../../Unsubscribe';
-import QueryDescriptor from './QueryDescriptor';
-import { DocumentSnapshotData } from './SocketDocumentSnapshot';
-import { getDoc, getCollection, getQuery } from './utilities';
+import QueryDescriptor from './impl/QueryDescriptor';
+import { DocumentSnapshotData } from './impl/SocketDocumentSnapshot';
+import { getDoc, getCollection, getQuery } from './impl/utilities';
 import Actions, {
   QuerySnapshotData,
   ActionNames,
   ActionArgsOf,
-} from './Actions';
+} from './impl/Actions';
 import uuid from 'uuid';
 import DocumentReference from '../../DocumentReference';
 import Query from '../../Query';
