@@ -33,7 +33,7 @@
 
 *Overrides [NekostoreError](_nekostoreerror_.nekostoreerror.md).[constructor](_nekostoreerror_.nekostoreerror.md#constructor)*
 
-*Defined in [NotFoundError.ts:3](https://github.com/esnya/nekostore/blob/4486881/src/NotFoundError.ts#L3)*
+*Defined in [NotFoundError.ts:3](https://github.com/esnya/nekostore/blob/f2443c4/src/NotFoundError.ts#L3)*
 
 **Parameters:**
 
@@ -52,7 +52,7 @@ Name | Type |
 
 *Inherited from [NekostoreError](_nekostoreerror_.nekostoreerror.md).[code](_nekostoreerror_.nekostoreerror.md#code)*
 
-*Defined in [NekostoreError.ts:10](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L10)*
+*Defined in [NekostoreError.ts:13](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L13)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 *Overrides void*
 
-*Defined in [NekostoreError.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L11)*
+*Defined in [NekostoreError.ts:14](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L14)*
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 *Inherited from [NekostoreError](_nekostoreerror_.nekostoreerror.md).[original](_nekostoreerror_.nekostoreerror.md#optional-original)*
 
-*Defined in [NekostoreError.ts:12](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L12)*
+*Defined in [NekostoreError.ts:15](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L15)*
 
 ## Accessors
 
@@ -96,6 +96,6 @@ ___
 
 *Overrides void*
 
-*Defined in [NekostoreError.ts:14](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L14)*
+*Defined in [NekostoreError.ts:17](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L17)*
 
 **Returns:** *string | undefined*

@@ -11,7 +11,7 @@ export default interface QuerySnapshot<T> {
   readonly ref: Query<T>;
 
   /**
-   * Snapshots of documents.
+   * Snapshot of documents.
    */
   readonly docs: DocumentChange<T>[];
 }

@@ -31,6 +31,11 @@ const nekostore: Nekostore = new Nekostore(driver);
 ```
 
 ### Get reference
+See aslo
+
+* [CollectionReference](/docs/interfaces/_collectionreference_.collectionreference.md)
+* [DocumentReference](/docs/interfaces/_documentreference_.documentreference.md)
+
 ```ts
 interface Data {
   foo: string;
@@ -83,6 +88,8 @@ await docRef.delete();
 ```
 
 ### Query
+[See also](/docs/interfaces/_query_.query.md)
+
 ```ts
 function prindDocumentsData(snapshot: QuerySnashot<Data>): void {
   snapshot.docs.forEach((doc: DocumentChange<Data>): void => {
@@ -142,3 +149,6 @@ printDocumentsData(s2); // d2, d3
 const s3: QuerySnapshot<Data> = await colRef.orderBy('bar').where('foo', '<', 'b').get();
 printDocumentsData(s3); // d1
 ```
+
+## API Reference
+[See here](/docs/classes/_nekostore_.nekostore.md)

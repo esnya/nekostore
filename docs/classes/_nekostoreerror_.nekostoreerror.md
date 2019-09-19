@@ -2,6 +2,8 @@
 
 # Class: NekostoreError
 
+Error class with error-code.
+
 ## Hierarchy
 
 * Error
@@ -34,7 +36,7 @@
 
 \+ **new NekostoreError**(`code`: string, `message`: string, `original?`: Error): *[NekostoreError](_nekostoreerror_.nekostoreerror.md)*
 
-*Defined in [NekostoreError.ts:1](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L1)*
+*Defined in [NekostoreError.ts:4](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L4)*
 
 **Parameters:**
 
@@ -52,7 +54,7 @@ Name | Type |
 
 • **code**: *string*
 
-*Defined in [NekostoreError.ts:10](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L10)*
+*Defined in [NekostoreError.ts:13](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L13)*
 
 ___
 
@@ -62,7 +64,7 @@ ___
 
 *Overrides void*
 
-*Defined in [NekostoreError.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L11)*
+*Defined in [NekostoreError.ts:14](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L14)*
 
 ___
 
@@ -80,7 +82,7 @@ ___
 
 • **original**? : *Error*
 
-*Defined in [NekostoreError.ts:12](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L12)*
+*Defined in [NekostoreError.ts:15](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L15)*
 
 ___
 
@@ -98,6 +100,6 @@ Defined in C:/Users/esnya/Documents/GitHub/nekostore/node_modules/typedoc/node_m
 
 *Overrides void*
 
-*Defined in [NekostoreError.ts:14](https://github.com/esnya/nekostore/blob/4486881/src/NekostoreError.ts#L14)*
+*Defined in [NekostoreError.ts:17](https://github.com/esnya/nekostore/blob/f2443c4/src/NekostoreError.ts#L17)*
 
 **Returns:** *string | undefined*

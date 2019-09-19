@@ -34,9 +34,14 @@ Query of the collection reference.
 
 ▸ **endAt**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:22](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L22)*
+*Defined in [Query.ts:32](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L32)*
 
 Specify end poisiton by field value. Use after orderBy.
+
+**`example`** 
+```ts
+const snapshot = await colRef.orderBy('foo.bar', 'desc').endAt('c').get();
+```
 
 **Type parameters:**
 
@@ -56,9 +61,14 @@ ___
 
 ▸ **endBefore**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:28](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L28)*
+*Defined in [Query.ts:43](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L43)*
 
 Specify end poisiton by field value. Use after orderBy.
+
+**`example`** 
+```ts
+const snapshot = await colRef.orderBy('foo.bar', 'desc').endBefore('c').get();
+```
 
 **Type parameters:**
 
@@ -78,9 +88,15 @@ ___
 
 ▸ **get**(): *Promise‹[QuerySnapshot](_querysnapshot_.querysnapshot.md)‹T››*
 
-*Defined in [Query.ts:58](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L58)*
+*Defined in [Query.ts:100](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L100)*
 
 Get a snapshot of the query.
+
+**`example`** 
+```ts
+const snapshot = await query.get();
+console.log(snapshot.docs.map(doc: DocumentChange<T> => doc.data));
+```
 
 **Returns:** *Promise‹[QuerySnapshot](_querysnapshot_.querysnapshot.md)‹T››*
 
@@ -90,9 +106,15 @@ ___
 
 ▸ **limit**(`limit`: number): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:45](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L45)*
+*Defined in [Query.ts:76](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L76)*
 
 Limit number of documents.
+
+**`example`** 
+```ts
+const snapshot = await colRef.limit(2).get();
+assert(snapshot.docs.length <= 2);
+```
 
 **Parameters:**
 
@@ -108,9 +130,24 @@ ___
 
 ▸ **onSnapshot**(`onNext`: function): *Promise‹Unsubscribe›*
 
-*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L65)*
+*Defined in [Query.ts:122](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L122)*
 
 Receive snapshots of the query when updated.
+
+**`example`** 
+```ts
+let unsubscribe: Unsubscribe;
+
+async function onInit(): Promise<void> {
+  unsubscribe = await query.onSnapshot(snapshot => {
+    updateView(snapshot.docs);
+  });
+}
+
+async function onDestroy(): Promise<void> {
+  await unsubscribe();
+}
+```
 
 **Parameters:**
 
@@ -134,9 +171,14 @@ ___
 
 ▸ **orderBy**(`field`: string, `direction?`: [OrderDirection](../modules/_query_.md#orderdirection)): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:16](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L16)*
+*Defined in [Query.ts:21](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L21)*
 
 Sort documents.
+
+**`example`** 
+```ts
+const snapshot = await colRef.orderBy('foo.bar', 'desc').get();
+```
 
 **Parameters:**
 
@@ -153,9 +195,14 @@ ___
 
 ▸ **startAfter**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:34](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L34)*
+*Defined in [Query.ts:54](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L54)*
 
 Specify start poisiton by field value. Use after orderBy.
+
+**`example`** 
+```ts
+const snapshot = await colRef.orderBy('foo.bar', 'desc').startAfter('c').get();
+```
 
 **Type parameters:**
 
@@ -175,9 +222,14 @@ ___
 
 ▸ **startAt**<**U**>(`value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:40](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L40)*
+*Defined in [Query.ts:65](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L65)*
 
 Specify start poisiton by field value. Use after orderBy.
+
+**`example`** 
+```ts
+const snapshot = await colRef.orderBy('foo.bar', 'desc').startAt('c').get();
+```
 
 **Type parameters:**
 
@@ -197,9 +249,14 @@ ___
 
 ▸ **where**<**U**>(`field`: string, `operator`: [WhereOperator](../modules/_query_.md#whereoperator), `value`: U): *[Query](_query_.query.md)‹T›*
 
-*Defined in [Query.ts:53](https://github.com/esnya/nekostore/blob/4486881/src/Query.ts#L53)*
+*Defined in [Query.ts:89](https://github.com/esnya/nekostore/blob/f2443c4/src/Query.ts#L89)*
 
 Filter documents by specified operator.
+
+**`example`** 
+```ts
+const snapshot = await colRef.where('foo.bar', '>=', 2).get();
+```
 
 **Type parameters:**
 

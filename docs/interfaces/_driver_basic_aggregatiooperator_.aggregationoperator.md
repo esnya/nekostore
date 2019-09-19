@@ -20,7 +20,7 @@
 
 • **$limit**? : *number*
 
-*Defined in [driver/basic/AggregatioOperator.ts:6](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/AggregatioOperator.ts#L6)*
+*Defined in [driver/basic/AggregatioOperator.ts:6](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/AggregatioOperator.ts#L6)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **$match**? : *FilterQuery‹any›*
 
-*Defined in [driver/basic/AggregatioOperator.ts:5](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/AggregatioOperator.ts#L5)*
+*Defined in [driver/basic/AggregatioOperator.ts:5](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/AggregatioOperator.ts#L5)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **$sort**? : *object*
 
-*Defined in [driver/basic/AggregatioOperator.ts:7](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/AggregatioOperator.ts#L7)*
+*Defined in [driver/basic/AggregatioOperator.ts:7](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/AggregatioOperator.ts#L7)*
 
 #### Type declaration:
 

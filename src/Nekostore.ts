@@ -3,6 +3,17 @@ import CollectionReference from './CollectionReference';
 
 /**
  * Root API interface.
+ *
+ * @example
+ * ```ts
+ * import Nekostore from 'nekostore';
+ * import BasicDriver from 'nekostore/lib/driver/basic';
+ *
+ * const driver = new BasicDriver();
+ * const nekostore = new Nekostore(driver);
+ *
+ * const colRef = nekostore.collection<{ foo: string }>('c1');
+ * ```
  */
 export default class Nekostore {
   readonly driver: Driver;

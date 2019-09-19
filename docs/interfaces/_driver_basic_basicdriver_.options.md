@@ -19,7 +19,7 @@
 
 • **eventEmitter**? : *[EventEmitter](_driver_basic_eventemitter_.eventemitter.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L11)*
+*Defined in [driver/basic/BasicDriver.ts:11](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L11)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **store**? : *[Store](_store_store_.store.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:10](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L10)*
+*Defined in [driver/basic/BasicDriver.ts:10](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L10)*

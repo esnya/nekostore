@@ -37,7 +37,7 @@ Snapshot of existing document.
 
 *Overrides [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[createTime](_documentsnapshot_.documentsnapshot.md#optional-createtime)*
 
-*Defined in [DocumentSnapshot.ts:11](https://github.com/esnya/nekostore/blob/4486881/src/DocumentSnapshot.ts#L11)*
+*Defined in [DocumentSnapshot.ts:11](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentSnapshot.ts#L11)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 *Overrides [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[data](_documentsnapshot_.documentsnapshot.md#optional-data)*
 
-*Defined in [DocumentSnapshot.ts:10](https://github.com/esnya/nekostore/blob/4486881/src/DocumentSnapshot.ts#L10)*
+*Defined in [DocumentSnapshot.ts:10](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentSnapshot.ts#L10)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 *Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[ref](_documentsnapshot_.documentsnapshot.md#ref)*
 
-*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/4486881/src/DocumentSnapshot.ts#L22)*
+*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentSnapshot.ts#L22)*
 
 Reference for the document.
 
@@ -69,7 +69,7 @@ ___
 
 *Overrides [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[updateTime](_documentsnapshot_.documentsnapshot.md#optional-updatetime)*
 
-*Defined in [DocumentSnapshot.ts:12](https://github.com/esnya/nekostore/blob/4486881/src/DocumentSnapshot.ts#L12)*
+*Defined in [DocumentSnapshot.ts:12](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentSnapshot.ts#L12)*
 
 ## Methods
 
@@ -79,7 +79,7 @@ ___
 
 *Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[exists](_documentsnapshot_.documentsnapshot.md#exists)*
 
-*Defined in [DocumentSnapshot.ts:42](https://github.com/esnya/nekostore/blob/4486881/src/DocumentSnapshot.ts#L42)*
+*Defined in [DocumentSnapshot.ts:42](https://github.com/esnya/nekostore/blob/f2443c4/src/DocumentSnapshot.ts#L42)*
 
 **Returns:** *boolean*
 

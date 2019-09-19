@@ -54,6 +54,21 @@ export default interface DocumentReference<T> {
    * Receive snapshots of the document when updated.
    * @param onNext
    * @returns Function to unsubscribe.
+   *
+   * @example
+   * ```ts
+   * let unsubscribe: Unsubscribe;
+   *
+   * async function onInit(): Promise<void> {
+   *   unsubscribe = await docRef.onSnapshot(snapshot => {
+   *     updateView(snapshot.data);
+   *   });
+   * }
+   *
+   * async function onDestroy(): Promise<void> {
+   *   await unsubscribe();
+   * }
+   * ```
    */
   onSnapshot(
     onNext: (snapshot: DocumentSnapshot<T>) => void,

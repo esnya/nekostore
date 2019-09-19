@@ -33,7 +33,7 @@ Driver implemtation using a simple store and event emitter.
 
 \+ **new BasicDriver**(`options`: [Options](../interfaces/_driver_basic_basicdriver_.options.md)): *[BasicDriver](_driver_basic_basicdriver_.basicdriver.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:17](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L17)*
+*Defined in [driver/basic/BasicDriver.ts:17](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L17)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type | Default |
 
 • **eventEmitter**: *[EventEmitter](../interfaces/_driver_basic_eventemitter_.eventemitter.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:24](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L24)*
+*Defined in [driver/basic/BasicDriver.ts:24](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L24)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **store**: *[Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:23](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L23)*
+*Defined in [driver/basic/BasicDriver.ts:23](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L23)*
 
 ## Methods
 
@@ -67,7 +67,7 @@ ___
 
 *Implementation of [Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:26](https://github.com/esnya/nekostore/blob/4486881/src/driver/basic/BasicDriver.ts#L26)*
+*Defined in [driver/basic/BasicDriver.ts:26](https://github.com/esnya/nekostore/blob/f2443c4/src/driver/basic/BasicDriver.ts#L26)*
 
 **Type parameters:**
 

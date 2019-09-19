@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -b",
     "ci-scripts": "run-s clean lint cover build",
-    "clean": "rimraf docs lib",
+    "clean": "rimraf docs/* lib",
     "cover": "nyc mocha",
     "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.*",
     "dev": "run-p dev:*",

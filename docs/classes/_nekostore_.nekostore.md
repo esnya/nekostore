@@ -4,6 +4,17 @@
 
 Root API interface.
 
+**`example`** 
+```ts
+import Nekostore from 'nekostore';
+import BasicDriver from 'nekostore/lib/driver/basic';
+
+const driver = new BasicDriver();
+const nekostore = new Nekostore(driver);
+
+const colRef = nekostore.collection<{ foo: string }>('c1');
+```
+
 ## Hierarchy
 
 * **Nekostore**
@@ -28,7 +39,7 @@ Root API interface.
 
 \+ **new Nekostore**(`driver`: [Driver](../interfaces/_driver_.driver.md)): *[Nekostore](_nekostore_.nekostore.md)*
 
-*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L8)*
+*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/f2443c4/src/Nekostore.ts#L19)*
 
 **Parameters:**
 
@@ -44,7 +55,7 @@ Name | Type | Description |
 
 • **driver**: *[Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [Nekostore.ts:8](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L8)*
+*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/f2443c4/src/Nekostore.ts#L19)*
 
 ## Methods
 
@@ -52,7 +63,7 @@ Name | Type | Description |
 
 ▸ **collection**<**T**>(`id`: string): *[CollectionReference](../interfaces/_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [Nekostore.ts:20](https://github.com/esnya/nekostore/blob/4486881/src/Nekostore.ts#L20)*
+*Defined in [Nekostore.ts:31](https://github.com/esnya/nekostore/blob/f2443c4/src/Nekostore.ts#L31)*
 
 Get a reference of the collection.
 
