@@ -30,6 +30,8 @@ export default class BasicDocumentReference<T extends {}>
   }
 
   async get(): Promise<DocumentSnapshot<T>> {
+    this.driver.authorize(this.path, 'read');
+
     const rawData = await this.parent.driver.store.get(
       this.parent.path,
       this.id,
@@ -39,6 +41,7 @@ export default class BasicDocumentReference<T extends {}>
   }
 
   async set(data: T): Promise<void> {
+    this.driver.authorize(this.path, 'write');
     const rawData = {
       ...data,
       ...this.driver.store.serverTimestamps('createTime', 'updateTime'),
@@ -50,6 +53,7 @@ export default class BasicDocumentReference<T extends {}>
   }
 
   async update(data: Partial<T>): Promise<void> {
+    this.driver.authorize(this.path, 'write');
     await this.driver.store.update(this.parent.path, this.id, {
       ...data,
       ...this.driver.store.serverTimestamps('updateTime'),
@@ -80,6 +84,7 @@ export default class BasicDocumentReference<T extends {}>
   }
 
   async delete(): Promise<void> {
+    this.driver.authorize(this.path, 'write');
     await this.driver.store.delete(this.parent.path, this.id);
     this.driver.eventEmitter.emit(this.path, new BasicDocumentSnapshot(this));
     this.driver.eventEmitter.emit(this.parent.path, {
@@ -97,6 +102,7 @@ export default class BasicDocumentReference<T extends {}>
   async onSnapshot(
     onNext: (snapshot: DocumentSnapshot<T>) => void,
   ): Promise<Unsubscribe> {
+    this.driver.authorize(this.path, 'read');
     this.driver.eventEmitter.on(this.path, onNext);
 
     return async (): Promise<void> => {

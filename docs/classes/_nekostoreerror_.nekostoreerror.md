@@ -12,6 +12,8 @@ Error class with error-code.
 
   ↳ [NotFoundError](_notfounderror_.notfounderror.md)
 
+  ↳ [PermissionError](_permissionerror_.permissionerror.md)
+
 ## Index
 
 ### Constructors

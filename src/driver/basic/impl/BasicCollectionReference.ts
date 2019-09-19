@@ -40,6 +40,7 @@ export default class BasicCollectionReference<T> extends BasicQuery<T>
   }
 
   async add(data: T): Promise<DocumentReference<T>> {
+    this.driver.authorize(this.doc('<ID>').path, 'write');
     const id = await this.driver.store.add(this.path, {
       ...data,
       ...this.driver.store.serverTimestamps('createTime', 'updateTime'),

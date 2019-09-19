@@ -376,4 +376,64 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
     describe('documents', testDocument);
     describe('queries', testQuery);
   });
+
+  describe('security', () => {
+    it('allows read', async () => {
+      await nekostore
+        .collection('private')
+        .doc('alice')
+        .get();
+    });
+
+    it('denies read', async () => {
+      await expect(
+        nekostore
+          .collection('private')
+          .doc('bob')
+          .get(),
+      ).to.be.rejected;
+    });
+
+    it('allows write', async () => {
+      await nekostore
+        .collection<T1>('private')
+        .doc('alice')
+        .set({ t1: 'a' });
+    });
+
+    it('denies write', async () => {
+      await expect(
+        nekostore
+          .collection('private')
+          .doc('bob')
+          .set({ t1: 'b' }),
+      ).to.be.rejected;
+    });
+
+    it('allows readonly', async () => {
+      await nekostore
+        .collection('private')
+        .doc('readonly')
+        .get();
+      await expect(
+        nekostore
+          .collection('private')
+          .doc('readonly')
+          .set({ t1: 'b' }),
+      ).to.be.rejected;
+    });
+
+    it('allows writeonly', async () => {
+      await expect(
+        nekostore
+          .collection('private')
+          .doc('writeonly')
+          .get(),
+      ).to.be.rejected;
+      await nekostore
+        .collection('private')
+        .doc('writeonly')
+        .set({ t1: 'b' });
+    });
+  });
 }

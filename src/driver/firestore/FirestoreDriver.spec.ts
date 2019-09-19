@@ -1,6 +1,8 @@
-import { initializeTestApp } from '@firebase/testing';
+import { initializeTestApp, loadFirestoreRules } from '@firebase/testing';
 import { EmulatorServer } from 'firebase-tools/lib/emulator/emulatorServer';
 import { FirestoreEmulator } from 'firebase-tools/lib/emulator/firestoreEmulator';
+import RC from 'firebase-tools/lib/rc';
+import { promises as fs } from 'fs';
 import FirestoreDriver from './FirestoreDriver';
 import testDriver from '../Driver.spec';
 
@@ -13,9 +15,16 @@ describe('FirestoreDriver', () => {
       await emulator.stop();
     });
 
+    const rc = RC.loadFile('.firebaserc');
+    const projectId = rc.get('projects.default');
+
     app = await initializeTestApp({
-      projectId: 'nekostore-dev-923b4',
-      auth: { uid: 'test' },
+      projectId,
+      auth: { uid: 'alice' },
+    });
+    await loadFirestoreRules({
+      projectId,
+      rules: await fs.readFile('firebase/firestore.rules', 'utf8'),
     });
   });
 

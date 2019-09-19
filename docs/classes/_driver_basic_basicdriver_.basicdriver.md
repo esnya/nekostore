@@ -21,10 +21,13 @@ Driver implemtation using a simple store and event emitter.
 ### Properties
 
 * [eventEmitter](_driver_basic_basicdriver_.basicdriver.md#eventemitter)
+* [rules](_driver_basic_basicdriver_.basicdriver.md#rules)
 * [store](_driver_basic_basicdriver_.basicdriver.md#store)
+* [user](_driver_basic_basicdriver_.basicdriver.md#user)
 
 ### Methods
 
+* [authorize](_driver_basic_basicdriver_.basicdriver.md#authorize)
 * [collection](_driver_basic_basicdriver_.basicdriver.md#collection)
 
 ## Constructors
@@ -33,7 +36,7 @@ Driver implemtation using a simple store and event emitter.
 
 \+ **new BasicDriver**(`options`: [Options](../interfaces/_driver_basic_basicdriver_.options.md)): *[BasicDriver](_driver_basic_basicdriver_.basicdriver.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:17](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L17)*
+*Defined in [driver/basic/BasicDriver.ts:55](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L55)*
 
 **Parameters:**
 
@@ -49,7 +52,15 @@ Name | Type | Default |
 
 • **eventEmitter**: *[EventEmitter](../interfaces/_driver_basic_eventemitter_.eventemitter.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:24](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L24)*
+*Defined in [driver/basic/BasicDriver.ts:68](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L68)*
+
+___
+
+###  rules
+
+• **rules**: *[CompiledSecurityRuleMatcher](../interfaces/_driver_basic_basicdriver_.compiledsecurityrulematcher.md)[]*
+
+*Defined in [driver/basic/BasicDriver.ts:69](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L69)*
 
 ___
 
@@ -57,9 +68,34 @@ ___
 
 • **store**: *[Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:23](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L23)*
+*Defined in [driver/basic/BasicDriver.ts:67](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L67)*
+
+___
+
+###  user
+
+• **user**: *[User](../interfaces/_driver_basic_securityrule_.user.md) | null*
+
+*Defined in [driver/basic/BasicDriver.ts:71](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L71)*
 
 ## Methods
+
+###  authorize
+
+▸ **authorize**(`path`: string, `action`: "read" | "write"): *void*
+
+*Defined in [driver/basic/BasicDriver.ts:77](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L77)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`path` | string |
+`action` | "read" &#124; "write" |
+
+**Returns:** *void*
+
+___
 
 ###  collection
 
@@ -67,7 +103,7 @@ ___
 
 *Implementation of [Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:26](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L26)*
+*Defined in [driver/basic/BasicDriver.ts:73](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L73)*
 
 **Type parameters:**
 

@@ -10,4 +10,5 @@
 
 ### Interfaces
 
+* [CompiledSecurityRuleMatcher](../interfaces/_driver_basic_basicdriver_.compiledsecurityrulematcher.md)
 * [Options](../interfaces/_driver_basic_basicdriver_.options.md)

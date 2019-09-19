@@ -95,6 +95,7 @@ export default class BasicQuery<T> implements Query<T> {
   }
 
   async get(): Promise<QuerySnapshot<T>> {
+    this.driver.authorize(this.path, 'read');
     const documents = await this.driver.store.find(this.path, this.operators);
     const collectionRef = new BasicCollectionReference<T>(
       this.driver,
@@ -119,6 +120,7 @@ export default class BasicQuery<T> implements Query<T> {
   async onSnapshot(
     onNext: (snapshot: QuerySnapshot<T>) => void,
   ): Promise<Unsubscribe> {
+    this.driver.authorize(this.path, 'read');
     if (this.operators.length > 0) throw new Error('Query is not supported');
 
     setTimeout(async () => {

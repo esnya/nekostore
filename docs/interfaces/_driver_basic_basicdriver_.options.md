@@ -11,7 +11,9 @@
 ### Properties
 
 * [eventEmitter](_driver_basic_basicdriver_.options.md#optional-eventemitter)
+* [rule](_driver_basic_basicdriver_.options.md#optional-rule)
 * [store](_driver_basic_basicdriver_.options.md#optional-store)
+* [user](_driver_basic_basicdriver_.options.md#optional-user)
 
 ## Properties
 
@@ -19,7 +21,15 @@
 
 • **eventEmitter**? : *[EventEmitter](_driver_basic_eventemitter_.eventemitter.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:11](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L11)*
+*Defined in [driver/basic/BasicDriver.ts:17](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L17)*
+
+___
+
+### `Optional` rule
+
+• **rule**? : *[SecurityRule](_driver_basic_securityrule_.securityrule.md)*
+
+*Defined in [driver/basic/BasicDriver.ts:18](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L18)*
 
 ___
 
@@ -27,4 +37,12 @@ ___
 
 • **store**? : *[Store](_store_store_.store.md)*
 
-*Defined in [driver/basic/BasicDriver.ts:10](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L10)*
+*Defined in [driver/basic/BasicDriver.ts:16](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L16)*
+
+___
+
+### `Optional` user
+
+• **user**? : *[User](_driver_basic_securityrule_.user.md)*
+
+*Defined in [driver/basic/BasicDriver.ts:19](https://github.com/esnya/nekostore/blob/master/src/driver/basic/BasicDriver.ts#L19)*
