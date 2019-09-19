@@ -39,7 +39,7 @@ const colRef = nekostore.collection<{ foo: string }>('c1');
 
 \+ **new Nekostore**(`driver`: [Driver](../interfaces/_driver_.driver.md)): *[Nekostore](_nekostore_.nekostore.md)*
 
-*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/99eadde/src/Nekostore.ts#L19)*
+*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/master/src/Nekostore.ts#L19)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ Name | Type | Description |
 
 • **driver**: *[Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/99eadde/src/Nekostore.ts#L19)*
+*Defined in [Nekostore.ts:19](https://github.com/esnya/nekostore/blob/master/src/Nekostore.ts#L19)*
 
 ## Methods
 
@@ -63,7 +63,7 @@ Name | Type | Description |
 
 ▸ **collection**<**T**>(`id`: string): *[CollectionReference](../interfaces/_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [Nekostore.ts:31](https://github.com/esnya/nekostore/blob/99eadde/src/Nekostore.ts#L31)*
+*Defined in [Nekostore.ts:31](https://github.com/esnya/nekostore/blob/master/src/Nekostore.ts#L31)*
 
 Get a reference of the collection.
 

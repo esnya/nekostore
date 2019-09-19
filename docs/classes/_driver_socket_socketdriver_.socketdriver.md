@@ -34,7 +34,7 @@ Driver implementation that connects to a remote Nekostore via a socket (e.g. Soc
 
 \+ **new SocketDriver**(`options`: [Options](../interfaces/_driver_socket_socketdriver_.options.md)): *[SocketDriver](_driver_socket_socketdriver_.socketdriver.md)*
 
-*Defined in [driver/socket/SocketDriver.ts:24](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L24)*
+*Defined in [driver/socket/SocketDriver.ts:24](https://github.com/esnya/nekostore/blob/master/src/driver/socket/SocketDriver.ts#L24)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **socket**: *Socket*
 
-*Defined in [driver/socket/SocketDriver.ts:30](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L30)*
+*Defined in [driver/socket/SocketDriver.ts:30](https://github.com/esnya/nekostore/blob/master/src/driver/socket/SocketDriver.ts#L30)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **timeout**: *number*
 
-*Defined in [driver/socket/SocketDriver.ts:31](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L31)*
+*Defined in [driver/socket/SocketDriver.ts:31](https://github.com/esnya/nekostore/blob/master/src/driver/socket/SocketDriver.ts#L31)*
 
 ## Methods
 
@@ -68,7 +68,7 @@ ___
 
 *Implementation of [Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [driver/socket/SocketDriver.ts:33](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L33)*
+*Defined in [driver/socket/SocketDriver.ts:33](https://github.com/esnya/nekostore/blob/master/src/driver/socket/SocketDriver.ts#L33)*
 
 **Type parameters:**
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **request**<**Action**>(`action`: Action, ...`args`: ActionArgsOf‹Action›): *Promise‹ActionReturnTypeOf‹Action››*
 
-*Defined in [driver/socket/SocketDriver.ts:37](https://github.com/esnya/nekostore/blob/99eadde/src/driver/socket/SocketDriver.ts#L37)*
+*Defined in [driver/socket/SocketDriver.ts:37](https://github.com/esnya/nekostore/blob/master/src/driver/socket/SocketDriver.ts#L37)*
 
 **Type parameters:**
 

@@ -26,7 +26,7 @@ Interface for driver implementation.
 
 ▸ **collection**<**T**>(`id`: string): *[CollectionReference](_collectionreference_.collectionreference.md)‹T›*
 
-*Defined in [Driver.ts:11](https://github.com/esnya/nekostore/blob/99eadde/src/Driver.ts#L11)*
+*Defined in [Driver.ts:11](https://github.com/esnya/nekostore/blob/master/src/Driver.ts#L11)*
 
 Collection reference getter.
 

@@ -32,7 +32,7 @@ Driver implementation using Firebase Firestore. Recommended!!
 
 \+ **new FirestoreDriver**(`firestore`: Firestore): *[FirestoreDriver](_driver_firestore_firestoredriver_.firestoredriver.md)*
 
-*Defined in [driver/firestore/FirestoreDriver.ts:10](https://github.com/esnya/nekostore/blob/99eadde/src/driver/firestore/FirestoreDriver.ts#L10)*
+*Defined in [driver/firestore/FirestoreDriver.ts:10](https://github.com/esnya/nekostore/blob/master/src/driver/firestore/FirestoreDriver.ts#L10)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type | Description |
 
 • **firestore**: *Firestore*
 
-*Defined in [driver/firestore/FirestoreDriver.ts:19](https://github.com/esnya/nekostore/blob/99eadde/src/driver/firestore/FirestoreDriver.ts#L19)*
+*Defined in [driver/firestore/FirestoreDriver.ts:19](https://github.com/esnya/nekostore/blob/master/src/driver/firestore/FirestoreDriver.ts#L19)*
 
 ## Methods
 
@@ -58,7 +58,7 @@ Name | Type | Description |
 
 *Implementation of [Driver](../interfaces/_driver_.driver.md)*
 
-*Defined in [driver/firestore/FirestoreDriver.ts:21](https://github.com/esnya/nekostore/blob/99eadde/src/driver/firestore/FirestoreDriver.ts#L21)*
+*Defined in [driver/firestore/FirestoreDriver.ts:21](https://github.com/esnya/nekostore/blob/master/src/driver/firestore/FirestoreDriver.ts#L21)*
 
 **Type parameters:**
 

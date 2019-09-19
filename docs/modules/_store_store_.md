@@ -19,4 +19,4 @@
 
 Ƭ **Data**: *Record‹string, any›*
 
-*Defined in [store/Store.ts:5](https://github.com/esnya/nekostore/blob/99eadde/src/store/Store.ts#L5)*
+*Defined in [store/Store.ts:5](https://github.com/esnya/nekostore/blob/master/src/store/Store.ts#L5)*

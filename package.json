@@ -8,7 +8,7 @@
     "ci-scripts": "run-s clean lint cover build",
     "clean": "rimraf docs/* lib",
     "cover": "nyc mocha",
-    "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.*",
+    "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.* --gitRevision master",
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
     "dev:docs": "nodemon -w src -e ts -x \"npm run -s docs\"",

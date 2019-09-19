@@ -21,7 +21,7 @@
 
 • **createTime**: *[Timestamp](../classes/_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:57](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L57)*
+*Defined in [Timestamp.ts:57](https://github.com/esnya/nekostore/blob/master/src/Timestamp.ts#L57)*
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **updateTime**: *[Timestamp](../classes/_timestamp_.timestamp.md)*
 
-*Defined in [Timestamp.ts:58](https://github.com/esnya/nekostore/blob/99eadde/src/Timestamp.ts#L58)*
+*Defined in [Timestamp.ts:58](https://github.com/esnya/nekostore/blob/master/src/Timestamp.ts#L58)*

@@ -36,7 +36,7 @@ Non-persistent store implementation with local memory.
 
 • **store**: *Map‹string, Map‹string, object››* =  new Map<string, Collection>()
 
-*Defined in [store/MemoryStore.ts:16](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L16)*
+*Defined in [store/MemoryStore.ts:16](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L16)*
 
 ## Methods
 
@@ -46,7 +46,7 @@ Non-persistent store implementation with local memory.
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:45](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L45)*
+*Defined in [store/MemoryStore.ts:45](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L45)*
 
 **Parameters:**
 
@@ -65,7 +65,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:71](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L71)*
+*Defined in [store/MemoryStore.ts:71](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L71)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:36](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L36)*
+*Defined in [store/MemoryStore.ts:36](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L36)*
 
 **Parameters:**
 
@@ -103,7 +103,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:54](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L54)*
+*Defined in [store/MemoryStore.ts:54](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L54)*
 
 **Parameters:**
 
@@ -120,7 +120,7 @@ ___
 
 ▸ **list**(`collectionId`: string): *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
 
-*Defined in [store/MemoryStore.ts:28](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L28)*
+*Defined in [store/MemoryStore.ts:28](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L28)*
 
 **Parameters:**
 
@@ -138,7 +138,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:75](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L75)*
+*Defined in [store/MemoryStore.ts:75](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L75)*
 
 **Type parameters:**
 
@@ -160,7 +160,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:59](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L59)*
+*Defined in [store/MemoryStore.ts:59](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L59)*
 
 **Parameters:**
 
@@ -180,7 +180,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:81](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L81)*
+*Defined in [store/MemoryStore.ts:81](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L81)*
 
 **Parameters:**
 
@@ -198,7 +198,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:63](https://github.com/esnya/nekostore/blob/99eadde/src/store/MemoryStore.ts#L63)*
+*Defined in [store/MemoryStore.ts:63](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L63)*
 
 **Parameters:**
 
