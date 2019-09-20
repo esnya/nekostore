@@ -1,63 +1,57 @@
 import Nekostore from '..'; // 'nekostore'
 import BasicDriver from '../lib/driver/basic'; // 'nekostore/lib/driver/basic'
+import { logger, catchError } from './utilities';
 
 interface Data {
   foo: string;
   bar?: number;
 }
 
-async function main(): Promise<void> {
-  const driver = new BasicDriver();
-  const nekostore = new Nekostore(driver);
+export default catchError(
+  async (): Promise<void> => {
+    logger.example('Watching snapshots');
+    const driver = new BasicDriver();
+    const nekostore = new Nekostore(driver);
 
-  console.log('Get collectiopn reference');
-  const c1Ref = nekostore.collection<Data>('c1');
+    logger.task('Get collectiopn reference');
+    const c1Ref = nekostore.collection<Data>('c1');
 
-  console.log('Watch collection');
-  const unsubscribe1 = await c1Ref.onSnapshot(snapshot => {
-    console.log('Collection snapshot');
-    snapshot.docs.forEach(doc => {
-      console.log(doc.ref.id, doc.type, doc.data);
+    logger.task('Watch collection');
+    const unsubscribe1 = await c1Ref.onSnapshot(snapshot => {
+      logger.result('CollectionSnapshot');
+      snapshot.docs.forEach(doc => {
+        logger.result(doc.ref.id, doc.type, doc.data);
+      });
     });
-  });
 
-  console.log('Get document reference');
-  const d1Ref = await c1Ref.doc('d1');
+    logger.task('Get document reference');
+    const d1Ref = await c1Ref.doc('d1');
 
-  console.log('Watch document');
-  const unsubscribe2 = await d1Ref.onSnapshot(snapshot => {
-    console.log('Document snapshot');
-    console.log(snapshot.exists(), snapshot.data);
-  });
+    logger.task('Watch document');
+    const unsubscribe2 = await d1Ref.onSnapshot(snapshot => {
+      logger.result('DocumentSnapshot', snapshot.exists(), snapshot.data);
+    });
 
-  console.log('Set document');
-  // Collection snapshot / [id] added { foo: 'a', bar: 0 }
-  // Document snapshot / true { foo: 'a', bar: 0 }
-  await d1Ref.set({ foo: 'a', bar: 0 });
+    logger.task('Set document');
+    // ColllectionSnapshot [id] added { foo: 'a', bar: 0 }
+    // DocumentSnapshot true { foo: 'a', bar: 0 }
+    await d1Ref.set({ foo: 'a', bar: 0 });
 
-  console.log('Update document');
-  await d1Ref.update({ bar: 1 });
-  // Collection snapshot / [id] modified { foo: 'a', bar: 1 }
-  // Document snapshot / true { foo: 'a', bar: 1 }
+    logger.task('Update document');
+    await d1Ref.update({ bar: 1 });
+    // ColllectionSnapshot [id] modified { foo: 'a', bar: 1 }
+    // DocumentSnapshot true { foo: 'a', bar: 1 }
 
-  console.log('Delete documment');
-  await d1Ref.delete();
-  // Collection snapshot / removed undefined
-  // Document snapshot / false undefined
+    logger.task('Delete documment');
+    await d1Ref.delete();
+    // ColllectionSnapshot removed undefined
+    // DocumentSnapshot false undefined
 
-  console.log('Add document');
-  await c1Ref.add({ foo: 'b' });
-  // Collection snapshot / [id] added { foo: 'a' }
+    logger.task('Add document');
+    await c1Ref.add({ foo: 'b' });
+    // ColllectionSnapshot [id] added { foo: 'a' }
 
-  await unsubscribe1();
-  await unsubscribe2();
-}
-main().then(
-  () => {
-    process.exit(0);
-  },
-  error => {
-    console.error(error);
-    process.exit(1);
+    await unsubscribe1();
+    await unsubscribe2();
   },
 );
