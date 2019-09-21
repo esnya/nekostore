@@ -1,6 +1,6 @@
 import Nekostore from 'nekostore';
 import BasicDriver from 'nekostore/lib/driver/basic';
-import { catchError, logger } from './utilities';
+import { catchError, logger } from '../utilities';
 
 interface Data {
   foo: string;
