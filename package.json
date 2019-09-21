@@ -12,12 +12,12 @@
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
     "dev:docs": "nodemon -i -w src -e ts -x \"npm run -s docs\"",
-    "dev:lint": "esw --fix --ext .ts **/*.ts --ignore-pattern **/*/lib/**/* --ignore-pattern **/node_modules/**/*",
+    "dev:lint": "esw --fix --ext .ts src/**/*.ts example/src/**/*.ts",
     "dev:test": "npm run -s test -- --watch",
     "examples": "run-s examples:*",
     "examples:1_build": "cd examples && npm run build",
     "examples:2_start": "node examples",
-    "lint": "eslint --ignore-pattern **/*/lib/**/* --ignore-pattern **/node_modules/**/* **/*.ts",
+    "lint": "eslint src/**/*.ts examples/src/**/*.ts",
     "test": "cross-env TS_NODE_FILES=true mocha"
   },
   "repository": {
