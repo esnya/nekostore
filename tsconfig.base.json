@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "outDir": "lib",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "module": "commonjs",
     "resolveJsonModule": true,
-    "rootDir": "src",
     "lib": [
       "esnext",
-      "dom",
-    ],
-  },
-  "exclude": [
-    "lib",
-    "*.spec.ts"
-  ]
+      "dom"
+    ]
+  }
 }
 
