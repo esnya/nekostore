@@ -15,8 +15,9 @@
     "dev:lint": "esw --fix --ext .ts src/**/*.ts example/src/**/*.ts",
     "dev:test": "npm run -s test -- --watch",
     "examples": "run-s examples:*",
-    "examples:1_build": "cd examples && npm run build",
-    "examples:2_start": "node examples",
+    "examples:1_install": "cd examples && npm ci",
+    "examples:2_build": "cd examples && npm run build",
+    "examples:3_start": "node examples",
     "lint": "eslint src/**/*.ts examples/src/**/*.ts",
     "test": "cross-env TS_NODE_FILES=true mocha"
   },
