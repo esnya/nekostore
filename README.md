@@ -146,5 +146,33 @@ const s3: QuerySnapshot<Data> = await colRef.orderBy('bar').where('foo', '<', 'b
 printDocumentsData(s3); // d1
 ```
 
+## Vue integration
+```ts
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import DocumentReference from 'nekostore/lib/DocumentReference';
+import { Doc } from 'nekostore/lib/decorators';
+
+@Component
+class MyComponent extends Vue {
+  @Prop({ type: Object, required: false, default: null }) ref!: DocumentReference<Data> | null;
+
+  @Doc<Data, MyComponent>('ref') doc!: Data | null;
+}
+```
+
+```ts
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { ExistingDocumentSnapshot } from 'nekostore/lib/DocumentSnapshot';
+import Query from 'nekostore/lib/Query';
+import { Collection } from 'nekostore/lib/decorators';
+
+@Component
+class MyComponent extends Vue {
+  @Prop({ type: Object, required: false, default: null }) query!: Query<Data> | null;
+
+  @Collection<Data, MyComponent>('query') docs!: ExistingDocumentSnapshot[] | null;
+}
+```
+
 ## API Reference
 [See here](/docs/classes/_nekostore_.nekostore.md)
