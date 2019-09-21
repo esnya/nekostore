@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import { catchError } from './utilities';
 
 async function runExample(file: string): Promise<void> {
@@ -10,8 +11,9 @@ async function runExample(file: string): Promise<void> {
 catchError(
   async (): Promise<void> => {
     const files = await fs.promises.readdir(__dirname);
+    const ext = path.extname(__filename);
     await files
-      .filter(file => file.match(/[0-9]_[a-z]+\.ts$/))
+      .filter(file => file.endsWith(ext))
       .reduce(async (promise, file) => {
         await promise;
         await runExample(file);

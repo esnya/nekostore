@@ -1,5 +1,5 @@
-import Nekostore from '..'; // 'nekostore'
-import BasicDriver from '../lib/driver/basic'; // 'nekostore/lib/driver/basic'
+import Nekostore from 'nekostore';
+import BasicDriver from 'nekostore/lib/driver/basic';
 import { logger, catchError } from './utilities';
 
 interface Data {

@@ -1,19 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "outDir": "lib",
-    "sourceMap": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "resolveJsonModule": true,
-    "rootDir": "src",
-    "lib": [
-      "esnext",
-      "dom",
-    ],
-  },
+  "extends": "./tsconfig.base.json",
   "exclude": [
     "examples",
     "lib",

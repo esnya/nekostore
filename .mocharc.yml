@@ -1,10 +1,10 @@
 extension:
   - ts
-spec: '**/*.spec.ts'
+spec: 'src/**/*.spec.ts'
 require:
   - source-map-support/register
   - ts-node/register
   - ./src/setup.spec.ts
 timeout: 60000
 watch-files:
-  - '**/*.ts'
+  - 'src/**/*.ts'

@@ -1,7 +1,7 @@
-import Nekostore from '..';
-import BasicDriver from '../lib/driver/basic';
-import SocketDriver from '../lib/driver/socket';
-import SocketDriverServer from '../lib/driver/socket/SocketDriverServer';
+import Nekostore from 'nekostore';
+import BasicDriver from 'nekostore/lib/driver/basic';
+import SocketDriver from 'nekostore/lib/driver/socket';
+import SocketDriverServer from 'nekostore/lib/driver/socket/SocketDriverServer';
 import IO from 'socket.io';
 import * as Socket from 'socket.io-client';
 import { Server } from 'http';
