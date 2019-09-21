@@ -11,7 +11,11 @@
     "start": "ts-node --files index.ts"
   },
   "dependencies": {
-    "nekostore": "file:.."
+    "@types/socket.io": "^2.1.2",
+    "@types/socket.io-client": "^1.4.32",
+    "nekostore": "file:..",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "ts-node": "^8.4.1",
