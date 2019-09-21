@@ -1,8 +1,8 @@
 /* eslint no-invalid-this: off, @typescript-eslint/no-explicit-any: off */
 import DocumentReference from '../../DocumentReference';
 import { VueDecorator } from 'vue-class-component';
-import Unsubscribe from '../../Unsubscribe';
-import { VueWithCreated, PropertyNamesOf, chainMethod } from './utilities';
+import { VueWithCreated, PropertyNamesOf, decoratorFactory } from './utilities';
+import DocumentSnapshot from '../../DocumentSnapshot';
 
 /**
  * Property decoretor to bind document.
@@ -32,42 +32,9 @@ export default function Doc<
   T extends {} = any,
   U extends VueWithCreated = VueWithCreated
 >(refKey: PropertyNamesOf<U, DocumentReference<T>>): VueDecorator {
-  const decorator = (target: U, key: PropertyNamesOf<U, T | null>): void => {
-    target[key] = null;
-    chainMethod(target, 'created', async function created(this: U) {
-      const set = (doc: T | null): void => {
-        if (typeof key !== 'string') throw new TypeError('key must be string');
-        this.$data[key] = doc;
-      };
-
-      let unsubscribe: Unsubscribe | null = null;
-      this.$watch(
-        refKey as string,
-        async (ref: DocumentReference<T>) => {
-          if (unsubscribe) {
-            await unsubscribe();
-            unsubscribe = null;
-          }
-
-          if (!ref) {
-            set(null);
-            return;
-          }
-
-          unsubscribe = await ref.onSnapshot(snapshot => {
-            set(snapshot.data || null);
-          });
-          const snapshot = await ref.get();
-          set(snapshot.data || null);
-        },
-        { immediate: true },
-      );
-
-      this.$on('destroyed', async () => {
-        await unsubscribe();
-      });
-    });
-  };
-
-  return decorator as VueDecorator;
+  return decoratorFactory(
+    refKey,
+    (snapshot: DocumentSnapshot<T>) => snapshot.data || null,
+    true,
+  );
 }

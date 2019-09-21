@@ -1,9 +1,9 @@
 /* eslint no-invalid-this: off, @typescript-eslint/no-explicit-any: off */
 import Query from '../../Query';
 import { VueDecorator } from 'vue-class-component';
-import Unsubscribe from '../../Unsubscribe';
 import { ExistingDocumentSnapshot } from '../../DocumentSnapshot';
-import { VueWithCreated, PropertyNamesOf, chainMethod } from './utilities';
+import { VueWithCreated, PropertyNamesOf, decoratorFactory } from './utilities';
+import QuerySnapshot from '../../QuerySnapshot';
 
 /**
  * Property decoretor to bind collection.
@@ -26,78 +26,38 @@ import { VueWithCreated, PropertyNamesOf, chainMethod } from './utilities';
  * ```
  */
 export default function Collection<
-  T = {},
+  T extends {} = any,
   U extends VueWithCreated = VueWithCreated
 >(refKey: PropertyNamesOf<U, Query<T>>): VueDecorator {
-  const decorator = (
-    target: U,
-    key: PropertyNamesOf<U, ExistingDocumentSnapshot<T>[] | null>,
-  ): void => {
-    target[key] = null;
+  return decoratorFactory(
+    refKey,
+    (
+      snapshot: QuerySnapshot<T>,
+      prevValue: ExistingDocumentSnapshot<T>[] | null,
+    ) => {
+      let value = prevValue || [];
 
-    chainMethod(target, 'created', async function created(this: U) {
-      if (typeof key !== 'string') throw new TypeError('key must be string');
-
-      const get = (): ExistingDocumentSnapshot<T>[] | null => {
-        return this.$data[key];
-      };
-
-      const set = (docs: ExistingDocumentSnapshot<T>[] | null): void => {
-        this.$data[key] = docs;
-      };
-
-      let unsubscribe: Unsubscribe | null = null;
-      this.$watch(
-        refKey as string,
-        async (ref: Query<T>) => {
-          if (unsubscribe) {
-            await unsubscribe();
-            unsubscribe = null;
-          }
-
-          if (!ref) {
-            set(null);
+      snapshot.docs.forEach(change => {
+        switch (change.type) {
+          case 'added':
+            if (change.exists()) value.push(change);
             return;
-          }
-
-          unsubscribe = await ref.onSnapshot(snapshot => {
-            if (get() === null) set([]);
-
-            snapshot.docs.forEach(change => {
-              switch (change.type) {
-                case 'added':
-                  if (change.exists()) get().push(change);
-                  return;
-                case 'modified':
-                  if (change.exists()) {
-                    set(
-                      get().map(snapshot =>
-                        snapshot.ref.path === change.ref.path
-                          ? change
-                          : snapshot,
-                      ),
-                    );
-                  }
-                  return;
-                case 'removed':
-                  set(
-                    get().filter(
-                      snapshot => snapshot.ref.path !== change.ref.path,
-                    ),
-                  );
-                  return;
-              }
-            });
-          });
-        },
-        { immediate: true },
-      );
-
-      this.$on('destroyed', async () => {
-        await unsubscribe();
+          case 'modified':
+            if (change.exists()) {
+              value = value.map(snapshot =>
+                snapshot.ref.path === change.ref.path ? change : snapshot,
+              );
+            }
+            return;
+          case 'removed':
+            value = value.filter(
+              snapshot => snapshot.ref.path !== change.ref.path,
+            );
+        }
       });
-    });
-  };
 
-  return decorator as VueDecorator;
+      return value;
+    },
+    false,
+  );
 }

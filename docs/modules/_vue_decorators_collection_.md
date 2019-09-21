@@ -14,7 +14,7 @@
 
 ▸ **Collection**<**T**, **U**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, [Query](../interfaces/_query_.query.md)‹T››): *VueDecorator*
 
-Defined in vue/decorators/Collection.ts:28
+*Defined in [vue/decorators/Collection.ts:28](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/Collection.ts#L28)*
 
 Property decoretor to bind collection.
 
@@ -37,7 +37,7 @@ class MyComponent extends Vue {
 
 **Type parameters:**
 
-▪ **T**
+▪ **T**: *__type*
 
 ▪ **U**: *[VueWithCreated](../interfaces/_vue_decorators_utilities_.vuewithcreated.md)*
 

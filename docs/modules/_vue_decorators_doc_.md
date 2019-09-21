@@ -14,7 +14,7 @@
 
 ▸ **Doc**<**T**, **U**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, [DocumentReference](../interfaces/_documentreference_.documentreference.md)‹T››): *VueDecorator*
 
-Defined in vue/decorators/Doc.ts:31
+*Defined in [vue/decorators/Doc.ts:31](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/Doc.ts#L31)*
 
 Property decoretor to bind document.
 
