@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { catchError } from '../utilities';
+import { catchError } from './utilities';
 
 async function runExample(file: string): Promise<void> {
   const { default: example } = await import(`./${file}`);

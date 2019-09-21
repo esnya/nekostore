@@ -34,3 +34,7 @@
 * ["store/MemoryStore"](modules/_store_memorystore_.md)
 * ["store/MongoStore"](modules/_store_mongostore_.md)
 * ["store/Store"](modules/_store_store_.md)
+* ["vue/decorators/Collection"](modules/_vue_decorators_collection_.md)
+* ["vue/decorators/Doc"](modules/_vue_decorators_doc_.md)
+* ["vue/decorators/index"](modules/_vue_decorators_index_.md)
+* ["vue/decorators/utilities"](modules/_vue_decorators_utilities_.md)

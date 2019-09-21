@@ -5,7 +5,7 @@ import SocketDriverServer from 'nekostore/lib/driver/socket/SocketDriverServer';
 import IO from 'socket.io';
 import * as Socket from 'socket.io-client';
 import { Server } from 'http';
-import { catchError, logger } from '../utilities';
+import { catchError, logger } from './utilities';
 
 const host = '127.0.0.1';
 const port = 8080;
