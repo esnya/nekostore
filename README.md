@@ -11,7 +11,7 @@ Realtime synchronized datastore like Firestore for TypeScript.
 
 ### Install
 ```bash
-$ npm i -D esnya/nekostore
+$ npm i -S nekostore
 ```
 
 ### Import
