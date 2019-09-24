@@ -66,7 +66,6 @@
     "firebase-tools": "^7.3.2",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
-    "lodash": "^4.17.15",
     "mocha": "^6.2.0",
     "mongodb": "^3.3.2",
     "node-fetch": "^2.6.0",
@@ -90,6 +89,7 @@
   },
   "dependencies": {
     "firebase": "^6.6.1",
+    "lodash": "^4.17.15",
     "mingo": "^2.3.5",
     "path-to-regexp": "^3.1.0",
     "uuid": "^3.3.3",
