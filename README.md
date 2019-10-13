@@ -7,6 +7,9 @@
 
 Realtime synchronized datastore like Firestore for TypeScript.
 
+## Requirements
+* Node.js >= 10.0.0
+
 ## Usage
 
 ### Install
