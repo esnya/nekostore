@@ -2,18 +2,35 @@
   "name": "nekostore",
   "version": "0.4.1",
   "description": "Realtime synced datastore like Firestore with type",
+  "keywords": [
+    "database",
+    "firebase",
+    "firestore",
+    "realtime",
+    "sync"
+  ],
+  "homepage": "https://github.com/esnya/nekostore#readme",
+  "bugs": {
+    "url": "https://github.com/esnya/nekostore/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esnya/nekostore.git"
+  },
+  "license": "MIT",
+  "author": "esnya",
   "main": "lib/Nekostore.js",
   "scripts": {
     "build": "tsc -b",
     "ci-scripts": "run-s clean lint cover build docs examples",
     "clean": "rimraf docs/* lib",
     "cover": "nyc mocha",
-    "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.* --gitRevision master",
     "dev": "run-p dev:*",
     "dev:build": "npm run -s build -- --watch",
     "dev:docs": "nodemon -i -w src -e ts -x \"npm run -s docs\"",
     "dev:lint": "esw --fix --ext .ts src/**/*.ts example/src/**/*.ts",
     "dev:test": "npm run -s test -- --watch",
+    "docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludeNotExported --excludePrivate --exclude **/impl/**/*,**/*.spec.* --gitRevision master",
     "examples": "run-s examples:*",
     "examples:1_install": "cd examples && npm ci",
     "examples:2_build": "cd examples && npm run build",
@@ -21,23 +38,15 @@
     "lint": "eslint src/**/*.ts examples/src/**/*.ts",
     "test": "cross-env TS_NODE_FILES=true mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/esnya/nekostore.git"
+  "dependencies": {
+    "firebase": "^6.6.1",
+    "lodash": "^4.17.15",
+    "mingo": "^2.3.5",
+    "path-to-regexp": "^3.1.0",
+    "uuid": "^3.3.3",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.2.2"
   },
-  "keywords": [
-    "database",
-    "realtime",
-    "sync",
-    "firebase",
-    "firestore"
-  ],
-  "author": "esnya",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/esnya/nekostore/issues"
-  },
-  "homepage": "https://github.com/esnya/nekostore#readme",
   "devDependencies": {
     "@firebase/testing": "^0.13.1",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
@@ -87,13 +96,7 @@
     "vue-template-compiler": "^2.6.10",
     "vue-test-utils": "^1.0.0-beta.11"
   },
-  "dependencies": {
-    "firebase": "^6.6.1",
-    "lodash": "^4.17.15",
-    "mingo": "^2.3.5",
-    "path-to-regexp": "^3.1.0",
-    "uuid": "^3.3.3",
-    "vue-class-component": "^7.1.0",
-    "vue-property-decorator": "^8.2.2"
+  "engines": {
+    "node": ">=10"
   }
 }
