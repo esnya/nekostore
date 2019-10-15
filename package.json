@@ -1,12 +1,12 @@
 {
   "name": "nekostore",
   "version": "0.5.0",
-  "description": "Realtime synced datastore like Firestore with type",
+  "description": "Real-time synced data-store like Firestore with type",
   "keywords": [
     "database",
     "firebase",
     "firestore",
-    "realtime",
+    "real-time",
     "sync"
   ],
   "homepage": "https://github.com/esnya/nekostore#readme",
