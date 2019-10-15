@@ -8,7 +8,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -b",
-    "start": "ts-node --files index.ts"
+    "start": "ts-node --files src/index.ts"
   },
   "dependencies": {
     "@types/socket.io": "^2.1.2",
