@@ -23,7 +23,7 @@
 
 Ƭ **PropertyNamesOf**: *{ [K in keyof T]: T[K] extends U ? K : never; }[keyof T]*
 
-*Defined in [vue/decorators/utilities.ts:16](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L16)*
+*Defined in [vue/decorators/utilities.ts:17](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L17)*
 
 ## Functions
 
@@ -31,7 +31,7 @@
 
 ▸ **chainMethod**<**T**, **Key**, **U**>(`target`: T, `key`: Key, `method`: U): *void*
 
-*Defined in [vue/decorators/utilities.ts:20](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L20)*
+*Defined in [vue/decorators/utilities.ts:21](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L21)*
 
 **Type parameters:**
 
@@ -55,9 +55,9 @@ ___
 
 ###  decoratorFactory
 
-▸ **decoratorFactory**<**V**, **T**, **U**, **W**, **X**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, V›, `onSnapshot`: function, `get`: boolean): *VueDecorator*
+▸ **decoratorFactory**<**V**, **T**, **U**, **X**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, V›, `onSnapshot`: function, `get`: boolean): *VueDecorator*
 
-*Defined in [vue/decorators/utilities.ts:49](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L49)*
+*Defined in [vue/decorators/utilities.ts:50](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L50)*
 
 **Type parameters:**
 
@@ -67,8 +67,6 @@ ___
 
 ▪ **U**: *[VueWithCreated](../interfaces/_vue_decorators_utilities_.vuewithcreated.md)*
 
-▪ **W**: *[DocumentSnapshot](../interfaces/_documentsnapshot_.documentsnapshot.md)‹T› | [QuerySnapshot](../interfaces/_querysnapshot_.querysnapshot.md)‹T›*
-
 ▪ **X**: *T | [NonEmptyDocumentSnapshot](../interfaces/_documentsnapshot_.nonemptydocumentsnapshot.md)‹T›[]*
 
 **Parameters:**
@@ -77,13 +75,13 @@ ___
 
 ▪ **onSnapshot**: *function*
 
-▸ (`snapshot`: W, `data?`: any): *X*
+▸ (`snapshot`: [SnapshotOf](_types_.md#snapshotof)‹V›, `data?`: any): *X*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`snapshot` | W |
+`snapshot` | [SnapshotOf](_types_.md#snapshotof)‹V› |
 `data?` | any |
 
 ▪ **get**: *boolean*

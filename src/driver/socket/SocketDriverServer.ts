@@ -13,6 +13,7 @@ import DocumentReference from '../../DocumentReference';
 import Query from '../../Query';
 import DocumentSnapshot from '../../DocumentSnapshot';
 import QuerySnapshot from '../../QuerySnapshot';
+import { SnapshotOf } from '../../types';
 
 function decodeDocumentSnapshot<T>(
   snapshot: DocumentSnapshot<T>,
@@ -127,7 +128,7 @@ export default class SocketDriverServer implements Actions {
 
   private async subscribe<T, U extends Query<T> | DocumentReference<T>>(
     ref: U,
-    decoder: (snapshot: T) => T | QuerySnapshotData<T> | undefined,
+    decoder: (snapshot: SnapshotOf<U>) => T | QuerySnapshotData<T> | undefined,
   ): Promise<{ subscriberId }> {
     const subscriberId = uuid.v4();
 
@@ -140,6 +141,8 @@ export default class SocketDriverServer implements Actions {
 
   async unsubscribe<T>(subscriberId: string): Promise<void> {
     const unsubscribe = this.unsubscribes.get(subscriberId);
+    if (!unsubscribe) return;
+
     this.unsubscribes.delete(subscriberId);
     await unsubscribe();
   }

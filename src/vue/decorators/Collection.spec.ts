@@ -56,11 +56,13 @@ describe('Vue decorators Collection', () => {
     await c1.add({ foo: 'c' });
     node.ref = c1;
     await sleep();
+    if (!node.docs) throw new TypeError();
     expect(node.docs.map(doc => doc.data.foo)).to.deep.equal(['a', 'b', 'c']);
   });
 
   it('reflects added', async () => {
     await c1.add({ foo: 'd' });
+    if (!node.docs) throw new TypeError();
     expect(node.docs.map(doc => doc.data.foo)).to.deep.equal([
       'a',
       'b',
@@ -71,6 +73,7 @@ describe('Vue decorators Collection', () => {
 
   it('reflects updated', async () => {
     await d2.update({ foo: 'e' });
+    if (!node.docs) throw new TypeError();
     expect(node.docs.map(doc => doc.data.foo)).to.deep.equal([
       'a',
       'e',

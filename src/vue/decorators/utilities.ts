@@ -8,6 +8,7 @@ import DocumentSnapshot, {
   NonEmptyDocumentSnapshot,
 } from '../../DocumentSnapshot';
 import QuerySnapshot from '../../QuerySnapshot';
+import { SnapshotOf } from '../../types';
 
 export interface VueWithCreated extends Vue {
   created?: () => void;
@@ -50,11 +51,10 @@ export function decoratorFactory<
   V extends DocumentReference<T> | Query<T>,
   T extends {} = any,
   U extends VueWithCreated = VueWithCreated,
-  W extends DocumentSnapshot<T> | QuerySnapshot<T> = SnapshotTypeOf<T, V>,
   X extends T | NonEmptyDocumentSnapshot<T>[] = DataTypeOf<T, V>
 >(
   refKey: PropertyNamesOf<U, V>,
-  onSnapshot: (snapshot: W, data?: any) => X,
+  onSnapshot: (snapshot: SnapshotOf<V>, data?: any) => X,
   get: boolean,
 ): VueDecorator {
   const decorator = (target: U, key: PropertyNamesOf<U, X | null>): void => {
@@ -84,15 +84,15 @@ export function decoratorFactory<
           });
 
           if (get) {
-            const snapshot = await (ref as DocumentReference<T>).get();
-            set(onSnapshot(snapshot as W, this[key]));
+            const snapshot = await ref.get();
+            set(onSnapshot(snapshot as SnapshotOf<V>, this[key]));
           }
         },
         { immediate: true },
       );
 
       this.$on('destroyed', async () => {
-        await unsubscribe();
+        if (unsubscribe) await unsubscribe();
       });
     });
   };

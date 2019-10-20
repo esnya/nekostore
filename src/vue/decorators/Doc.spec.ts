@@ -27,7 +27,7 @@ describe('Vue decorators Doc', () => {
     id: string | null = null;
 
     get docRef(): DocumentReference<Data> | null {
-      return this.id && c1.doc(this.id);
+      return this.id ? c1.doc(this.id) : null;
     }
 
     @Doc<Data, TestComponent>('docRef') doc!: Data | null;
@@ -44,6 +44,7 @@ describe('Vue decorators Doc', () => {
     expect(node.docRef).is.null;
     node.id = 'd1';
     expect(node.docRef).is.not.null;
+    if (!node.docRef) throw new TypeError();
     expect(node.docRef.path).equal('c1/d1');
   });
 

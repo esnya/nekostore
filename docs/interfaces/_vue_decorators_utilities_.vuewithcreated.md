@@ -251,7 +251,7 @@ ___
 
 • **created**? : *function*
 
-*Defined in [vue/decorators/utilities.ts:13](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L13)*
+*Defined in [vue/decorators/utilities.ts:14](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L14)*
 
 #### Type declaration:
 
