@@ -10,7 +10,7 @@ Document change information.
 
 ## Hierarchy
 
-  ↳ [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md)‹T›
+* [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md)‹T›
 
   ↳ **DocumentChange**
 
@@ -18,13 +18,11 @@ Document change information.
 
 ### Properties
 
-* [createTime](_documentchange_.documentchange.md#optional-createtime)
 * [data](_documentchange_.documentchange.md#optional-data)
 * [newIndex](_documentchange_.documentchange.md#newindex)
 * [oldIndex](_documentchange_.documentchange.md#oldindex)
 * [ref](_documentchange_.documentchange.md#ref)
 * [type](_documentchange_.documentchange.md#type)
-* [updateTime](_documentchange_.documentchange.md#optional-updatetime)
 
 ### Methods
 
@@ -32,25 +30,13 @@ Document change information.
 
 ## Properties
 
-### `Optional` createTime
-
-• **createTime**? : *[Timestamp](../classes/_timestamp_.timestamp.md)*
-
-*Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[createTime](_documentsnapshot_.documentsnapshot.md#optional-createtime)*
-
-*Defined in [DocumentSnapshot.ts:32](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L32)*
-
-Timestamp when the document was updated.
-
-___
-
 ### `Optional` data
 
 • **data**? : *T*
 
 *Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[data](_documentsnapshot_.documentsnapshot.md#optional-data)*
 
-*Defined in [DocumentSnapshot.ts:27](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L27)*
+*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L22)*
 
 Data of the document.
 
@@ -82,7 +68,7 @@ ___
 
 *Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[ref](_documentsnapshot_.documentsnapshot.md#ref)*
 
-*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L22)*
+*Defined in [DocumentSnapshot.ts:17](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L17)*
 
 Reference for the document.
 
@@ -96,18 +82,6 @@ ___
 
 Type of change. e.g. 'added', 'modified', 'removed'
 
-___
-
-### `Optional` updateTime
-
-• **updateTime**? : *[Timestamp](../classes/_timestamp_.timestamp.md)*
-
-*Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[updateTime](_documentsnapshot_.documentsnapshot.md#optional-updatetime)*
-
-*Defined in [DocumentSnapshot.ts:37](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L37)*
-
-Timestamp when the document was updated.
-
 ## Methods
 
 ###  exists
@@ -116,7 +90,7 @@ Timestamp when the document was updated.
 
 *Inherited from [DocumentSnapshot](_documentsnapshot_.documentsnapshot.md).[exists](_documentsnapshot_.documentsnapshot.md#exists)*
 
-*Defined in [DocumentSnapshot.ts:42](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L42)*
+*Defined in [DocumentSnapshot.ts:27](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L27)*
 
 **Returns:** *boolean*
 

@@ -29,11 +29,7 @@ export default class BasicCollectionReference<T> extends BasicQuery<T>
         new BasicDocumentChange<T>(
           ref,
           { type: 'added', newIndex: 0, oldIndex: -1 },
-          {
-            ...snapshot.data,
-            createTime: snapshot.createTime,
-            updateTime: snapshot.updateTime,
-          },
+          snapshot.data,
         ),
       ],
     });
@@ -41,10 +37,7 @@ export default class BasicCollectionReference<T> extends BasicQuery<T>
 
   async add(data: T): Promise<DocumentReference<T>> {
     this.driver.authorize(this.doc('<ID>').path, 'write');
-    const id = await this.driver.store.add(this.path, {
-      ...data,
-      ...this.driver.store.serverTimestamps('createTime', 'updateTime'),
-    });
+    const id = await this.driver.store.add(this.path, data);
 
     const ref = new BasicDocumentReference<T>(this, id);
 

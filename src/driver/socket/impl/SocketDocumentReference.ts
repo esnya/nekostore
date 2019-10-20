@@ -3,9 +3,7 @@ import SocketCollectionReference from './SocketCollectionReference';
 import SocketDriverSocket from '../SocketDriver';
 import Unsubscribe from '../../../Unsubscribe';
 import DocumentSnapshot from '../../../DocumentSnapshot';
-import SocketDocumentSnapshot, {
-  DocumentSnapshotData,
-} from './SocketDocumentSnapshot';
+import SocketDocumentSnapshot from './SocketDocumentSnapshot';
 
 export default class SocketDocumentReference<T>
   implements DocumentReference<T> {
@@ -30,11 +28,9 @@ export default class SocketDocumentReference<T>
   }
 
   async get(): Promise<DocumentSnapshot<T>> {
-    const { snapshot } = await this.driver.request('documentGet', this.path);
+    const data = await this.driver.request('documentGet', this.path);
 
-    return new SocketDocumentSnapshot<T>(this, snapshot as DocumentSnapshotData<
-      T
-    >);
+    return new SocketDocumentSnapshot<T>(this, data as T | undefined);
   }
 
   async set(data: T): Promise<void> {
@@ -57,7 +53,7 @@ export default class SocketDocumentReference<T>
       this.path,
     );
     const event = `snapshot:${subscriberId}`;
-    const listener = (snapshot: DocumentSnapshotData<T>): void => {
+    const listener = (snapshot: T): void => {
       onNext(new SocketDocumentSnapshot<T>(this, snapshot));
     };
     this.driver.socket.on(event, listener);

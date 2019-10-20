@@ -2,10 +2,8 @@ import merge from 'lodash/merge';
 import uuid from 'uuid';
 import NotFoundError from '../NotFoundError';
 import mingo from 'mingo';
-import AggregationOperator from '../driver/basic/AggregatioOperator';
+import AggregationOperator from '../AggregationOperator';
 import Store, { Data, DataWithId } from './Store';
-import Timestamp from '../Timestamp';
-import fromPairs from 'lodash/fromPairs';
 
 type Collection = Map<string, Data>;
 
@@ -63,22 +61,12 @@ export default class MemoryStore implements Store {
   async update(collectionId: string, id: string, data: Data): Promise<void> {
     const oldValue = await this.get(collectionId, id);
     if (oldValue === undefined) {
-      throw new NotFoundError(`${collectionId}/${id} does not exsits`);
+      throw new NotFoundError(`${collectionId}/${id} does not exists`);
     }
     await this.set(collectionId, id, merge(oldValue, data));
   }
 
   async delete(collectionId: string, id: string): Promise<void> {
     this.getCollection(collectionId).delete(id);
-  }
-
-  serverTimestamps<T extends {}>(...fields: (keyof T)[]): T {
-    const now = Date.now();
-    return fromPairs(fields.map(f => [f, now])) as T;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  toTimestamp(value: any): Timestamp {
-    return Timestamp.fromMillis(Number(value));
   }
 }

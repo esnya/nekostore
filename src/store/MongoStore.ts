@@ -1,10 +1,8 @@
 import omit from 'lodash/omit';
-import fromPairs from 'lodash/fromPairs';
 import Store, { Data } from './Store';
 import { Db, Collection, ObjectID, FilterQuery } from 'mongodb';
-import Timestamp from '../Timestamp';
 import NotFoundError from '../NotFoundError';
-import AggregationOperator from '../driver/basic/AggregatioOperator';
+import AggregationOperator from '../AggregationOperator';
 
 export interface Options {
   /**
@@ -86,20 +84,5 @@ export default class MongoStore implements Store {
 
   async delete(collectionId: string, id: string): Promise<void> {
     await this.collection(collectionId).deleteOne({ _id: new ObjectID(id) });
-  }
-
-  serverTimestamps<T extends {}>(...fields: (keyof T)[]): T {
-    // return {
-    //   $currentDate: fromPairs(fields.map(f => [f, 'timestamp'])),
-    // };
-    const now = Timestamp.now(); // ToDo
-    return fromPairs(fields.map(f => [f, now])) as T;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  toTimestamp(value: any): Timestamp {
-    if (typeof value !== 'object') throw new TypeError();
-    const { seconds, nanoseconds } = value as Record<string, number>;
-    return new Timestamp(seconds, nanoseconds);
   }
 }

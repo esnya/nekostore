@@ -7,4 +7,4 @@
 ### Interfaces
 
 * [DocumentSnapshot](../interfaces/_documentsnapshot_.documentsnapshot.md)
-* [ExistingDocumentSnapshot](../interfaces/_documentsnapshot_.existingdocumentsnapshot.md)
+* [NonEmptyDocumentSnapshot](../interfaces/_documentsnapshot_.nonemptydocumentsnapshot.md)

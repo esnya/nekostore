@@ -25,9 +25,7 @@ Non-persistent store implementation with local memory.
 * [find](_store_memorystore_.memorystore.md#find)
 * [get](_store_memorystore_.memorystore.md#get)
 * [list](_store_memorystore_.memorystore.md#list)
-* [serverTimestamps](_store_memorystore_.memorystore.md#servertimestamps)
 * [set](_store_memorystore_.memorystore.md#set)
-* [toTimestamp](_store_memorystore_.memorystore.md#totimestamp)
 * [update](_store_memorystore_.memorystore.md#update)
 
 ## Properties
@@ -36,7 +34,7 @@ Non-persistent store implementation with local memory.
 
 • **store**: *Map‹string, Map‹string, object››* =  new Map<string, Collection>()
 
-*Defined in [store/MemoryStore.ts:16](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L16)*
+*Defined in [store/MemoryStore.ts:14](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L14)*
 
 ## Methods
 
@@ -46,7 +44,7 @@ Non-persistent store implementation with local memory.
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:45](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L45)*
+*Defined in [store/MemoryStore.ts:43](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L43)*
 
 **Parameters:**
 
@@ -65,7 +63,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:71](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L71)*
+*Defined in [store/MemoryStore.ts:69](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L69)*
 
 **Parameters:**
 
@@ -80,18 +78,18 @@ ___
 
 ###  find
 
-▸ **find**(`collectionId`: string, `aggregations`: [AggregationOperator](../interfaces/_driver_basic_aggregatiooperator_.aggregationoperator.md)[]): *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
+▸ **find**(`collectionId`: string, `aggregations`: [AggregationOperator](../interfaces/_aggregationoperator_.aggregationoperator.md)[]): *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:36](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L36)*
+*Defined in [store/MemoryStore.ts:34](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L34)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `collectionId` | string |
-`aggregations` | [AggregationOperator](../interfaces/_driver_basic_aggregatiooperator_.aggregationoperator.md)[] |
+`aggregations` | [AggregationOperator](../interfaces/_aggregationoperator_.aggregationoperator.md)[] |
 
 **Returns:** *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
 
@@ -103,7 +101,7 @@ ___
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:54](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L54)*
+*Defined in [store/MemoryStore.ts:52](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L52)*
 
 **Parameters:**
 
@@ -120,7 +118,7 @@ ___
 
 ▸ **list**(`collectionId`: string): *Promise‹[DataWithId](../interfaces/_store_store_.datawithid.md)[]›*
 
-*Defined in [store/MemoryStore.ts:28](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L28)*
+*Defined in [store/MemoryStore.ts:26](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L26)*
 
 **Parameters:**
 
@@ -132,35 +130,13 @@ Name | Type |
 
 ___
 
-###  serverTimestamps
-
-▸ **serverTimestamps**<**T**>(...`fields`: keyof T[]): *T*
-
-*Implementation of [Store](../interfaces/_store_store_.store.md)*
-
-*Defined in [store/MemoryStore.ts:75](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L75)*
-
-**Type parameters:**
-
-▪ **T**: *__type*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`...fields` | keyof T[] |
-
-**Returns:** *T*
-
-___
-
 ###  set
 
 ▸ **set**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:59](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L59)*
+*Defined in [store/MemoryStore.ts:57](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L57)*
 
 **Parameters:**
 
@@ -174,31 +150,13 @@ Name | Type |
 
 ___
 
-###  toTimestamp
-
-▸ **toTimestamp**(`value`: any): *[Timestamp](_timestamp_.timestamp.md)*
-
-*Implementation of [Store](../interfaces/_store_store_.store.md)*
-
-*Defined in [store/MemoryStore.ts:81](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L81)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`value` | any |
-
-**Returns:** *[Timestamp](_timestamp_.timestamp.md)*
-
-___
-
 ###  update
 
 ▸ **update**(`collectionId`: string, `id`: string, `data`: [Data](../modules/_store_store_.md#data)): *Promise‹void›*
 
 *Implementation of [Store](../interfaces/_store_store_.store.md)*
 
-*Defined in [store/MemoryStore.ts:63](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L63)*
+*Defined in [store/MemoryStore.ts:61](https://github.com/esnya/nekostore/blob/master/src/store/MemoryStore.ts#L61)*
 
 **Parameters:**
 

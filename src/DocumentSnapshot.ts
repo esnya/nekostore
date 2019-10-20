@@ -1,21 +1,16 @@
 import DocumentReference from './DocumentReference';
-import Timestamp, { Timestamps } from './Timestamp';
 
 /**
  * Snapshot of existing document.
  */
-export interface ExistingDocumentSnapshot<T>
-  extends DocumentSnapshot<T>,
-    Timestamps {
+export interface NonEmptyDocumentSnapshot<T> extends DocumentSnapshot<T> {
   readonly data: T;
-  readonly createTime: Timestamp;
-  readonly updateTime: Timestamp;
 }
 
 /**
  * Data at the time of the document.
  */
-export default interface DocumentSnapshot<T> extends Partial<Timestamps> {
+export default interface DocumentSnapshot<T> {
   /**
    * Reference for the document.
    */
@@ -27,17 +22,7 @@ export default interface DocumentSnapshot<T> extends Partial<Timestamps> {
   readonly data?: T;
 
   /**
-   * Timestamp when the document was updated.
-   */
-  readonly createTime?: Timestamp;
-
-  /**
-   * Timestamp when the document was updated.
-   */
-  readonly updateTime?: Timestamp;
-
-  /**
    * @returns `true` if the document is existing.
    */
-  exists(): this is ExistingDocumentSnapshot<T>;
+  exists(): this is NonEmptyDocumentSnapshot<T>;
 }

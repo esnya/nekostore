@@ -6,7 +6,6 @@ import Unsubscribe from '../../../Unsubscribe';
 import QueryDescriptor from './QueryDescriptor';
 import SocketDocumentChange from './SocketDocumentChange';
 import { getDoc } from './utilities';
-import { DocumentSnapshotData } from './SocketDocumentSnapshot';
 import { QuerySnapshotData } from './Actions';
 
 export default class SocketQuery<T> implements Query<T> {
@@ -71,8 +70,8 @@ export default class SocketQuery<T> implements Query<T> {
 
     const docs = snapshot.docs.map(doc => {
       const ref = getDoc<T>(this.driver, doc.path);
-      return new SocketDocumentChange<T>(ref, doc.change, doc.snapshot as
-        | DocumentSnapshotData<T>
+      return new SocketDocumentChange<T>(ref, doc.change, doc.data as
+        | T
         | undefined);
     });
 
@@ -94,7 +93,7 @@ export default class SocketQuery<T> implements Query<T> {
     const listener = (snapshot: QuerySnapshotData<T>): void => {
       const docs = snapshot.docs.map(doc => {
         const ref = getDoc<T>(this.driver, doc.path);
-        return new SocketDocumentChange<T>(ref, doc.change, doc.snapshot);
+        return new SocketDocumentChange<T>(ref, doc.change, doc.data);
       });
       onNext({
         ref: this,

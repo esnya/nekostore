@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import CollectionReference from '../../../CollectionReference';
 import DocumentReference from '../../../DocumentReference';
 import FirestoreDocumentReference from './FirestoreDocumentReference';
-import { withTimestamps } from './utilities';
 import FirestoreQuery from './FirestoreQuery';
 
 export default class FirestoreCollectionReference<T> extends FirestoreQuery<T>
@@ -27,7 +26,7 @@ export default class FirestoreCollectionReference<T> extends FirestoreQuery<T>
   }
 
   async add(data: T): Promise<DocumentReference<T>> {
-    const ref = await this.ref.add(withTimestamps(data));
+    const ref = await this.ref.add(data);
     return new FirestoreDocumentReference<T>(ref);
   }
 }

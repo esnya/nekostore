@@ -2,7 +2,6 @@ import Driver from '../../Driver';
 import Socket from './Socket';
 import Unsubscribe from '../../Unsubscribe';
 import QueryDescriptor from './impl/QueryDescriptor';
-import { DocumentSnapshotData } from './impl/SocketDocumentSnapshot';
 import { getDoc, getCollection, getQuery } from './impl/utilities';
 import Actions, {
   QuerySnapshotData,
@@ -17,16 +16,12 @@ import QuerySnapshot from '../../QuerySnapshot';
 
 function decodeDocumentSnapshot<T>(
   snapshot: DocumentSnapshot<T>,
-): DocumentSnapshotData<T> | undefined {
+): T | undefined {
   if (!snapshot.exists()) return undefined;
 
-  const { data, createTime, updateTime } = snapshot;
+  const { data } = snapshot;
 
-  return {
-    data,
-    createTime: createTime.toMillis(),
-    updateTime: updateTime.toMillis(),
-  };
+  return data;
 }
 
 function decodeQuerySnapshot<T>(
@@ -38,7 +33,7 @@ function decodeQuerySnapshot<T>(
     return {
       path: doc.ref.path,
       change: { type, newIndex, oldIndex },
-      snapshot: decodeDocumentSnapshot(doc),
+      data: decodeDocumentSnapshot(doc),
     };
   });
 
@@ -99,9 +94,9 @@ export default class SocketDriverServer implements Actions {
     path: string,
     descriptors: QueryDescriptor[],
   ): Promise<QuerySnapshotData<T>> {
-    const snapshot = await getQuery<T>(this.driver, path, descriptors).get();
+    const items = await getQuery<T>(this.driver, path, descriptors).get();
 
-    const docs = snapshot.docs.map(doc => {
+    const docs = items.docs.map(doc => {
       const { ref, type, newIndex, oldIndex } = doc;
       const change = {
         type,
@@ -116,16 +111,12 @@ export default class SocketDriverServer implements Actions {
         };
       }
 
-      const { data, createTime, updateTime } = doc;
+      const { data } = doc;
 
       return {
         path: ref.path,
         change,
-        snapshot: {
-          data,
-          createTime: createTime.toMillis(),
-          updateTime: updateTime.toMillis(),
-        },
+        data,
       };
     });
 
@@ -136,9 +127,7 @@ export default class SocketDriverServer implements Actions {
 
   private async subscribe<T, U extends Query<T> | DocumentReference<T>>(
     ref: U,
-    decoder: (
-      snapshot: T,
-    ) => DocumentSnapshotData<T> | QuerySnapshotData<T> | undefined,
+    decoder: (snapshot: T) => T | QuerySnapshotData<T> | undefined,
   ): Promise<{ subscriberId }> {
     const subscriberId = uuid.v4();
 
@@ -170,21 +159,10 @@ export default class SocketDriverServer implements Actions {
     return { id };
   }
 
-  async documentGet<T>(
-    path: string,
-  ): Promise<{ snapshot?: DocumentSnapshotData<T> }> {
+  async documentGet<T>(path: string): Promise<T | undefined> {
     const snapshot = await getDoc<T>(this.driver, path).get();
-    if (!snapshot.exists()) return {};
-
-    const { data, createTime, updateTime } = snapshot;
-
-    return {
-      snapshot: {
-        data,
-        createTime: createTime.toMillis(),
-        updateTime: updateTime.toMillis(),
-      },
-    };
+    if (!snapshot.exists()) return undefined;
+    return snapshot.data;
   }
 
   async documentSet<T>(path: string, data: T): Promise<void> {

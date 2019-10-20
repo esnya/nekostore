@@ -84,8 +84,6 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
         expect(doc.exists()).to.be.true;
         if (doc.exists()) {
           expect(doc.data.t1).oneOf(['a', 'b']);
-          expect(doc.createTime.toMillis()).is.lessThan(Date.now() * 1000);
-          expect(doc.updateTime.toMillis()).is.equal(doc.createTime.toMillis());
         }
       });
     });
@@ -166,8 +164,6 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
       );
       expect(snapshot.exists()).to.be.false;
       expect(snapshot.data).is.undefined;
-      expect(snapshot.createTime).is.undefined;
-      expect(snapshot.updateTime).is.undefined;
     });
 
     it('throw error when updating empty', async () => {
@@ -198,30 +194,17 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
       });
     });
 
-    function assertSnapshot(
-      snapshot: DocumentSnapshot<T1>,
-      data: T1,
-    ): { createTime: number; updateTime: number } {
+    function assertSnapshot(snapshot: DocumentSnapshot<T1>, data: T1): void {
       expect(snapshot.exists()).to.be.true;
       if (snapshot.exists()) {
         expect(snapshot.data).to.deep.equal(data);
-        expect(snapshot.createTime).is.not.undefined;
-        expect(snapshot.updateTime).is.not.undefined;
-
-        return {
-          createTime: snapshot.createTime.toMillis(),
-          updateTime: snapshot.updateTime.toMillis(),
-        };
       }
-      throw new Error();
     }
 
     it('gets', async () => {
-      const snapshot = await d1.get();
       await sleep();
-      const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'c' });
-      expect(createTime).is.lte(Date.now());
-      expect(updateTime).to.equal(createTime);
+      const snapshot = await d1.get();
+      assertSnapshot(snapshot, { t1: 'c' });
     });
 
     it('updates', async () => {
@@ -230,13 +213,6 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
 
       const snapshot = await d1.get();
       assertSnapshot(snapshot, { t1: 'd' });
-    });
-
-    xit('updates updateTime', async () => {
-      const snapshot = await d1.get();
-      const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'd' });
-      expect(updateTime).is.lte(Date.now());
-      expect(updateTime).is.greaterThan(createTime);
     });
 
     it('receives snapshot', () => {
@@ -251,9 +227,7 @@ export default function testDriver(getDriver: () => Promise<Driver>): void {
       });
       await sleep();
       const snapshot = await d1.get();
-      const { createTime, updateTime } = assertSnapshot(snapshot, { t1: 'e' });
-      expect(createTime).is.lte(Date.now());
-      expect(updateTime).to.equal(createTime);
+      assertSnapshot(snapshot, { t1: 'e' });
     });
 
     it('receives snapshot', () => {

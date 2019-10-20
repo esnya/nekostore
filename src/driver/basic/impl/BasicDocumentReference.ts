@@ -32,32 +32,21 @@ export default class BasicDocumentReference<T extends {}>
   async get(): Promise<DocumentSnapshot<T>> {
     this.driver.authorize(this.path, 'read');
 
-    const rawData = await this.parent.driver.store.get(
-      this.parent.path,
-      this.id,
-    );
+    const data = await this.parent.driver.store.get(this.parent.path, this.id);
 
-    return new BasicDocumentSnapshot(this, rawData);
+    return new BasicDocumentSnapshot(this, data);
   }
 
   async set(data: T): Promise<void> {
     this.driver.authorize(this.path, 'write');
-    const rawData = {
-      ...data,
-      ...this.driver.store.serverTimestamps('createTime', 'updateTime'),
-    };
-    await this.driver.store.set(this.parent.path, this.id, rawData);
-
-    const snapshot = new BasicDocumentSnapshot(this, rawData);
+    await this.driver.store.set(this.parent.path, this.id, data);
+    const snapshot = new BasicDocumentSnapshot(this, data);
     this.driver.eventEmitter.emit(this.path, snapshot);
   }
 
   async update(data: Partial<T>): Promise<void> {
     this.driver.authorize(this.path, 'write');
-    await this.driver.store.update(this.parent.path, this.id, {
-      ...data,
-      ...this.driver.store.serverTimestamps('updateTime'),
-    });
+    await this.driver.store.update(this.parent.path, this.id, data);
 
     const snapshot = await this.get();
     this.driver.eventEmitter.emit(this.path, snapshot);
@@ -71,13 +60,7 @@ export default class BasicDocumentReference<T extends {}>
             newIndex: -1,
             oldIndex: -1,
           },
-          snapshot.exists()
-            ? {
-                ...snapshot.data,
-                createTime: snapshot.createTime,
-                updateTime: snapshot.updateTime,
-              }
-            : undefined,
+          snapshot.data,
         ),
       ],
     });

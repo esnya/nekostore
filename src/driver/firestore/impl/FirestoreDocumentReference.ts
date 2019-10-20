@@ -2,9 +2,8 @@ import DocumentReference from '../../../DocumentReference';
 import CollectionReference from '../../../CollectionReference';
 import FirestoreCollectionReference from './FirestoreCollectionReference';
 import DocumentSnapshot from '../../../DocumentSnapshot';
-import FirestoreDocumentSnapsnot from './FirestoreDocumentSnapshot';
+import FirestoreDocumentSnapshot from './FirestoreDocumentSnapshot';
 import NotFoundError from '../../../NotFoundError';
-import { withTimestamps, withUpdateTime } from './utilities';
 import Unsubscribe from '../../../Unsubscribe';
 
 export default class FirestoreDocumentReference<T>
@@ -33,16 +32,16 @@ export default class FirestoreDocumentReference<T>
 
   async get(): Promise<DocumentSnapshot<T>> {
     const snapshot = await this.ref.get();
-    return new FirestoreDocumentSnapsnot<T>(snapshot);
+    return new FirestoreDocumentSnapshot<T>(snapshot);
   }
 
   async set(data: T): Promise<void> {
-    await this.ref.set(withTimestamps(data));
+    await this.ref.set(data);
   }
 
   async update(data: Partial<T>): Promise<void> {
     try {
-      await this.ref.update(withUpdateTime(data));
+      await this.ref.update(data);
     } catch (error) {
       if (error.code === 'not-found') {
         throw new NotFoundError(`No document to update: ${this.path}`, error);
@@ -59,7 +58,7 @@ export default class FirestoreDocumentReference<T>
     onNext: (value: DocumentSnapshot<T>) => void,
   ): Promise<Unsubscribe> {
     const unsubscribe = this.ref.onSnapshot(snapshot => {
-      onNext(new FirestoreDocumentSnapsnot<T>(snapshot));
+      onNext(new FirestoreDocumentSnapshot<T>(snapshot));
     });
     return async (): Promise<void> => {
       unsubscribe();

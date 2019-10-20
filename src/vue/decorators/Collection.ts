@@ -1,16 +1,16 @@
 /* eslint no-invalid-this: off, @typescript-eslint/no-explicit-any: off */
 import Query from '../../Query';
 import { VueDecorator } from 'vue-class-component';
-import { ExistingDocumentSnapshot } from '../../DocumentSnapshot';
+import { NonEmptyDocumentSnapshot } from '../../DocumentSnapshot';
 import { VueWithCreated, PropertyNamesOf, decoratorFactory } from './utilities';
 import QuerySnapshot from '../../QuerySnapshot';
 
 /**
- * Property decoretor to bind collection.
+ * Property decorator to bind collection.
  *
  * @example
  * ```ts
- * import { Component, Vue } from 'vue-property-decolator';
+ * import { Component, Vue } from 'vue-property-decorator';
  * import Query from 'nekostore/lib/Query';
  *
  * interface Data {
@@ -21,7 +21,7 @@ import QuerySnapshot from '../../QuerySnapshot';
  * class MyComponent extends Vue {
  *   ref: Query<Data> | null = null;
  *
- *   @Collection<Data, TestComponent>('ref') docs!: ExistingDocumentSnapshot<Data>[] | null;
+ *   @Collection<Data, TestComponent>('ref') docs!: NonEmptyDocumentSnapshot<Data>[] | null;
  * }
  * ```
  */
@@ -33,7 +33,7 @@ export default function Collection<
     refKey,
     (
       snapshot: QuerySnapshot<T>,
-      prevValue: ExistingDocumentSnapshot<T>[] | null,
+      prevValue: NonEmptyDocumentSnapshot<T>[] | null,
     ) => {
       let value = prevValue || [];
 

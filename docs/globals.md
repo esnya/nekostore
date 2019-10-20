@@ -6,6 +6,7 @@
 
 ### External modules
 
+* ["AggregationOperator"](modules/_aggregationoperator_.md)
 * ["CollectionReference"](modules/_collectionreference_.md)
 * ["DocumentChange"](modules/_documentchange_.md)
 * ["DocumentReference"](modules/_documentreference_.md)
@@ -17,9 +18,7 @@
 * ["PermissionError"](modules/_permissionerror_.md)
 * ["Query"](modules/_query_.md)
 * ["QuerySnapshot"](modules/_querysnapshot_.md)
-* ["Timestamp"](modules/_timestamp_.md)
 * ["Unsubscribe"](modules/_unsubscribe_.md)
-* ["driver/basic/AggregatioOperator"](modules/_driver_basic_aggregatiooperator_.md)
 * ["driver/basic/BasicDriver"](modules/_driver_basic_basicdriver_.md)
 * ["driver/basic/EventEmitter"](modules/_driver_basic_eventemitter_.md)
 * ["driver/basic/SecurityRule"](modules/_driver_basic_securityrule_.md)

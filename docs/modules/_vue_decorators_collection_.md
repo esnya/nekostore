@@ -16,11 +16,11 @@
 
 *Defined in [vue/decorators/Collection.ts:28](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/Collection.ts#L28)*
 
-Property decoretor to bind collection.
+Property decorator to bind collection.
 
 **`example`** 
 ```ts
-import { Component, Vue } from 'vue-property-decolator';
+import { Component, Vue } from 'vue-property-decorator';
 import Query from 'nekostore/lib/Query';
 
 interface Data {
@@ -31,7 +31,7 @@ interface Data {
 class MyComponent extends Vue {
   ref: Query<Data> | null = null;
 
-  @Collection<Data, TestComponent>('ref') docs!: ExistingDocumentSnapshot<Data>[] | null;
+  @Collection<Data, TestComponent>('ref') docs!: NonEmptyDocumentSnapshot<Data>[] | null;
 }
 ```
 

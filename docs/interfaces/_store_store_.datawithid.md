@@ -20,4 +20,4 @@
 
 • **id**: *string*
 
-*Defined in [store/Store.ts:8](https://github.com/esnya/nekostore/blob/master/src/store/Store.ts#L8)*
+*Defined in [store/Store.ts:7](https://github.com/esnya/nekostore/blob/master/src/store/Store.ts#L7)*

@@ -10,11 +10,9 @@ Data at the time of the document.
 
 ## Hierarchy
 
-* object
+* **DocumentSnapshot**
 
-  ↳ **DocumentSnapshot**
-
-  ↳ [ExistingDocumentSnapshot](_documentsnapshot_.existingdocumentsnapshot.md)
+  ↳ [NonEmptyDocumentSnapshot](_documentsnapshot_.nonemptydocumentsnapshot.md)
 
   ↳ [DocumentChange](_documentchange_.documentchange.md)
 
@@ -22,10 +20,8 @@ Data at the time of the document.
 
 ### Properties
 
-* [createTime](_documentsnapshot_.documentsnapshot.md#optional-createtime)
 * [data](_documentsnapshot_.documentsnapshot.md#optional-data)
 * [ref](_documentsnapshot_.documentsnapshot.md#ref)
-* [updateTime](_documentsnapshot_.documentsnapshot.md#optional-updatetime)
 
 ### Methods
 
@@ -33,21 +29,11 @@ Data at the time of the document.
 
 ## Properties
 
-### `Optional` createTime
-
-• **createTime**? : *[Timestamp](../classes/_timestamp_.timestamp.md)*
-
-*Defined in [DocumentSnapshot.ts:32](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L32)*
-
-Timestamp when the document was updated.
-
-___
-
 ### `Optional` data
 
 • **data**? : *T*
 
-*Defined in [DocumentSnapshot.ts:27](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L27)*
+*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L22)*
 
 Data of the document.
 
@@ -57,19 +43,9 @@ ___
 
 • **ref**: *[DocumentReference](_documentreference_.documentreference.md)‹T›*
 
-*Defined in [DocumentSnapshot.ts:22](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L22)*
+*Defined in [DocumentSnapshot.ts:17](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L17)*
 
 Reference for the document.
-
-___
-
-### `Optional` updateTime
-
-• **updateTime**? : *[Timestamp](../classes/_timestamp_.timestamp.md)*
-
-*Defined in [DocumentSnapshot.ts:37](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L37)*
-
-Timestamp when the document was updated.
 
 ## Methods
 
@@ -77,7 +53,7 @@ Timestamp when the document was updated.
 
 ▸ **exists**(): *boolean*
 
-*Defined in [DocumentSnapshot.ts:42](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L42)*
+*Defined in [DocumentSnapshot.ts:27](https://github.com/esnya/nekostore/blob/master/src/DocumentSnapshot.ts#L27)*
 
 **Returns:** *boolean*
 

@@ -5,7 +5,7 @@ import Query from '../../Query';
 import { VueDecorator } from 'vue-class-component';
 import Unsubscribe from '../../Unsubscribe';
 import DocumentSnapshot, {
-  ExistingDocumentSnapshot,
+  NonEmptyDocumentSnapshot,
 } from '../../DocumentSnapshot';
 import QuerySnapshot from '../../QuerySnapshot';
 
@@ -44,14 +44,14 @@ type DataTypeOf<
   U extends DocumentReference<T> | Query<T>
 > = U extends DocumentReference<T>
   ? T
-  : (U extends Query<T> ? ExistingDocumentSnapshot<T>[] : never);
+  : (U extends Query<T> ? NonEmptyDocumentSnapshot<T>[] : never);
 
 export function decoratorFactory<
   V extends DocumentReference<T> | Query<T>,
   T extends {} = any,
   U extends VueWithCreated = VueWithCreated,
   W extends DocumentSnapshot<T> | QuerySnapshot<T> = SnapshotTypeOf<T, V>,
-  X extends T | ExistingDocumentSnapshot<T>[] = DataTypeOf<T, V>
+  X extends T | NonEmptyDocumentSnapshot<T>[] = DataTypeOf<T, V>
 >(
   refKey: PropertyNamesOf<U, V>,
   onSnapshot: (snapshot: W, data?: any) => X,

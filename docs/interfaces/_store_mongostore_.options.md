@@ -18,6 +18,6 @@
 
 • **db**: *Db*
 
-*Defined in [store/MongoStore.ts:13](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L13)*
+*Defined in [store/MongoStore.ts:11](https://github.com/esnya/nekostore/blob/master/src/store/MongoStore.ts#L11)*
 
 Instance of Db from MongoDB client.

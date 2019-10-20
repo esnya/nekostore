@@ -1,6 +1,5 @@
 import QueryDescriptor from './QueryDescriptor';
 import { ChangeType } from '../../../DocumentChange';
-import { DocumentSnapshotData } from './SocketDocumentSnapshot';
 
 export interface QuerySnapshotData<T> {
   docs: {
@@ -10,7 +9,7 @@ export interface QuerySnapshotData<T> {
       newIndex: number;
       oldIndex: number;
     };
-    snapshot?: DocumentSnapshotData<T>;
+    data?: T;
   }[];
 }
 
@@ -26,9 +25,7 @@ export default interface Actions {
 
   collectionAdd<T extends {}>(path: string, data: T): Promise<{ id: string }>;
 
-  documentGet<T extends {}>(
-    path: string,
-  ): Promise<{ snapshot?: DocumentSnapshotData<T> }>;
+  documentGet<T extends {}>(path: string): Promise<T | undefined>;
   documentSet<T extends {}>(path: string, data: T): Promise<void>;
   documentUpdate<T extends {}>(path: string, data: Partial<T>): Promise<void>;
   documentDelete<T extends {}>(path: string): Promise<void>;

@@ -5,7 +5,7 @@ import Nekostore from '../../Nekostore';
 import BasicDriver from '../../driver/basic';
 import Collection from './Collection';
 import Query from '../../Query';
-import { ExistingDocumentSnapshot } from '../../DocumentSnapshot';
+import { NonEmptyDocumentSnapshot } from '../../DocumentSnapshot';
 import DocumentReference from '../../DocumentReference';
 
 function sleep(ms = 50): Promise<void> {
@@ -29,7 +29,7 @@ describe('Vue decorators Collection', () => {
     ref: Query<Data> | null = null;
 
     @Collection<Data, TestComponent>('ref') docs!:
-      | ExistingDocumentSnapshot<Data>[]
+      | NonEmptyDocumentSnapshot<Data>[]
       | null;
 
     created(): void {

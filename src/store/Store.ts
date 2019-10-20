@@ -1,5 +1,4 @@
-import AggregationOperator from '../driver/basic/AggregatioOperator';
-import Timestamp from '../Timestamp';
+import AggregationOperator from '../AggregationOperator';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Data = Record<string, any>;
@@ -60,17 +59,4 @@ export default interface Store {
    * @param id
    */
   delete(collectionId: string, id: string): Promise<void>;
-
-  /**
-   * Makes bject with the specified field that is the timestamp value on the server.
-   * @param fields .e.g. 'createTime', 'updateTime'
-   */
-  serverTimestamps<T>(...fields: (keyof T)[]): T;
-
-  /**
-   * Converts the store internal timestamp into a Timestamp.
-   * @param value Store internal timestamp.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  toTimestamp(value: any): Timestamp;
 }

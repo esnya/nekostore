@@ -7,7 +7,7 @@ import BasicDriver from '..';
 import BasicDocumentReference from './BasicDocumentReference';
 import BasicCollectionReference from './BasicCollectionReference';
 import { FilterQuery, QuerySelector } from 'mongodb';
-import AggregationOperator from '../AggregatioOperator';
+import AggregationOperator from '../../../AggregationOperator';
 import BasicDocumentChange from './BasicDocumentChange';
 import mingo from 'mingo';
 import DocumentChange from '../../../DocumentChange';

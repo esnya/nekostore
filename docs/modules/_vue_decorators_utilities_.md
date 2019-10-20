@@ -55,9 +55,9 @@ ___
 
 ###  decoratorFactory
 
-▸ **decoratorFactory**<**V**, **T**, **U**, **W**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, V›, `onSnapshot`: function, `get`: boolean): *VueDecorator*
+▸ **decoratorFactory**<**V**, **T**, **U**, **W**, **X**>(`refKey`: [PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, V›, `onSnapshot`: function, `get`: boolean): *VueDecorator*
 
-*Defined in [vue/decorators/utilities.ts:44](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L44)*
+*Defined in [vue/decorators/utilities.ts:49](https://github.com/esnya/nekostore/blob/master/src/vue/decorators/utilities.ts#L49)*
 
 **Type parameters:**
 
@@ -69,13 +69,15 @@ ___
 
 ▪ **W**: *[DocumentSnapshot](../interfaces/_documentsnapshot_.documentsnapshot.md)‹T› | [QuerySnapshot](../interfaces/_querysnapshot_.querysnapshot.md)‹T›*
 
+▪ **X**: *T | [NonEmptyDocumentSnapshot](../interfaces/_documentsnapshot_.nonemptydocumentsnapshot.md)‹T›[]*
+
 **Parameters:**
 
 ▪ **refKey**: *[PropertyNamesOf](_vue_decorators_utilities_.md#propertynamesof)‹U, V›*
 
 ▪ **onSnapshot**: *function*
 
-▸ (`snapshot`: W, `data?`: any): *any*
+▸ (`snapshot`: W, `data?`: any): *X*
 
 **Parameters:**
 

@@ -5,7 +5,7 @@
 [![David](https://img.shields.io/david/esnya/nekostore)](https://david-dm.org/esnya/nekostore?type=dev)
 [![David](https://img.shields.io/david/dev/esnya/nekostore)](https://david-dm.org/esnya/nekostore?type=dev)
 
-Realtime synchronized datastore like Firestore for TypeScript.
+Real-time synchronized data store like Firestore for TypeScript.
 
 ## Requirements
 * Node.js >= 10.0.0
@@ -30,7 +30,7 @@ const nekostore: Nekostore = new Nekostore(driver);
 ```
 
 ### Get reference
-See aslo
+See also
 
 * [CollectionReference](/docs/interfaces/_collectionreference_.collectionreference.md)
 * [DocumentReference](/docs/interfaces/_documentreference_.documentreference.md)
@@ -45,7 +45,7 @@ interface ChildData {
   pyo: boolean;
 }
 
-const colRef: CollectionReference<Data> = nekosoter.collection<Date>('c1');
+const colRef: CollectionReference<Data> = nekostore.collection<Date>('c1');
 const docRef: DocumentReference<Data> = colRef.doc('d1');
 
 const childColRef: CollectionReference<ChildData> = docRef.collection<ChildData>('child');
@@ -90,7 +90,7 @@ await docRef.delete();
 [See also](/docs/interfaces/_query_.query.md)
 
 ```ts
-function prindDocumentsData(snapshot: QuerySnashot<Data>): void {
+function printDocumentsData(snapshot: QuerySnapshot<Data>): void {
   snapshot.docs.forEach((doc: DocumentChange<Data>): void => {
     console.log(doc.ref.id, doc.type, doc.exists(), doc.data);
   });
@@ -165,7 +165,7 @@ class MyComponent extends Vue {
 
 ```ts
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { ExistingDocumentSnapshot } from 'nekostore/lib/DocumentSnapshot';
+import { NonEmptyDocumentSnapshot } from 'nekostore/lib/DocumentSnapshot';
 import Query from 'nekostore/lib/Query';
 import { Collection } from 'nekostore/lib/decorators';
 
@@ -173,7 +173,7 @@ import { Collection } from 'nekostore/lib/decorators';
 class MyComponent extends Vue {
   @Prop({ type: Object, required: false, default: null }) query!: Query<Data> | null;
 
-  @Collection<Data, MyComponent>('query') docs!: ExistingDocumentSnapshot[] | null;
+  @Collection<Data, MyComponent>('query') docs!: NonEmptyDocumentSnapshot[] | null;
 }
 ```
 

@@ -50,7 +50,7 @@ function findBy<T, U>(collection: T[], by: (item: T) => U | null): U | null {
 }
 
 /**
- * Driver implemtation using a simple store and event emitter.
+ * Driver implementation using a simple store and event emitter.
  */
 export default class BasicDriver implements Driver {
   constructor(options: Options = {}) {

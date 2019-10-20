@@ -2,7 +2,7 @@
 
 # Class: BasicDriver
 
-Driver implemtation using a simple store and event emitter.
+Driver implementation using a simple store and event emitter.
 
 ## Hierarchy
 

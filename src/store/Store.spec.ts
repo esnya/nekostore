@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import Store from './Store';
 import NotFoundError from '../NotFoundError';
-import Timestamp from '../Timestamp';
 
 export default function testStore<T>(
   Ctor: { new (...args: T[]): Store },
@@ -50,30 +49,10 @@ export default function testStore<T>(
     );
   });
 
-  it('sets unexists', async () => {
+  it('sets new item', async () => {
     await store.set(c1, d1, { foo: 'f' });
     const data = await store.get(c1, d1);
     expect(data).to.deep.equal({ foo: 'f' });
-  });
-
-  it('has serverTimestamp', async () => {
-    await store.update(c1, d1, {
-      ...store.serverTimestamps('createTime', 'updateTime'),
-    });
-  });
-
-  it('has toTimestamp', async () => {
-    const data = await store.get(c1, d1);
-    expect(data).has.keys('createTime', 'updateTime', 'foo');
-    expect(data.foo).to.equal('f');
-
-    const createTime = store.toTimestamp(data.createTime);
-    expect(createTime).to.instanceOf(Timestamp);
-    expect(createTime.toMillis()).lessThan(Date.now());
-    const updateTime = store.toTimestamp(data.updateTime);
-    expect(updateTime).to.instanceOf(Timestamp);
-    expect(updateTime.toMillis()).lessThan(Date.now());
-    expect(createTime).to.deep.equal(updateTime);
   });
 
   it('finds', async () => {
