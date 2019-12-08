@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    // Output
+    "target": "ES2017",
+    "declaration": true,
+    "sourceMap": true,
+
+    // Compile
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Strict
+    "strict": true,
+  }
+}

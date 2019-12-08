@@ -1,0 +1,27 @@
+{
+  "name": "nekostore",
+  "version": "0.0.0",
+  "description": "Nekostore",
+  "homepage": "https://github.com/esnya/nekostore/tree/master/packages/nekostore#readme",
+  "bugs": {
+    "url": "https://github.com/esnya/nekostore/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esnya/nekostore.git"
+  },
+  "license": "MIT",
+  "author": "esnya",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
+}
