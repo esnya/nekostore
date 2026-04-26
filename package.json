@@ -43,7 +43,7 @@
     "lodash": "^4.17.15",
     "mingo": "^2.3.5",
     "path-to-regexp": "^3.1.0",
-    "uuid": "^3.3.3",
+    "uuid": "^14.0.0",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.2"
   },
